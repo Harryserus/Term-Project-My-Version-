@@ -1,0 +1,47 @@
+.categories-and-search {
+  background-color: var(--transparent-bg);
+  border-radius: 16px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.filter-container {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  align-items: center;
+}
+
+.category-button {
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  border: 1px solid #c1a35f;
+  background: transparent;
+  color: #c1a35f;
+  border-radius: 25em;
+  transition: 0.3s;
+}
+
+.category-button.active,
+.category-button:hover {
+  background: #f9d47c86;
+  color: white;
+  border: 1px solid white;
+}
+
+/* The magic class to hide games */
+.hidden {
+  display: none !important;
+}
+/* Profile css */
+.profile-container {
+  border: 1px solid white;
+  border-radius: 1rem;
+}
+.search-product-container {
+  display: flex;
+}
