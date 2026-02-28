@@ -1,0 +1,31 @@
+<%- include("../partials/client-header.ejs", { title: "Indie Realm - Store" }) %>
+
+<section class="page">
+  <div class="page__header">
+    <h1 class="page__title">Game Store</h1>
+
+    <form class="search" action="/" method="get">
+      <input class="input" type="text" name="q" placeholder="Search game..." />
+      <select class="select" name="sort">
+        <option value="">Sort</option>
+        <option value="price_asc">Price: Low → High</option>
+        <option value="price_desc">Price: High → Low</option>
+      </select>
+    </form>
+  </div>
+
+  <div class="grid">
+    <% for (let i = 1; i <= 8; i++) { %>
+      <a href="/game/<%= i %>" class="card game-card">
+        <div class="game-card__img">Image</div>
+        <div class="game-card__body">
+          <div class="game-card__title">Indie Game <%= i %></div>
+          <div class="game-card__meta">Action • Adventure</div>
+          <div class="game-card__price">$19.99</div>
+        </div>
+      </a>
+    <% } %>
+  </div>
+</section>
+
+<%- include("../partials/client-footer.ejs") %>

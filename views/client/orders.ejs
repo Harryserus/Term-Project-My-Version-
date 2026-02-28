@@ -1,0 +1,37 @@
+<%- include("../partials/client-header.ejs", { title: "My Orders" }) %>
+
+<section class="page">
+
+  <h1 class="page__title">My Orders</h1>
+
+  <div class="orders-list">
+
+    <% for (let i = 1; i <= 3; i++) { %>
+      <div class="order-card custom-card">
+
+        <div class="order-card__left">
+          <div class="order-card__id">
+            Order #000<%= i %>
+          </div>
+          <div class="order-card__date">
+            2026-02-2<%= i %>
+          </div>
+        </div>
+
+        <div class="order-card__right">
+          <div class="order-card__total">
+            $39.99
+          </div>
+          <div class="order-card__status paid">
+            PAID
+          </div>
+        </div>
+
+      </div>
+    <% } %>
+
+  </div>
+
+</section>
+
+<%- include("../partials/client-footer.ejs") %>

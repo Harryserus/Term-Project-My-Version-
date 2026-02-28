@@ -1,0 +1,36 @@
+<%- include("../partials/client-header.ejs", { title: "Checkout" }) %>
+
+<section class="page">
+
+  <h1 class="page__title">Checkout</h1>
+
+  <div class="checkout-container">
+
+    <div class="checkout-summary custom-card">
+
+      <div class="checkout-item">
+        <span>Indie Game Title</span>
+        <span>$19.99</span>
+      </div>
+
+      <div class="checkout-item">
+        <span>Another Game</span>
+        <span>$19.99</span>
+      </div>
+
+      <div class="checkout-total">
+        <span>Total</span>
+        <span>$39.98</span>
+      </div>
+
+      <button class="btn-primary full-width">
+        Pay Now
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<%- include("../partials/client-footer.ejs") %>

@@ -1,0 +1,32 @@
+<%- include("../partials/client-header.ejs", { title: "Profile" }) %>
+
+<section class="page">
+
+  <h1 class="page__title">Profile</h1>
+
+  <div class="profile-card custom-card">
+
+    <div class="profile-row">
+      <span class="profile-label">Name</span>
+      <span class="profile-value">John Doe</span>
+    </div>
+
+    <div class="profile-row">
+      <span class="profile-label">Email</span>
+      <span class="profile-value">john@email.com</span>
+    </div>
+
+    <div class="profile-row">
+      <span class="profile-label">Member Since</span>
+      <span class="profile-value">2026</span>
+    </div>
+
+    <button class="btn-primary">
+      Edit Profile
+    </button>
+
+  </div>
+
+</section>
+
+<%- include("../partials/client-footer.ejs") %>
