@@ -2,22 +2,22 @@ import { Request, Response } from "express";
 import {
   addProduct,
   deleteProduct,
-  getAdmin,
-  getAllGames,
   getAllOrders,
   getOneProduct,
+  searchGames,
   updateOrders,
   updateProduct,
 } from "../services/productsService";
+import { getUser } from "../services/personalization";
 
 export const loadProducts = (req: Request, res: Response) => {
-  res.render("admin/index", { games: getAllGames() });
+  res.render("admin/index", { games: searchGames(req.query['search-product'] as string) });
 };
 export const loadOrders = (req: Request, res: Response) => {
   res.render("admin/orders", { orders: getAllOrders() });
 };
 export const loadProfile = (req: Request, res: Response) => {
-  res.render("admin/profile", { admin: getAdmin() });
+  res.render("admin/profile", { admin: getUser(req.session.userId as string) });
 };
 export const editProduct = (req: Request, res: Response) => {
   res.render("admin/product-detail-edit", { game: getOneProduct(req, res) });

@@ -13,12 +13,13 @@ import {
   updateGame,
   updateOrdersStatus,
 } from "./controllers/adminControllers";
+import { loadCheckout, loadCustomerHomePage, loadCustomerProfile, loadOrder, loadProductDetail } from "./controllers/clientControllers";
 import {
   loadHome,
   loginController,
   logoutController,
 } from "./controllers/userControllers";
-import { requireLogin } from "./middlewares/requireLogin";
+import { requireLogin, requireAdminCredentials } from "./middlewares/requireLogin";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -49,17 +50,24 @@ app.get("/", loadHome);
 app.post("/login", loginController);
 app.post("/logout", requireLogin, logoutController);
 
-app.get("/admin", requireLogin, loadProducts);
-app.get("/orders", requireLogin, loadOrders);
-app.get("/profile", requireLogin, loadProfile);
-app.get("/product-detail-edit/:id", requireLogin, editProduct);
-app.get("/product/add", requireLogin, getProductForm);
+app.get("/admin", requireLogin, requireAdminCredentials, loadProducts);
+app.get("/admin/orders", requireLogin, requireAdminCredentials, loadOrders);
+app.get("/admin/profile", requireLogin, requireAdminCredentials, loadProfile);
+app.get("/admin/product/:id", requireLogin, requireAdminCredentials, editProduct);
+app.get("/admin/product/add", requireLogin, requireAdminCredentials, getProductForm);
+
+app.get("/customer", requireLogin, loadCustomerHomePage)
+app.get("/customer/product/:id", requireLogin, loadProductDetail);
+app.get("/customer/checkout", requireLogin, loadCheckout);
+app.get("/customer/orders", requireLogin, loadOrder);
+app.get("/customer/profile", requireLogin, loadCustomerProfile);
+
 // crud
-app.post("/product/add", requireLogin, createNewGame);
-app.post("/product/edit/:id", requireLogin, updateGame);
-app.get("/product/delete/:id", requireLogin, deleteGame);
+app.post("/admin/product/add", requireLogin, requireAdminCredentials, createNewGame);
+app.post("/admin/product/edit/:id", requireLogin, requireAdminCredentials, updateGame);
+app.get("/admin/product/delete/:id", requireLogin, requireAdminCredentials, deleteGame);
 // order crud
-app.post("/admin/orders/update-status", updateOrdersStatus);
+app.post("/admin/orders/update-status", requireAdminCredentials, updateOrdersStatus);
 
 app.listen(PORT, () => {
   console.log(`Access the server at http://localhost:${PORT}`);

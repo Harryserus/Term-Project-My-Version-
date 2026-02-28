@@ -1,99 +1,95 @@
 {
   "games": [
     {
-      "games": [
-        {
-          "id": "g2",
-          "slug": "cyberpunk-2077",
-          "title": "Cyberpunk 2077",
-          "developer": "CD PROJEKT RED",
-          "publisher": "CD PROJEKT RED",
-          "platforms": [
-            "PC",
-            "PS5"
-          ],
-          "genres": [
-            "Action RPG"
-          ],
-          "tags": [
-            "Cyberpunk",
-            "Sci-fi",
-            "Open World"
-          ],
-          "releaseDate": "2020-12-10",
-          "isPreOrder": false,
-          "availability": "available",
-          "price": 49.99,
-          "currency": "USD",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg",
-          "screenshots": [
-            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_1.jpg"
-          ],
-          "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary.",
-          "stock": 5
-        },
-        {
-          "id": "g3",
-          "slug": "the-witcher-3",
-          "title": "The Witcher 3: Wild Hunt",
-          "developer": "CD PROJEKT RED",
-          "publisher": "CD PROJEKT RED",
-          "platforms": [
-            "PC",
-            "PS5",
-            "Switch"
-          ],
-          "genres": [
-            "Action RPG"
-          ],
-          "tags": [
-            "Fantasy",
-            "Story Rich",
-            "RPG"
-          ],
-          "releaseDate": "2015-05-18",
-          "isPreOrder": false,
-          "availability": "available",
-          "price": 29.99,
-          "currency": "USD",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
-          "screenshots": [
-            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/ss_1.jpg"
-          ],
-          "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.",
-          "stock": 12
-        },
-        {
-          "id": "g4",
-          "slug": "starfield",
-          "title": "Starfield",
-          "developer": "Bethesda Game Studios",
-          "publisher": "Bethesda Softworks",
-          "platforms": [
-            "PC",
-            "Xbox"
-          ],
-          "genres": [
-            "Action RPG"
-          ],
-          "tags": [
-            "Space",
-            "Exploration",
-            "Sci-fi"
-          ],
-          "releaseDate": "2023-09-06",
-          "isPreOrder": false,
-          "availability": "available",
-          "price": 69.99,
-          "currency": "USD",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
-          "screenshots": [
-            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_1.jpg"
-          ],
-          "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
-          "stock": 8
-        }
-      ]
+      "id": "g2",
+      "slug": "cyberpunk-2077",
+      "title": "Cyberpunk 2077",
+      "developer": "CD PROJEKT RED",
+      "publisher": "CD PROJEKT RED",
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Cyberpunk",
+        "Sci-fi",
+        "Open World"
+      ],
+      "releaseDate": "2020-12-10",
+      "isPreOrder": false,
+      "availability": "available",
+      "price": 49.99,
+      "currency": "USD",
+      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg",
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_1.jpg"
+      ],
+      "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary.",
+      "stock": 5
+    },
+    {
+      "id": "g3",
+      "slug": "the-witcher-3",
+      "title": "The Witcher 3: Wild Hunt",
+      "developer": "CD PROJEKT RED",
+      "publisher": "CD PROJEKT RED",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Switch"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Fantasy",
+        "Story Rich",
+        "RPG"
+      ],
+      "releaseDate": "2015-05-18",
+      "isPreOrder": false,
+      "availability": "available",
+      "price": 29.99,
+      "currency": "USD",
+      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/ss_1.jpg"
+      ],
+      "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.",
+      "stock": 12
+    },
+    {
+      "id": "g4",
+      "slug": "starfield",
+      "title": "Starfield",
+      "developer": "Bethesda Game Studios",
+      "publisher": "Bethesda Softworks",
+      "platforms": [
+        "PC",
+        "Xbox"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Space",
+        "Exploration",
+        "Sci-fi"
+      ],
+      "releaseDate": "2023-09-06",
+      "isPreOrder": false,
+      "availability": "available",
+      "price": 69.99,
+      "currency": "USD",
+      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_1.jpg"
+      ],
+      "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
+      "stock": 8
     }
   ],
   "users": [
@@ -102,14 +98,16 @@
       "username": "TarnishedOne",
       "email": "player@limgrave.com",
       "password": "shopcustomer",
-      "role": "customer"
+      "role": "customer",
+      "cart": []
     },
     {
       "id": "u2",
       "username": "ShopAdmin",
       "email": "admin@gamestop.com",
       "password": "shopadmin",
-      "role": "admin"
+      "role": "admin",
+      "cart": []
     }
   ],
   "orders": [
@@ -126,7 +124,7 @@
         }
       ],
       "totalAmount": 39.99,
-      "status": "delivered",
+      "status": "pending",
       "dateCreated": "2026-02-25T10:00:00Z"
     }
   ]

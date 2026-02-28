@@ -1,41 +1,31 @@
-import fs from "fs";
-import path from "path";
 import { Game, Platform, Availability } from "../models/game.model";
 import { Order } from "../models/order.model";
 import { Request, Response } from "express";
+import { getData, saveData, stringToArray } from "./util";
+import { getUser } from "./personalization";
 
-const dbpath = path.join(__dirname, "..", "../data", "database.json");
-
-// Helper to read/write
-export const getData = () => JSON.parse(fs.readFileSync(dbpath, "utf-8"));
-const saveData = (data: any) =>
-  fs.writeFileSync(dbpath, JSON.stringify(data, null, 2));
-
-const stringToArray = (str: string): string[] => {
-  return str
-    ? str
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean)
-    : [];
-};
 
 // 1. Get All Games
 export const getAllGames = (): Game[] => {
   const data = getData();
-  return data.games[0].games;
+  return data.games;
 };
 // get one game product
 export const getOneProduct = (req: Request, res: Response) => {
   const gameid = req.params.id;
-  const games: Game[] = getData().games[0].games;
+  const games: Game[] = getData().games;
   const game = games.find((g) => g.id == gameid);
   return game;
 };
+export const searchGames = (q?: string): Game[] => {
+  if(!q) return getAllGames();
+  const games = getAllGames();
+  return games.filter((g) => g.title.toLowerCase().match(q.toLowerCase() as string));
+}
 // 2. Add Product
 export const addProduct = (req: Request, res: Response) => {
   const db = getData();
-  const gamesList = db.games[0].games;
+  const gamesList = db.games;
 
   // Ensure platforms is an array even if one checkbox is ticked
   let platforms = req.body.platforms;
@@ -70,7 +60,7 @@ export const addProduct = (req: Request, res: Response) => {
 export const updateProduct = (req: Request, res: Response) => {
   const db = getData();
   const gameId = req.params.id;
-  const gamesList = db.games[0].games;
+  const gamesList = db.games;
 
   const index = gamesList.findIndex((g: Game) => g.id === gameId);
 
@@ -99,14 +89,14 @@ export const updateProduct = (req: Request, res: Response) => {
 export const deleteProduct = (req: Request, res: Response) => {
   const db = getData();
   const gameId = req.params.id;
-  db.games[0].games = db.games[0].games.filter((g: Game) => g.id !== gameId);
+  db.games = db.games.filter((g: Game) => g.id !== gameId);
 
   saveData(db);
   res.redirect("/admin");
 };
 
-export const getAllOrders = () => getData().orders;
-export const getAdmin = () => getData().users[1];
+export const getAllOrders = (): Order[] => getData().orders;
+export const getUserOrder = (uid: string) => getAllOrders().filter((o) => o.userId === uid);
 // order updates
 export const updateOrders = (req: Request, res: Response) => {
   const { orderIds, status } = req.body; // e.g., ["101", "102"], "paid"
@@ -122,3 +112,5 @@ export const updateOrders = (req: Request, res: Response) => {
   saveData(db);
   res.sendStatus(200);
 };
+
+export const getUserCartItem = (uid: string) => getUser(uid).cart;

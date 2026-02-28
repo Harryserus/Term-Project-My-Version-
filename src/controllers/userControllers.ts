@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getData } from "../services/productsService";
+import { getData } from "../services/util";
 import { User } from "../models/user.model";
 export const loadHome = (req: Request, res: Response) => {
   const error =
@@ -17,6 +17,7 @@ export const loginController = (req: Request, res: Response) => {
   if (!user) return res.redirect("/?q=invalid");
   req.session.userId = user.id;
   req.session.username = user.username;
+  req.session.role = user.role;
   //   route logi here
   res.redirect(user.role == "admin" ? "/admin" : "/customer");
 };

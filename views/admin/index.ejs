@@ -12,11 +12,13 @@
 </div>
   <div class="add-new-product-button">
     <img src="/assets/plus-icon.svg" alt="+"  />
-    <a href="/product/add">Add new product</a>
+    <a href="/admin/product/add">Add new product</a>
   </div>
 <div class="search-product-container">
-  <input name="search-product" type="search" id="search-product"  placeholder="Search" required />
-        <button type="button" id="search_product"><img src="/assets/search-icon.svg" alt="search" width="25px"></button>
+  <form action="/admin" method="get">  
+    <input name="search-product" type="search" id="search-product"  placeholder="Search" />
+    <button type="button" id="search_product"><img src="/assets/search-icon.svg" alt="search" width="25px"></button>
+  </form>
 </div>
 
 </div>
@@ -36,10 +38,10 @@
   <p class="product-price">$<%= game.price %></p>
 
   <div class="product-actions">
-    <a href="/product-detail-edit/<%= game.id %>">
+    <a href="/admin/product/<%= game.id %>">
       <img src="assets/edit-icon.svg" alt="Edit" style="width:25px; height:25px;">
     </a>
-    <a href="/product/delete/<%= game.id %>">
+    <a href="/admin/product/delete/<%= game.id %>">
       <img src="assets/trash-icon.svg" alt="Delete" style="width:25px; height:25px;">
     </a>
   </div>

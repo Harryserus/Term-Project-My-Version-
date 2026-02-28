@@ -1,3 +1,5 @@
+import { OrderItem } from "./order.model";
+
 export type UserRole = "customer" | "admin";
 
 export interface User {
@@ -6,6 +8,6 @@ export interface User {
   email: string;
   password: string;
   role: UserRole;
-
+  cart: OrderItem[];
   //avatar?: string;
 }
