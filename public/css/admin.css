@@ -4,8 +4,9 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding-right: 2.5rem;
 }
 .filter-container {
   padding: 1rem 2rem;
@@ -16,19 +17,20 @@
   align-items: center;
 }
 
-.category-button {
+.category-button,
+.status-button {
   padding: 0.5rem 1.5rem;
   cursor: pointer;
-  border: 1px solid #c1a35f;
-  background: transparent;
-  color: #c1a35f;
+  color: white;
   border-radius: 25em;
   transition: 0.3s;
 }
 
 .category-button.active,
-.category-button:hover {
-  background: #f9d47c86;
+.category-button:hover,
+.status-button.active,
+.status-button:hover {
+  background: #f9f9f886;
   color: white;
   border: 1px solid white;
 }
@@ -39,9 +41,388 @@
 }
 /* Profile css */
 .profile-container {
-  border: 1px solid white;
-  border-radius: 1rem;
+  padding: 2rem;
+  flex-grow: 1;
+  background-color: var(--transparent-bg);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.profile-card {
+  background-color: var(--lighter-transparent-bg);
+  border-radius: 25px;
+  height: max-content;
+  padding: 3rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+}
+.profile-icon-image {
+  width: 10rem;
+  height: auto;
+}
+.admin-details {
+  padding: 1rem 2rem 0.5rem 2rem;
+  border-radius: 1rem;
+  background-color: var(--transparent-bg);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1.5rem;
+}
+.profile-container form {
+  display: flex;
+  justify-content: center;
+}
+.logout-btn {
+  background-color: rgba(81, 81, 250, 0.272);
+  color: white;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  transition: 0.3s ease-in-out;
+}
+.logout-btn:hover {
+  background-color: white;
+  color: black;
+  transition: 0.3s ease-in-out;
+}
+/* product css */
 .search-product-container {
   display: flex;
+  height: 50%;
+  gap: 5px;
+}
+#search_product {
+  background-color: transparent;
+  border: none;
+  transition: transform 1.5s ease-in-out;
+}
+#search_product :hover {
+  transform: scale(1.2);
+  transition: 0.5s ease-in-out;
+}
+.add-new-product-button {
+  height: max-content;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(149, 149, 149);
+  background-color: var(--lighter-transparent-bg);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.add-new-product-button a {
+  padding: 0rem 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+.add-new-product-button img {
+  height: 1.5rem;
+  width: auto;
+}
+.products-container,
+.orders-and-actions-container {
+  padding: 2rem;
+  flex-grow: 1;
+  background-color: var(--transparent-bg);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* this needs to change for responsive */
+  gap: 10px;
+  align-content: start;
+}
+.product-card {
+  height: max-content;
+  padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+  background-color: var(--lighter-transparent-bg);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px; /* Consistent spacing between all elements */
+}
+
+/* 1. Create a container for image + title so they stay together */
+.product-main-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1; /* This pushes the price and icons to the right */
+}
+
+.product-card img {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover; /* Prevents image stretching */
+  border-radius: 8px;
+}
+
+.product-title-category h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.product-title-category p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* 2. Ensure price has a fixed width or alignment */
+.product-price {
+  font-weight: bold;
+  min-width: 60px;
+  text-align: left;
+}
+
+/* 3. Group the action icons */
+.product-actions {
+  display: flex;
+  gap: 1.5rem;
+}
+/* orders css */
+.orders-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+}
+.order-card {
+  height: max-content;
+  padding: 1rem 2rem;
+
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  backdrop-filter: blur(4px);
+}
+.all-filter-button {
+  border: 1px solid;
+  background-color: rgba(238, 131, 60, 0.511);
+  border-color: rgba(5, 5, 5, 0.969);
+}
+.status-pending {
+  border: 1px solid;
+  background-color: rgba(255, 238, 0, 0.511);
+  border-color: rgba(253, 241, 5, 0.969);
+}
+
+/* Paid - Green */
+.status-paid {
+  border: 1px solid;
+  background-color: rgba(0, 255, 127, 0.15);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+/* Delivered - Blue */
+.status-delivered {
+  border: 1px solid;
+  background-color: rgba(0, 191, 255, 0.15);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+/* Canceled - Red */
+.status-canceled {
+  border: 1px solid;
+  background-color: rgba(255, 69, 58, 0.15);
+  border-color: rgba(239, 68, 68, 0.946);
+}
+.order-select input {
+  scale: 1.5;
+}
+.order-price {
+}
+.order-status {
+}
+.actions-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 5rem;
+  text-align: center;
+  gap: 1rem;
+}
+.actions-container h5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50px;
+}
+.actions-container button {
+  text-align: center;
+  height: 50px;
+  border-radius: 2rem;
+  transition: 0.3s ease-in-out;
+  color: white;
+}
+.actions-container button:hover {
+  border: 1px solid white;
+  transition: 0.3s ease-in-out;
+}
+/* Product editor css */
+.product-edit-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  background-color: var(--transparent-bg);
+  border-radius: 16px;
+}
+.edit-form {
+  max-width: 600px;
+  background: var(--lighter-transparent-bg);
+  padding: 24px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.form-thumb {
+  width: 80px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+.form-row .form-group {
+  flex: 1;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #b4b4b4;
+  margin-bottom: 5px;
+}
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #929292;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  background-color: var(--lighter-transparent-bg);
+  color: white;
+}
+
+.form-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-save {
+  background: #1d62f7a2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2.5rem;
+  cursor: pointer;
+}
+.btn-cancel {
+  background: #f3f4f6;
+  color: #4453676a;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2.5rem;
+  margin-right: 10px;
+  cursor: pointer;
+}
+/* Layout Helpers */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  margin-bottom: 12px; /* Reduced margin */
+}
+.platform-selection-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.checkbox-pill {
+  display: flex;
+  align-items: center;
+  background: var(--lighter-transparent-bg);
+  padding: 6px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+
+.checkbox-pill:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.checkbox-pill input {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/* Style for when the checkbox is checked */
+.checkbox-pill:has(input:checked) {
+  background: var(--accent-color, #3b82f6);
+  border-color: white;
+}
+/* REsponsive */
+@media (max-width: 600px) {
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.edit-form textarea {
+  resize: vertical;
+  min-height: 80px;
 }

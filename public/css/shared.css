@@ -3,6 +3,7 @@
 :root {
   --dark-blue-bg: rgb(7, 2, 34);
   --transparent-bg: rgba(39, 39, 39, 0.425);
+  --lighter-transparent-bg: rgba(215, 233, 249, 0.191);
 }
 
 /* styles for the whole site */
@@ -16,7 +17,7 @@ body {
   /* background-color: var(--dark-blue-bg); */
   height: 100vh;
   width: 100vw;
-  padding: 3%;
+  padding: 2%;
   background: #732c30;
   background: linear-gradient(
     348deg,
@@ -36,10 +37,12 @@ body {
   gap: 3%;
 }
 .rightside-container {
+  height: 95%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: scroll;
 }
 /* reusable components */
 .custom-card {

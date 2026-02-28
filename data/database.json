@@ -1,119 +1,114 @@
 {
   "games": [
-   {
-  "games": [
     {
-      "id": "g1",
-      "slug": "elden-ring",
-      "title": "Elden Ring",
-      "developer": "FromSoftware Inc.",
-      "publisher": "Bandai Namco Entertainment",
-      "platforms": ["PC", "PS5", "Xbox"],
-      "genres": ["Action RPG"],
-      "tags": ["Souls-like", "Open World", "Difficult"],
-      "releaseDate": "2022-02-25",
-      "isPreOrder": false,
-      "availability": "available",
-      "price": 59.99,
-      "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg",
-      "screenshots": [
-        "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/ss_1.jpg",
-        "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/ss_2.jpg"
-      ],
-      "description": "Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
-      "stock": 10
-    },
-    {
-      "id": "g2",
-      "slug": "cyberpunk-2077",
-      "title": "Cyberpunk 2077",
-      "developer": "CD PROJEKT RED",
-      "publisher": "CD PROJEKT RED",
-      "platforms": ["PC", "PS5", "Xbox"],
-      "genres": ["Action RPG"],
-      "tags": ["Cyberpunk", "Sci-fi", "Open World"],
-      "releaseDate": "2020-12-10",
-      "isPreOrder": false,
-      "availability": "available",
-      "price": 49.99,
-      "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_1.jpg"],
-      "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary.",
-      "stock": 5
-    },
-    {
-      "id": "g3",
-      "slug": "the-witcher-3",
-      "title": "The Witcher 3: Wild Hunt",
-      "developer": "CD PROJEKT RED",
-      "publisher": "CD PROJEKT RED",
-      "platforms": ["PC", "PS5", "Switch"],
-      "genres": ["Action RPG"],
-      "tags": ["Fantasy", "Story Rich", "RPG"],
-      "releaseDate": "2015-05-18",
-      "isPreOrder": false,
-      "availability": "available",
-      "price": 29.99,
-      "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/ss_1.jpg"],
-      "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.",
-      "stock": 12
-    },
-    {
-      "id": "g4",
-      "slug": "starfield",
-      "title": "Starfield",
-      "developer": "Bethesda Game Studios",
-      "publisher": "Bethesda Softworks",
-      "platforms": ["PC", "Xbox"],
-      "genres": ["Action RPG"],
-      "tags": ["Space", "Exploration", "Sci-fi"],
-      "releaseDate": "2023-09-06",
-      "isPreOrder": false,
-      "availability": "available",
-      "price": 69.99,
-      "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_1.jpg"],
-      "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
-      "stock": 8
-    },
-    {
-      "id": "g5",
-      "slug": "dragons-dogma-2",
-      "title": "Dragon's Dogma 2",
-      "developer": "CAPCOM Co., Ltd.",
-      "publisher": "CAPCOM Co., Ltd.",
-      "platforms": ["PC", "PS5", "Xbox"],
-      "genres": ["Action RPG"],
-      "tags": ["Fantasy", "Action", "RPG"],
-      "releaseDate": "2024-03-22",
-      "isPreOrder": false,
-      "availability": "available",
-      "price": 69.99,
-      "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2054970/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2054970/ss_1.jpg"],
-      "description": "Dragon’s Dogma 2 is a single player, narrative driven action-RPG that challenges the players to choose their own experience.",
-      "stock": 4
+      "games": [
+        {
+          "id": "g2",
+          "slug": "cyberpunk-2077",
+          "title": "Cyberpunk 2077",
+          "developer": "CD PROJEKT RED",
+          "publisher": "CD PROJEKT RED",
+          "platforms": [
+            "PC",
+            "PS5"
+          ],
+          "genres": [
+            "Action RPG"
+          ],
+          "tags": [
+            "Cyberpunk",
+            "Sci-fi",
+            "Open World"
+          ],
+          "releaseDate": "2020-12-10",
+          "isPreOrder": false,
+          "availability": "available",
+          "price": 49.99,
+          "currency": "USD",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg",
+          "screenshots": [
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_1.jpg"
+          ],
+          "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary.",
+          "stock": 5
+        },
+        {
+          "id": "g3",
+          "slug": "the-witcher-3",
+          "title": "The Witcher 3: Wild Hunt",
+          "developer": "CD PROJEKT RED",
+          "publisher": "CD PROJEKT RED",
+          "platforms": [
+            "PC",
+            "PS5",
+            "Switch"
+          ],
+          "genres": [
+            "Action RPG"
+          ],
+          "tags": [
+            "Fantasy",
+            "Story Rich",
+            "RPG"
+          ],
+          "releaseDate": "2015-05-18",
+          "isPreOrder": false,
+          "availability": "available",
+          "price": 29.99,
+          "currency": "USD",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
+          "screenshots": [
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/ss_1.jpg"
+          ],
+          "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.",
+          "stock": 12
+        },
+        {
+          "id": "g4",
+          "slug": "starfield",
+          "title": "Starfield",
+          "developer": "Bethesda Game Studios",
+          "publisher": "Bethesda Softworks",
+          "platforms": [
+            "PC",
+            "Xbox"
+          ],
+          "genres": [
+            "Action RPG"
+          ],
+          "tags": [
+            "Space",
+            "Exploration",
+            "Sci-fi"
+          ],
+          "releaseDate": "2023-09-06",
+          "isPreOrder": false,
+          "availability": "available",
+          "price": 69.99,
+          "currency": "USD",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
+          "screenshots": [
+            "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_1.jpg"
+          ],
+          "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
+          "stock": 8
+        }
+      ]
     }
-  ]
-}
   ],
   "users": [
     {
       "id": "u1",
       "username": "TarnishedOne",
       "email": "player@limgrave.com",
+      "password": "shopcustomer",
       "role": "customer"
     },
     {
       "id": "u2",
       "username": "ShopAdmin",
       "email": "admin@gamestop.com",
+      "password": "shopadmin",
       "role": "admin"
     }
   ],
@@ -131,7 +126,7 @@
         }
       ],
       "totalAmount": 39.99,
-      "status": "paid",
+      "status": "delivered",
       "dateCreated": "2026-02-25T10:00:00Z"
     }
   ]

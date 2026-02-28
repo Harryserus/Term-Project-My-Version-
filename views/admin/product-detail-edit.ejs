@@ -1,2 +1,113 @@
-<%-include ("../partials/admin-header.ejs") %>
-<%-include ("../partials/admin-footer.ejs") %>
+<%- include("../partials/admin-header.ejs") %>
+<div class="product-edit-container">
+<%
+// Determine if we are editing or adding
+const isEdit = typeof game !== 'undefined' && game !== null;
+const formTitle = isEdit ? `Edit: ${game.title}` : "Add New Product";
+const actionUrl = isEdit ? `/product/edit/${game.id}` : "/product/add";
+%>
+  <form class="edit-form" action="<%= actionUrl %>" method="POST">
+    
+    <div class="form-header">
+      <% if (isEdit) { %>
+        <img src="<%= game.thumbnailUrl %>" alt="Thumbnail" class="form-thumb">
+      <% } %>
+      <h2><%= formTitle %></h2>
+    </div>
+
+    <div class="form-grid-2">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" value="<%= isEdit ? game.title : '' %>" required>
+      </div>
+      <div class="form-group">
+        <label for="developer">Developer</label>
+        <input type="text" name="developer" id="developer" value="<%= isEdit ? game.developer : '' %>">
+      </div>
+    </div>
+
+    <div class="form-grid-2">
+      <div class="form-group">
+        <label for="publisher">Publisher</label>
+        <input type="text" name="publisher" id="publisher" value="<%= isEdit ? game.publisher : '' %>">
+      </div>
+      <div class="form-group">
+        <label for="releaseDate">Release Date</label>
+        <input type="date" name="releaseDate" id="releaseDate" value="<%= isEdit ? game.releaseDate : '' %>">
+      </div>
+    </div>
+
+    <div class="form-grid-3">
+      <div class="form-group">
+        <label for="price">Price (USD)</label>
+        <input type="number" name="price" id="price" value="<%= isEdit ? game.price : '' %>" step="0.01">
+      </div>
+      <div class="form-group">
+        <label for="stock">Stock</label>
+        <input type="number" name="stock" id="stock" value="<%= isEdit ? game.stock : '0' %>">
+      </div>
+      <div class="form-group">
+        <label for="availability">Availability</label>
+        <select name="availability" id="availability">
+          <% ["available", "coming_soon", "early_access", "delisted"].forEach(status => { %>
+            <option value="<%= status %>" <%= (isEdit && game.availability === status) ? 'selected' : '' %>>
+              <%= status.replace('_', ' ') %>
+            </option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-grid-2">
+      <div class="form-group">
+        <label for="genres">Genres</label>
+        <input type="text" name="genres" id="genres" value="<%= (isEdit && game.genres) ? game.genres.join(', ') : '' %>" placeholder="Action, RPG...">
+      </div>
+      <div class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" name="tags" id="tags" value="<%= (isEdit && game.tags) ? game.tags.join(', ') : '' %>" placeholder="Indie, Open World...">
+      </div>
+    </div>
+
+    <div class="form-grid-2">
+      <div class="form-group">
+  <label>Platforms</label>
+  <div class="platform-selection-grid">
+    <% const availablePlatforms = ["PC", "PS5", "Xbox", "Switch"]; %>
+    <% availablePlatforms.forEach(platform => { %>
+      <label class="checkbox-pill">
+        <input 
+          type="checkbox" 
+          name="platforms" 
+          value="<%= platform %>"
+          <%= (isEdit && game.platforms.includes(platform)) ? 'checked' : '' %>
+        >
+        <span><%= platform %></span>
+      </label>
+    <% }) %>
+  </div>
+</div>
+        
+        <div class="form-group">
+            <label for="thumbnailUrl">Thumbnail URL</label>
+            <input type="text" name="thumbnailUrl" id="thumbnailUrl" value="<%= isEdit ? game.thumbnailUrl : '' %>">
+        </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea name="description" id="description" rows="3"><%= isEdit ? game.description : '' %></textarea>
+    </div>
+
+    <div class="form-footer">
+      <label class="checkbox-container">
+        <input type="checkbox" name="isPreOrder" id="isPreOrder" <%= isEdit && game.isPreOrder ? 'checked' : '' %>>
+        <span>Is Pre-Order?</span>
+      </label>
+      <div class="action-buttons">
+        <a href="/admin" class="btn-cancel">Cancel</a>
+        <button type="submit" class="btn-save"><%= isEdit ? 'Save Changes' : 'Create' %></button>
+      </div>
+    </div>
+  </form>
+</div>

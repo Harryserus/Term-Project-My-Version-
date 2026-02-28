@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon --exec ts-node --files  src/index.ts",
     "build": "tsc",
-    "start": "node dist/index.js"
+    "start": "ts-node --files src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/camt-pathathai/953261-953202-term-project-cwr-team#readme",
   "devDependencies": {
     "@types/express": "^5.0.6",
+    "@types/express-session": "^1.18.2",
     "@types/node": "^25.3.0",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
@@ -31,6 +32,7 @@
   "dependencies": {
     "dotenv": "^17.3.1",
     "ejs": "^4.0.1",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
   }
 }

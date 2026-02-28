@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IndieRealm</title>
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+<body>
+  <div class="auth-page">
+    <header style="text-align:center;">
+      <h1>Welcome to Indie realm</h1>
+    </header>
+
+    <% if (error) { %>
+      <p style="color:#b00020; text-align:center;"><%= error %></p>
+    <% } %>
+
+    <div class="auth-options">
+      <div class="login">
+        <h3>Login</h3>
+        <form action="/login" method="post">
+          <input type="text" name="username" placeholder="Username" required />
+          <input type="password" name="password" placeholder="Password" required />
+          <button id="login-button" type="submit">Login</button>
+        </form>
+        <p style="font-size:0.9em; opacity:0.8;">
+      Seed users :
+           "username": "ShopAdmin",
+      "password": "shopadmin",
+      "role": "admin" <br>  "username": "TarnishedOne",
+      
+      "password": "shopcustomer",
+      "role": "customer"
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

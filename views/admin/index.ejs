@@ -4,17 +4,51 @@
 
 <div class="categories-and-search">
 <div class="filter-container">
-  <button class="category-button active" data-category="all">All</button>
-  <button class="category-button" data-category="action">Action</button>
-  <button class="category-button" data-category="rpg">RPG</button>
-  <button class="category-button" data-category="indie">Indie</button>
+  <button class="category-button active all-filter-button" data-category="all">All</button>
+  <button class="category-button status-pending" data-category="PC">PC</button>
+  <button class="category-button status-paid" data-category="PS5">PS5</button>
+  <button class="category-button status-delivered" data-category="Xbox">X-BOX</button>
+    <button class="category-button status-canceled" data-category="Switch">SWITCH</button>
 </div>
-
+  <div class="add-new-product-button">
+    <img src="/assets/plus-icon.svg" alt="+"  />
+    <a href="/product/add">Add new product</a>
+  </div>
 <div class="search-product-container">
   <input name="search-product" type="search" id="search-product"  placeholder="Search" required />
-        <button type="button">Search</button>
+        <button type="button" id="search_product"><img src="/assets/search-icon.svg" alt="search" width="25px"></button>
 </div>
 
+</div>
+
+<div class="products-container" >
+<% if (typeof games !== 'undefined' && games.length > 0) { %>
+<% games.forEach(game=>{ %>
+<div class="product-card" data-platform="<%= game.platforms %>">
+  <div class="product-main-info">
+    <img src="<%= game.thumbnailUrl %>" alt="thumbnail">
+    <div class="product-title-category">
+      <h4><%= game.title %></h4>
+      <p><%= game.genres %></p>
+    </div>
+  </div>
+
+  <p class="product-price">$<%= game.price %></p>
+
+  <div class="product-actions">
+    <a href="/product-detail-edit/<%= game.id %>">
+      <img src="assets/edit-icon.svg" alt="Edit" style="width:25px; height:25px;">
+    </a>
+    <a href="/product/delete/<%= game.id %>">
+      <img src="assets/trash-icon.svg" alt="Delete" style="width:25px; height:25px;">
+    </a>
+  </div>
+</div>
+
+<% }) %>
+  <% } else { %>
+    <p>No games found in the database.</p>
+  <% } %>
 </div>
 
 <%-include ("../partials/admin-footer.ejs") %>

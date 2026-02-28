@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: var(--dark-blue-bg); */
+  height: 100vh;
+  width: 100vw;
+  padding: 2%;
+  background: #732c30;
+  background: linear-gradient(
+    348deg,
+    rgba(115, 44, 48, 1) 11%,
+    rgba(14, 14, 107, 1) 65%,
+    rgba(7, 7, 66, 1) 100%
+  );
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.auth-page {
+  background-color: rgba(0, 0, 0, 0.347);
+  padding: 2rem;
+  border-radius: 2rem;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+.auth-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5rem;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 10px;
+}

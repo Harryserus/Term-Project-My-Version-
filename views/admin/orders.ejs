@@ -1,2 +1,64 @@
 <%-include ("../partials/admin-header.ejs") %>
+
+<div class="categories-and-search">
+  <div class="filter-container">
+    <button class="status-button active all-filter-button" data-order-status="all">All</button>
+    <button class="status-button status-pending" data-order-status="pending">Pending</button>
+    <button class="status-button status-paid" data-order-status="paid">Paid</button>
+    <button class="status-button status-delivered" data-order-status="delivered">Delivered</button>
+<button class="status-button status-canceled" data-order-status="canceled">Canceled</button>
+  </div>
+
+  <div class="search-order-container">
+    <input
+      name="search-order"
+      type="search"
+      id="search-order"
+      placeholder="Search"
+      required
+    />
+    <button type="button">Search</button>
+  </div>
+</div>
+<div class="orders-and-actions-container">
+  <div class="orders-container">
+<% if (typeof orders != undefined || orders.length<=0) { %>
+<%orders.forEach(order=>{ %>
+    <div class="order-card status-<%= order.status.toLowerCase()%> "  data-status=<%= order.status%> >
+      <div class="order-select">
+        <input
+          type="checkbox"
+          name="order_select"
+          id="order1"
+          class="custom-checkbox order-checkbox"
+          value="<%= order.id %>"
+        />
+      </div>
+
+      <div class="order-header">
+        <span class="order-number"> <%= order.id  %> </span>
+        <span class="order-date"><%= order.dateCreated  %> </span>
+      </div>
+
+      <div class="customer-name"><%= order.userId  %> </div>
+
+      <span class="order-price">$ <%= order.totalAmount  %> </span>
+      <span class="order-status"><%= order.status  %> </span>
+    </div>
+    <%  }) %>
+   <%  }  else {%>
+    <p>No orders yet.</p>
+     <%  }%>
+
+
+  </div>
+<div class="actions-container">
+  <h5>Mark all selected as...</h5>
+  <button type="button" class="status-btn status-pending" data-status="pending">Pending</button>
+  <button type="button" class="status-btn status-paid" data-status="paid">Paid</button>
+  <button type="button" class="status-btn status-delivered" data-status="delivered">Delivered</button>
+  <button type="button" class="status-btn status-canceled" data-status="canceled">Canceled</button>
+</div>
+</div>
+
 <%-include ("../partials/admin-footer.ejs") %>
