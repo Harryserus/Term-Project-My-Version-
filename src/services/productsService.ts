@@ -22,6 +22,11 @@ export const searchGames = (q?: string): Game[] => {
   const games = getAllGames();
   return games.filter((g) => g.title.toLowerCase().match(q.toLowerCase() as string));
 }
+export const searchOrders = (q?: string): Order[] => {
+  if(!q) return getAllOrders();
+  const orders = getAllOrders();
+  return orders.filter((o) => o.id.toLowerCase().match(q.toLowerCase() as string));
+}
 // 2. Add Product
 export const addProduct = (req: Request, res: Response) => {
   const db = getData();

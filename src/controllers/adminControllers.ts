@@ -2,9 +2,9 @@ import { Request, Response } from "express";
 import {
   addProduct,
   deleteProduct,
-  getAllOrders,
   getOneProduct,
   searchGames,
+  searchOrders,
   updateOrders,
   updateProduct,
 } from "../services/productsService";
@@ -14,7 +14,7 @@ export const loadProducts = (req: Request, res: Response) => {
   res.render("admin/index", { games: searchGames(req.query['search-product'] as string) });
 };
 export const loadOrders = (req: Request, res: Response) => {
-  res.render("admin/orders", { orders: getAllOrders() });
+  res.render("admin/orders", { orders: searchOrders(req.query['search-order'] as string) });
 };
 export const loadProfile = (req: Request, res: Response) => {
   res.render("admin/profile", { admin: getUser(req.session.userId as string) });
