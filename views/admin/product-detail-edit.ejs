@@ -4,7 +4,7 @@
 // Determine if we are editing or adding
 const isEdit = typeof game !== 'undefined' && game !== null;
 const formTitle = isEdit ? `Edit: ${game.title}` : "Add New Product";
-const actionUrl = isEdit ? `/product/edit/${game.id}` : "/product/add";
+const actionUrl = isEdit ? `/admin/product/edit/${game.id}` : "/admin/product/add";
 %>
   <form class="edit-form" action="<%= actionUrl %>" method="POST">
     
