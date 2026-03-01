@@ -43,6 +43,7 @@ body {
   flex-direction: column;
   gap: 20px;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 /* reusable components */
 .custom-card {
@@ -72,21 +73,108 @@ body {
   gap: 5px;
 }
 .side-nav-li {
-  /* change here to align with logo */
-  padding: 1.5rem 1rem;
+  padding: 0; /* Remove padding from LI so the link fills the space */
+}
+
+.nav-link {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-
   gap: 10px;
-}
-.side-nav-li a {
+  width: 100%;
+  padding: 1.5rem 1rem;
   color: white;
   text-decoration: none;
-  text-align: left;
+}
+
+/* Mobile adjustments to hide the span we added */
+@media (max-width: 768px) {
+  .nav-link {
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .nav-text {
+    display: none; /* Hides the text on mobile as requested */
+  }
 }
 .nav-logo {
   width: 20px;
   height: auto;
+}
+/* responsive */
+@media (max-width: 768px) {
+  /* 1. Stack the main containers */
+  .container {
+    flex-direction: column; /* Stack vertically */
+    height: 100vh;
+    gap: 0;
+  }
+
+  .rightside-container {
+    height: calc(100% - 70px); /* Leave room for bottom nav */
+    margin-bottom: 70px;
+    padding-bottom: 20px;
+  }
+
+  /* 2. Transform side-nav into a bottom bar */
+  .side-nav-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%; /* Override the 200px */
+    height: 70px;
+    z-index: 1000;
+    border-radius: 1.5rem 1.5rem 0 0; /* Rounded top corners */
+    background-color: rgba(
+      7,
+      2,
+      34,
+      0.95
+    ); /* Slightly more solid for readability */
+    backdrop-filter: blur(10px);
+  }
+
+  .side-nav-ul {
+    display: flex;
+    flex-direction: row; /* Keep them side-by-side */
+    justify-content: space-around; /* Distribute space evenly */
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .side-nav-li {
+    list-style: none;
+    flex: 1; /* This tells each LI to take up 1/3 of the space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    max-width: none; /* Remove any desktop width restrictions */
+  }
+
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  /* Target the text span to hide it */
+  .nav-link span {
+    display: none;
+  }
+
+  .nav-logo {
+    width: 28px;
+    height: 28px;
+  }
 }
