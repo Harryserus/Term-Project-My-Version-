@@ -104,12 +104,13 @@
   justify-content: space-between;
   gap: 2rem;
 }
-.search-product-container {
+.search-product-container form {
   display: flex;
   height: 50%;
   gap: 5px;
 }
 .search_button {
+  padding: 5px;
   background-color: transparent;
   border: none;
   transition: transform 1.5s ease-in-out;

@@ -18,13 +18,13 @@
 <div class="search-product-container">
   <form action="/admin" method="get">  
     <input name="search-product" type="search" id="search-product"  placeholder="Search" />
-    <button type="button" id="search_product"><img src="/assets/search-icon.svg" alt="search" width="25px"></button>
+    <button type="submit" id="search_product" class="search_button"><img src="/assets/search-icon.svg" alt="search" width="25px"></button>
   </form>
 </div>
  
 
 </div>
-
+</div>
 <div class="products-container" >
 <% if (typeof games !== 'undefined' && games.length > 0) { %>
 <% games.forEach(game=>{ %>
@@ -55,15 +55,4 @@
   <% } %>
 </div>
 
-<%-include ("../partials/admin-footer.ejs") %>
-
-
-  
-
-
-
-
-
-
-      
 <%-include ("../partials/admin-footer.ejs") %>

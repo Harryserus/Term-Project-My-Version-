@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("select_all").addEventListener("click", () => {
     const checkboxes = document.querySelectorAll(".order-checkbox");
     checkboxes.forEach((c) => {
-      c.checked = true;
+      c.checked = !c.checked;
     });
   });
 });
