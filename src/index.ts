@@ -19,7 +19,7 @@ import {
   loginController,
   logoutController,
 } from "./controllers/userControllers";
-import { requireLogin, requireAdminCredentials } from "./middlewares/requireLogin";
+import { requireLogin } from "./middlewares/requireLogin";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -49,6 +49,23 @@ app.use(
 app.get("/", loadHome);
 app.post("/login", loginController);
 app.post("/logout", requireLogin, logoutController);
+
+/* ----------------- CLIENT ROUTES ----------------- */
+
+// Customer Main Page
+app.get("/store", requireLogin, loadStore);
+
+// Product Detail
+app.get("/game/:id", loadProductDetail);
+
+// Customer Orders (avoid conflict with admin)
+app.get("/my-orders", requireLogin, loadOrder);
+
+// Checkout
+app.get("/checkout", requireLogin, loadCheckout);
+
+// Customer Profile (avoid conflict with admin profile)
+app.get("/my-profile", requireLogin, loadCustomerProfile);
 
 app.get("/admin", requireLogin, requireAdminCredentials, loadProducts);
 app.get("/admin/orders", requireLogin, requireAdminCredentials, loadOrders);

@@ -1,32 +1,26 @@
-<%- include("../partials/client-header.ejs", { title: "Profile" }) %>
+<%- include("../partials/client-header.ejs") %>
 
-<section class="page">
+<div class="profile-wrapper">
 
-  <h1 class="page__title">Profile</h1>
+  <div class="profile-main-card custom-card">
 
-  <div class="profile-card custom-card">
-
-    <div class="profile-row">
-      <span class="profile-label">Name</span>
-      <span class="profile-value">John Doe</span>
+    <div class="profile-avatar-container">
+      <img src="/assets/user-avatar.svg" alt="avatar" class="profile-avatar">
     </div>
 
-    <div class="profile-row">
-      <span class="profile-label">Email</span>
-      <span class="profile-value">john@email.com</span>
-    </div>
+    <div class="profile-info-card">
+      <h3>Role: <%= user?.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : "Customer" %></h3>
+      <h3>Name: <%= user?.username || username || "User" %></h3>
 
-    <div class="profile-row">
-      <span class="profile-label">Member Since</span>
-      <span class="profile-value">2026</span>
+      <form action="/logout" method="POST">
+        <button type="submit" class="profile-logout-btn">
+          Logout
+        </button>
+      </form>
     </div>
-
-    <button class="btn-primary">
-      Edit Profile
-    </button>
 
   </div>
 
-</section>
+</div>
 
 <%- include("../partials/client-footer.ejs") %>

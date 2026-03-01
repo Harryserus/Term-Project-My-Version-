@@ -19,7 +19,7 @@ export const loginController = (req: Request, res: Response) => {
   req.session.username = user.username;
   req.session.role = user.role;
   //   route logi here
-  res.redirect(user.role == "admin" ? "/admin" : "/customer");
+  res.redirect(user.role == "admin" ? "/admin" : "/store");
 };
 export const logoutController = (req: Request, res: Response) => {
   req.session.destroy(() => res.redirect("/"));

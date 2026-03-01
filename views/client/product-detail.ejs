@@ -1,42 +1,51 @@
-<%- include("../partials/client-header.ejs", { title: "Game Detail" }) %>
+<%- include("../partials/client-header.ejs") %>
 
-<section class="page">
+<% if (typeof game === "undefined" || !game) { %>
+  <p>Game not found.</p>
+<% } else { %>
 
-  <div class="product-detail">
-
-    <div class="product-detail__image custom-card">
-      <div class="image-placeholder">Game Image</div>
-    </div>
-
-    <div class="product-detail__info custom-card">
-
-      <h1 class="product-detail__title">
-        Indie Game Title
-      </h1>
-
-      <p class="product-detail__description">
-        A beautifully crafted indie adventure game with immersive storytelling
-        and unique gameplay mechanics.
-      </p>
-
-      <div class="product-detail__meta">
-        <span class="tag">Action</span>
-        <span class="tag">RPG</span>
-        <span class="tag">Indie</span>
-      </div>
-
-      <div class="product-detail__price">
-        $19.99
-      </div>
-
-      <div class="product-detail__actions">
-        <button class="btn-primary">Add to Cart</button>
-      </div>
-
-    </div>
-
+<div class="product-detail-layout">
+  <div class="product-detail-left custom-card">
+    <img class="product-detail-image" src="<%= game.thumbnailUrl %>" alt="thumbnail">
   </div>
 
-</section>
+  <div class="product-detail-right custom-card">
+    <div class="product-detail-header">
+      <h2 class="product-detail-title"><%= game.title %></h2>
+      <p class="product-detail-sub">
+        <span><%= game.developer || "" %></span>
+        <% if (game.publisher) { %> • <span><%= game.publisher %></span> <% } %>
+      </p>
+    </div>
+
+    <div class="product-detail-tags">
+      <% (game.platforms || []).forEach(p => { %>
+        <span class="tag-pill"><%= p %></span>
+      <% }) %>
+      <% (game.tags || []).slice(0, 6).forEach(t => { %>
+        <span class="tag-pill subtle"><%= t %></span>
+      <% }) %>
+    </div>
+
+    <div class="product-detail-info">
+      <p class="product-detail-desc"><%= game.description || "" %></p>
+
+      <div class="product-detail-meta">
+        <div><strong>Genres:</strong> <%= (game.genres || []).join(", ") %></div>
+        <div><strong>Release:</strong> <%= game.releaseDate || "-" %></div>
+      </div>
+    </div>
+
+    <div class="product-detail-buybox">
+      <div class="product-detail-price">$<%= game.price %></div>
+
+      <form action="/cart/add/<%= game.id %>" method="POST" class="buybox-actions">
+        <button type="submit" class="btn-primary">Add to Cart</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<% } %>
 
 <%- include("../partials/client-footer.ejs") %>
