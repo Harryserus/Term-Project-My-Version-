@@ -1,5 +1,4 @@
 <%- include("../partials/client-header.ejs") %>
-<%- include("../partials/client-header.ejs") %>
 
 <div class="categories-and-search">
   <div class="filter-container">
@@ -17,23 +16,6 @@
       <option value="price_asc">Price: Low → High</option>
       <option value="price_desc">Price: High → Low</option>
     </select>
-<div class="categories-and-search">
-  <div class="filter-container">
-    <button class="category-button active all-filter-button" data-category="all">All</button>
-    <button class="category-button status-pending" data-category="PC">PC</button>
-    <button class="category-button status-paid" data-category="PS5">PS5</button>
-    <button class="category-button status-delivered" data-category="Xbox">X-BOX</button>
-    <button class="category-button status-canceled" data-category="Switch">SWITCH</button>
-  </div>
-
-  <div class="sort-container">
-    <label for="sort-price" class="sort-label">Sort</label>
-    <select id="sort-price" name="sort" class="sort-select">
-      <option value="">Default</option>
-      <option value="price_asc">Price: Low → High</option>
-      <option value="price_desc">Price: High → Low</option>
-    </select>
-  </div>
 
   <div class="grid">
   <% if(true) { %>
