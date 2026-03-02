@@ -1,20 +1,25 @@
-<%- include("../partials/client-header.ejs", { title: "Indie Realm - Store" }) %>
+<%- include("../partials/client-header.ejs") %>
 
-<section class="page">
-  <div class="page__header">
-    <h1 class="page__title">Game Store</h1>
+<div class="categories-and-search">
+  <div class="filter-container">
+    <button class="category-button active all-filter-button" data-category="all">All</button>
+    <button class="category-button status-pending" data-category="PC">PC</button>
+    <button class="category-button status-paid" data-category="PS5">PS5</button>
+    <button class="category-button status-delivered" data-category="Xbox">X-BOX</button>
+    <button class="category-button status-canceled" data-category="Switch">SWITCH</button>
+  </div>
 
-    <form class="search" action="/" method="get">
-      <input class="input" type="text" name="q" placeholder="Search game..." />
-      <select class="select" name="sort">
-        <option value="">Sort</option>
-        <option value="price_asc">Price: Low → High</option>
-        <option value="price_desc">Price: High → Low</option>
-      </select>
-    </form>
+  <div class="sort-container">
+    <label for="sort-price" class="sort-label">Sort</label>
+    <select id="sort-price" name="sort" class="sort-select">
+      <option value="">Default</option>
+      <option value="price_asc">Price: Low → High</option>
+      <option value="price_desc">Price: High → Low</option>
+    </select>
   </div>
 
   <div class="grid">
+  <% if(true) { %>
     <% for (let i = 1; i <= 8; i++) { %>
       <a href="/customer/product/<%= i %>" class="card game-card">
         <div class="game-card__img">Image</div>
@@ -25,8 +30,10 @@
         </div>
       </a>
     <% } %>
-  </div>
-</section>
+  <% } else { %>
+    <p>No games found.</p>
+  <% } %>
+</div>
 
 <% if(alert) { %>
 <script>

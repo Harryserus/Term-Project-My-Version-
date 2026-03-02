@@ -50,17 +50,25 @@ app.get("/", loadHome);
 app.post("/login", loginController);
 app.post("/logout", requireLogin, logoutController);
 
+/* ------------------ ADMIN ROUTES ----------------- */
+
 app.get("/admin", requireLogin, requireAdminCredentials, loadProducts);
 app.get("/admin/orders", requireLogin, requireAdminCredentials, loadOrders);
 app.get("/admin/profile", requireLogin, requireAdminCredentials, loadProfile);
 app.get("/admin/product/:id", requireLogin, requireAdminCredentials, editProduct);
 app.get("/admin/product/add", requireLogin, requireAdminCredentials, getProductForm);
 
+/* ------------------------------------------------- */
+
+/* ----------------- CLIENT ROUTES ----------------- */
+
 app.get("/customer", requireLogin, loadCustomerHomePage)
 app.get("/customer/product/:id", requireLogin, loadProductDetail);
 app.get("/customer/checkout", requireLogin, loadCheckout);
 app.get("/customer/orders", requireLogin, loadOrder);
 app.get("/customer/profile", requireLogin, loadCustomerProfile);
+
+/* ------------------------------------------------- */
 
 // crud
 app.post("/admin/product/add", requireLogin, requireAdminCredentials, createNewGame);

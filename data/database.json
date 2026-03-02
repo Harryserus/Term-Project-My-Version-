@@ -27,7 +27,7 @@
       "screenshots": [
         "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_1.jpg"
       ],
-      "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary.",
+      "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary. (Don't mind this text)",
       "stock": 5
     },
     {
@@ -124,8 +124,24 @@
         }
       ],
       "totalAmount": 39.99,
-      "status": "pending",
+      "status": "delivered",
       "dateCreated": "2026-02-25T10:00:00Z"
+    },
+    {
+      "id": "ord_1002",
+      "userId": "u1",
+      "items": [
+        {
+          "gameId": "g3",
+          "title": "The Witcher 3: Wild Hunt",
+          "thumbnailUrl": "/images/games/the-witcher3-wild-hunt.jpg",
+          "quantity": 1,
+          "priceAtPurchase": 29.99
+        }
+      ],
+      "totalAmount": 29.99,
+      "status": "paid",
+      "dateCreated": "2026-03-01T18:06:00Z"
     }
   ]
 }

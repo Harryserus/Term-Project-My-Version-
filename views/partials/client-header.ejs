@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/shared.css" />
     <link rel="stylesheet" href="/css/client.css" />
-    <title><%= title || "Indie Realm" %></title>
+    <script src="/js/client/index.js" defer></script>
+    <title>Indie Realm</title>
   </head>
   <body>
     <div class="container">
-      
-      <div>
-        <%- include("../partials/client-side-nav.ejs") %>
-      </div>
+      <div><%- include("../partials/client-side-nav.ejs") %></div>
 
       <div class="rightside-container">
-      
-        <div class="indierealm_banner custom-card"></div>
+  <%- include("../partials/top-nav-bar.ejs") %>

@@ -10,14 +10,16 @@
   </div>
 
   <div class="search-order-container">
-    <input
-      name="search-order"
-      type="search"
-      id="search-order"
-      placeholder="Search"
-      required
-    />
-    <button type="button">Search</button>
+    <form method="get" action="/admin/orders">
+      <input
+        name="search-order"
+        type="search"
+        id="search-order"
+        placeholder="Search"
+        required
+      />
+      <button class="search_button" type="button"><img src="/assets/search-icon.svg" alt="search" width="25px"></button>
+    </form>
   </div>
 </div>
 <div class="orders-and-actions-container">
@@ -43,7 +45,7 @@
       <div class="customer-name"><%= order.userId  %> </div>
 
       <span class="order-price">$ <%= order.totalAmount  %> </span>
-      <span class="order-status"><%= order.status  %> </span>
+      <span class="order-status"><%= order.status.charAt(0).toUpperCase() + order.status.slice(1)  %> </span>
     </div>
     <%  }) %>
    <%  }  else {%>
@@ -53,11 +55,21 @@
 
   </div>
 <div class="actions-container">
-  <h5>Mark all selected as...</h5>
+<div class="mark_all">
+ <input
+          type="checkbox"
+          name="select_all"
+          id="select_all"
+       
+          
+        /><h5 >  Mark all selected as...</h5>
+</div>
+  
   <button type="button" class="status-btn status-pending" data-status="pending">Pending</button>
   <button type="button" class="status-btn status-paid" data-status="paid">Paid</button>
   <button type="button" class="status-btn status-delivered" data-status="delivered">Delivered</button>
   <button type="button" class="status-btn status-canceled" data-status="canceled">Canceled</button>
+ 
 </div>
 </div>
 
