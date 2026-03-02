@@ -71,6 +71,7 @@ app.get("/customer/profile", requireLogin, loadCustomerProfile);
 /* ------------------------------------------------- */
 
 // crud
+app.post("/customer/cart/add", requireLogin, (req: Request, res: Response) => {});
 app.post("/admin/product/add", requireLogin, requireAdminCredentials, createNewGame);
 app.post("/admin/product/edit/:id", requireLogin, requireAdminCredentials, updateGame);
 app.get("/admin/product/delete/:id", requireLogin, requireAdminCredentials, deleteGame);
