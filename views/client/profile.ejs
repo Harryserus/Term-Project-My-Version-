@@ -1,13 +1,21 @@
 <%- include("../partials/client-header.ejs") %>
+<%- include("../partials/client-header.ejs") %>
 
 <div class="profile-wrapper">
+<div class="profile-wrapper">
 
+  <div class="profile-main-card custom-card">
   <div class="profile-main-card custom-card">
 
     <div class="profile-avatar-container">
       <img src="/assets/user-avatar.svg" alt="avatar" class="profile-avatar">
+    <div class="profile-avatar-container">
+      <img src="/assets/user-avatar.svg" alt="avatar" class="profile-avatar">
     </div>
 
+    <div class="profile-info-card">
+      <h3>Role: <%= user?.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : "Customer" %></h3>
+      <h3>Name: <%= user?.username || username || "User" %></h3>
     <div class="profile-info-card">
       <h3>Role: <%= user?.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : "Customer" %></h3>
       <h3>Name: <%= user?.username || username || "User" %></h3>
@@ -21,6 +29,7 @@
 
   </div>
 
+</div>
 </div>
 
 <%- include("../partials/client-footer.ejs") %>
