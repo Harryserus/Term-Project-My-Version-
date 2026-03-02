@@ -80,3 +80,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+const searchInput = document.querySelector("#search-order");
+const orderCards = document.querySelectorAll(".order-card");
+
+searchInput.addEventListener("input", (e) => {
+  const query = e.target.value.toLowerCase();
+
+  orderCards.forEach((card) => {
+    // Grab the text from your EJS-rendered spans
+    const orderId = card.querySelector(".order-number").innerText.toLowerCase();
+    const userName = card
+      .querySelector(".customer-name")
+      .innerText.toLowerCase();
+
+    // Check if the query exists in either field
+    if (orderId.includes(query) || userName.includes(query)) {
+      card.style.display = "flex"; // Show it
+    } else {
+      card.style.display = "none"; // Hide it
+    }
+  });
+});
