@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import {searchGames, getOneProduct, getUserOrder, getUserCartItem } from "../services/productsService";
+import {searchGames, getOneProduct, getUserOrder, getUserCartItem, addProductToCart } from "../services/productsService";
 import { getUser } from "../services/personalization";
 
 export const loadCustomerHomePage = (req: Request, res: Response) => {
@@ -21,3 +21,9 @@ export const loadCheckout = (req: Request, res: Response) => {
 export const loadCustomerProfile = (req: Request, res: Response) => {
   res.render("client/profile", { user: getUser(req.session.userId as string) });
 };
+
+export const addToCart = (req: Request, res: Response) => {
+  addProductToCart(req, res);
+}
+
+export { checkout } from "../services/productsService";

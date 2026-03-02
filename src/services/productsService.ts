@@ -3,6 +3,7 @@ import { Order } from "../models/order.model";
 import { Request, Response } from "express";
 import { getData, saveData, stringToArray } from "./util";
 import { getUser } from "./personalization";
+import { User } from "../models/user.model";
 
 
 // 1. Get All Games
@@ -119,3 +120,28 @@ export const updateOrders = (req: Request, res: Response) => {
 };
 
 export const getUserCartItem = (uid: string) => getUser(uid).cart;
+export const addProductToCart = (req: Request, res: Response) => {
+  const wholeData = getData();
+  const userCart = getUserCartItem(req.session.userId as string);
+  const { id } = req.params;
+  const pickedGame = wholeData.games.find((g: Game) => g.id === id)
+  userCart.push({
+    gameId: pickedGame.id,
+    title: pickedGame.title,
+    thumbnailUrl: pickedGame.thumbnailUrl,
+    quantity: 1, // well, you play one game for one account, right??
+    priceAtPurchase: pickedGame.price
+  })
+  wholeData.users.find((u: User) => u.id === req.session.userId).cart = userCart;
+  saveData(wholeData);
+  res.redirect("/customer");
+}
+
+export const checkout = (req: Request, res: Response) => {
+  const wholeData = getData();
+  // Empty the cart, assume payment is automatically done.
+  wholeData.users.find((u: User) => u.id === req.session.userId).cart = [];
+  // Enable install button for the game? (Later)
+  saveData(wholeData);
+  res.redirect(req.headers.referer || "/customer");
+}

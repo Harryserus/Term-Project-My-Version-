@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import "dotenv/config";
 import session from "express-session";
 import path from "path";
@@ -13,7 +13,7 @@ import {
   updateGame,
   updateOrdersStatus,
 } from "./controllers/adminControllers";
-import { loadCheckout, loadCustomerHomePage, loadCustomerProfile, loadOrder, loadProductDetail } from "./controllers/clientControllers";
+import { addToCart, checkout, loadCheckout, loadCustomerHomePage, loadCustomerProfile, loadOrder, loadProductDetail } from "./controllers/clientControllers";
 import {
   loadHome,
   loginController,
@@ -71,7 +71,8 @@ app.get("/customer/profile", requireLogin, loadCustomerProfile);
 /* ------------------------------------------------- */
 
 // crud
-app.post("/customer/cart/add", requireLogin, (req: Request, res: Response) => {});
+app.post("/customer/cart/add/:id", requireLogin, addToCart);
+app.post("/customer/checkout", requireLogin, checkout);
 app.post("/admin/product/add", requireLogin, requireAdminCredentials, createNewGame);
 app.post("/admin/product/edit/:id", requireLogin, requireAdminCredentials, updateGame);
 app.get("/admin/product/delete/:id", requireLogin, requireAdminCredentials, deleteGame);
