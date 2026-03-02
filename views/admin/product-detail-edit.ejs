@@ -49,7 +49,7 @@ const actionUrl = isEdit ? `/admin/product/edit/${game.id}` : "/admin/product/ad
       <div class="form-group">
         <label for="availability">Availability</label>
         <select name="availability" id="availability">
-          <% ["available", "coming_soon", "early_access", "delisted"].forEach(status => { %>
+          <% ["Available", "Coming_Soon", "Early_Access", "Delisted"].forEach(status => { %>
             <option value="<%= status %>" <%= (isEdit && game.availability === status) ? 'selected' : '' %>>
               <%= status.replace('_', ' ') %>
             </option>
@@ -100,7 +100,7 @@ const actionUrl = isEdit ? `/admin/product/edit/${game.id}` : "/admin/product/ad
     </div>
 
     <div class="form-footer">
-      <label class="checkbox-container">
+      <label class="checkbox-container flex flex-row items-center gap-x-2">
         <input type="checkbox" name="isPreOrder" id="isPreOrder" <%= isEdit && game.isPreOrder ? 'checked' : '' %>>
         <span>Is Pre-Order?</span>
       </label>
