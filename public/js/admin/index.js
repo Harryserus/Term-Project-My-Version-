@@ -1,9 +1,3 @@
-document.querySelector(".add-new-product-button").addEventListener(
-  "click",
-  () => {
-    window.location.href = "/admin/product/add";
-  },
-)
 document.querySelectorAll(".status-btn").forEach((button) => {
   button.addEventListener("click", async () => {
     const status = button.getAttribute("data-status");
