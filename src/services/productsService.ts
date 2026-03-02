@@ -1,5 +1,5 @@
 import { Game, Platform, Availability } from "../models/game.model";
-import { Order } from "../models/order.model";
+import { Order, OrderItem } from "../models/order.model";
 import { Request, Response } from "express";
 import { getData, saveData, stringToArray } from "./util";
 import { getUser } from "./personalization";
@@ -119,7 +119,7 @@ export const updateOrders = (req: Request, res: Response) => {
   res.sendStatus(200);
 };
 
-export const getUserCartItem = (uid: string) => getUser(uid).cart;
+export const getUserCartItem = (uid: string): OrderItem[] => getUser(uid).cart;
 export const addProductToCart = (req: Request, res: Response) => {
   const wholeData = getData();
   const userCart = getUserCartItem(req.session.userId as string);
@@ -140,6 +140,14 @@ export const addProductToCart = (req: Request, res: Response) => {
 export const checkout = (req: Request, res: Response) => {
   const wholeData = getData();
   // Empty the cart, assume payment is automatically done.
+  wholeData.orders.push({ 
+    id: "ord_" + (parseInt(wholeData.orders[wholeData.orders.length - 1].id.slice(4)) + 1),
+    userId: req.session.userId,
+    items: getUserCartItem(req.session.userId as string),
+    totalAmount: getUserCartItem(req.session.userId as string).reduce((acc, item) => acc + item.priceAtPurchase, 0),
+    status: "paid",
+    dateCreated: new Date()
+  })
   wholeData.users.find((u: User) => u.id === req.session.userId).cart = [];
   // Enable install button for the game? (Later)
   saveData(wholeData);

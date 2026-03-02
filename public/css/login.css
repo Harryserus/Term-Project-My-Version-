@@ -209,6 +209,9 @@
       max-width: 96rem;
     }
   }
+  .mr-0 {
+    margin-right: calc(var(--spacing) * 0);
+  }
   .mr-\[4px\] {
     margin-right: 4px;
   }
@@ -235,6 +238,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .min-w-\[105px\] {
+    min-width: 105px;
   }
   .flex-grow {
     flex-grow: 1;
@@ -297,6 +303,9 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
   .px-3 {
     padding-inline: calc(var(--spacing) * 3);
   }
@@ -311,6 +320,9 @@
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
+  }
+  .py-6 {
+    padding-block: calc(var(--spacing) * 6);
   }
   .py-\[8px\] {
     padding-block: 8px;
@@ -383,6 +395,11 @@
   .sm\:flex-row {
     @media (width >= 40rem) {
       flex-direction: row;
+    }
+  }
+  .sm\:gap-x-6 {
+    @media (width >= 40rem) {
+      column-gap: calc(var(--spacing) * 6);
     }
   }
   .sm\:gap-x-\[20px\] {

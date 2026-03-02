@@ -18,7 +18,7 @@
     @apply gap-x-3 sm:gap-x-6;
   }
   .product-actions {
-    @apply gap-x-3 sm:gap-x-6;
+    @apply gap-x-3 mr-0 sm:gap-x-6 sm:mr-4;
   }
   .product-card, .product-title-category h4 {
     @apply text-sm sm:text-base;
@@ -87,6 +87,15 @@
   }
 }
 
+.btn-save, .btn-cancel {
+   transition: filter 0.2s ease-in-out;
+}
+.btn-save:hover, .btn-cancel:hover {
+   filter: brightness(0.8);
+}
+.btn-save, .btn-cancel {
+   transition: filter 0.2s ease-in-out;
+}
 .categories-and-search {
   background-color: var(--transparent-bg);
   border-radius: 16px;
@@ -204,8 +213,13 @@
   flex-direction: row;
   justify-content: space-between;
   gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
-.add-new-product-button a {
+.add-new-product-button:hover {
+  background-color: rgba(215, 233, 249, 0.5);
+}
+.add-new-product-button span {
   width: 100%;
   padding: 0rem 0.2rem;
   display: flex;
@@ -276,6 +290,10 @@
 .product-actions {
   display: flex;
   width: 74px;
+}
+.product-actions a:hover {
+  filter: brightness(0.8);
+  transition: filter 0.2s ease-in-out;
 }
 /* orders css */
 .mark_all {
@@ -364,12 +382,13 @@
 .product-edit-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   padding: 2rem;
 
   background-color: var(--transparent-bg);
   border-radius: 16px;
+  overflow: auto;
 }
 .edit-form {
   max-width: 600px;
