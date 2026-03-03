@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @layer components {
   .filter-container {
@@ -7,7 +7,8 @@
 
     align-items: center;
   }
-  .category-button, .status-button {
+  .category-button,
+  .status-button {
     @apply text-sm py-2 px-3 sm:text-base sm:px-4 md:text-sm md:px-3 xl:text-base xl:px-4;
   }
   .add-and-search {
@@ -20,19 +21,21 @@
   .product-actions {
     @apply gap-x-3 mr-0 sm:gap-x-6 sm:mr-4;
   }
-  .product-card, .product-title-category h4 {
+  .product-card,
+  .product-title-category h4 {
     @apply text-sm sm:text-base;
   }
   .product-card img {
-    @apply w-12 h-12 sm:w-16 sm:h-16
+    @apply w-12 h-12 sm:w-16 sm:h-16;
   }
   .product-title-category p {
-    @apply text-[0.6rem] sm:text-[0.8rem]
+    @apply text-[0.6rem] sm:text-[0.8rem];
   }
   .product-title-category {
     @apply w-[50%] lg:w-[60%];
   }
-  .product-title-category h4, .product-title-category p {
+  .product-title-category h4,
+  .product-title-category p {
     width: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -52,12 +55,13 @@
     @apply text-xs xl:text-sm;
   }
   .orders-container {
-    @apply gap-y-2 lg:gap-y-3
+    @apply gap-y-2 lg:gap-y-3;
   }
   .add-new-product-button {
     @apply items-center text-sm sm:text-base;
   }
-  .products-container, .orders-and-actions-container {
+  .products-container,
+  .orders-and-actions-container {
     @apply p-4 sm:p-8;
   }
   .product-main-info {
@@ -87,14 +91,17 @@
   }
 }
 
-.btn-save, .btn-cancel {
-   transition: filter 0.2s ease-in-out;
+.btn-save,
+.btn-cancel {
+  transition: filter 0.2s ease-in-out;
 }
-.btn-save:hover, .btn-cancel:hover {
-   filter: brightness(0.8);
+.btn-save:hover,
+.btn-cancel:hover {
+  filter: brightness(0.8);
 }
-.btn-save, .btn-cancel {
-   transition: filter 0.2s ease-in-out;
+.btn-save,
+.btn-cancel {
+  transition: filter 0.2s ease-in-out;
 }
 .categories-and-search {
   background-color: var(--transparent-bg);
@@ -187,7 +194,8 @@
 }
 /* product css */
 
-.search-product-container form, .search-order-container form {
+.search-product-container form,
+.search-order-container form {
   display: flex;
   height: 100%;
   gap: 10px;
@@ -315,7 +323,7 @@
   /* Define columns: ID, Date, Amount, Status, Actions */
   /* Adjust the 'fr' or 'px' values based on your content size */
   grid-template-columns: 20px 2fr 1fr 60px 80px;
-  
+
   /* display: flex; */
   /* flex-direction: row; */
   justify-content: space-around;
@@ -352,6 +360,11 @@
   border: 1px solid;
   background-color: rgba(255, 69, 58, 0.15);
   border-color: rgba(239, 68, 68, 0.946);
+}
+.status-delete {
+  border: 1px solid;
+  background-color: rgba(255, 0, 0, 0.467);
+  border-color: rgba(59, 130, 246, 0.5);
 }
 .order-select input {
   scale: 1.5;
@@ -437,7 +450,8 @@ label {
   margin-bottom: 5px;
 }
 input,
-textarea, select {
+textarea,
+select {
   padding: 0.5rem 0.5rem;
   border: 1px solid #929292;
   border-radius: 0.5rem;
@@ -449,7 +463,8 @@ input[type="search"] {
   width: 100%;
 }
 select {
-  &, &::picker(select) {
+  &,
+  &::picker(select) {
     appearance: base-select;
   }
   &::picker(select) {
@@ -460,8 +475,6 @@ select {
     padding: 0.5rem;
   }
 }
-
-
 
 .form-footer {
   margin-top: 20px;

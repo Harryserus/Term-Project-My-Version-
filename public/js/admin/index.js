@@ -11,6 +11,13 @@ document.querySelectorAll(".status-btn").forEach((button) => {
     if (orderIds.length === 0) {
       return alert("Please select at least one order.");
     }
+    // 2. CONFIRMATION GATE: Only pops up if status is 'delete'
+    if (status === "delete") {
+      const confirmed = confirm(
+        `Are you sure you want to delete ${orderIds.length} order(s)?`,
+      );
+      if (!confirmed) return; // Exit function if they click 'Cancel'
+    }
 
     // Send the data to the server
     const response = await fetch("/admin/orders/update-status", {

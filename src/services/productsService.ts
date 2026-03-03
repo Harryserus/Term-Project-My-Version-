@@ -5,7 +5,6 @@ import { getData, saveData, stringToArray } from "./util";
 import { getUser } from "./personalization";
 import { User } from "../models/user.model";
 
-
 // 1. Get All Games
 export const getAllGames = (): Game[] => {
   const data = getData();
@@ -19,15 +18,19 @@ export const getOneProduct = (req: Request, res: Response) => {
   return game;
 };
 export const searchGames = (q?: string): Game[] => {
-  if(!q) return getAllGames();
+  if (!q) return getAllGames();
   const games = getAllGames();
-  return games.filter((g) => g.title.toLowerCase().match(q.toLowerCase() as string));
-}
+  return games.filter((g) =>
+    g.title.toLowerCase().match(q.toLowerCase() as string),
+  );
+};
 export const searchOrders = (q?: string): Order[] => {
-  if(!q) return getAllOrders();
+  if (!q) return getAllOrders();
   const orders = getAllOrders();
-  return orders.filter((o) => o.id.toLowerCase().match(q.toLowerCase() as string));
-}
+  return orders.filter((o) =>
+    o.id.toLowerCase().match(q.toLowerCase() as string),
+  );
+};
 // 2. Add Product
 export const addProduct = (req: Request, res: Response) => {
   const db = getData();
@@ -102,19 +105,22 @@ export const deleteProduct = (req: Request, res: Response) => {
 };
 
 export const getAllOrders = (): Order[] => getData().orders;
-export const getUserOrder = (uid: string) => getAllOrders().filter((o) => o.userId === uid);
+export const getUserOrder = (uid: string) =>
+  getAllOrders().filter((o) => o.userId === uid);
 // order updates
 export const updateOrders = (req: Request, res: Response) => {
   const { orderIds, status } = req.body; // e.g., ["101", "102"], "paid"
   const db = getData();
-
-  // Update the status for matching IDs
-  db.orders.forEach((order: any) => {
-    if (orderIds.includes(order.id)) {
-      order.status = status;
-    }
-  });
-
+  if (status === "delete") {
+    db.orders = db.orders.filter((o: any) => !orderIds.includes(o.id));
+  } else {
+    // Update the status for matching IDs
+    db.orders.forEach((order: any) => {
+      if (orderIds.includes(order.id)) {
+        order.status = status;
+      }
+    });
+  }
   saveData(db);
   res.sendStatus(200);
 };
@@ -124,32 +130,38 @@ export const addProductToCart = (req: Request, res: Response) => {
   const wholeData = getData();
   const userCart = getUserCartItem(req.session.userId as string);
   const { id } = req.params;
-  const pickedGame = wholeData.games.find((g: Game) => g.id === id)
+  const pickedGame = wholeData.games.find((g: Game) => g.id === id);
   userCart.push({
     gameId: pickedGame.id,
     title: pickedGame.title,
     thumbnailUrl: pickedGame.thumbnailUrl,
     quantity: 1, // well, you play one game for one account, right??
-    priceAtPurchase: pickedGame.price
-  })
-  wholeData.users.find((u: User) => u.id === req.session.userId).cart = userCart;
+    priceAtPurchase: pickedGame.price,
+  });
+  wholeData.users.find((u: User) => u.id === req.session.userId).cart =
+    userCart;
   saveData(wholeData);
   res.redirect("/customer");
-}
+};
 
 export const checkout = (req: Request, res: Response) => {
   const wholeData = getData();
   // Empty the cart, assume payment is automatically done.
-  wholeData.orders.push({ 
-    id: "ord_" + (parseInt(wholeData.orders[wholeData.orders.length - 1].id.slice(4)) + 1),
+  wholeData.orders.push({
+    id:
+      "ord_" +
+      (parseInt(wholeData.orders[wholeData.orders.length - 1].id.slice(4)) + 1),
     userId: req.session.userId,
     items: getUserCartItem(req.session.userId as string),
-    totalAmount: getUserCartItem(req.session.userId as string).reduce((acc, item) => acc + item.priceAtPurchase, 0),
+    totalAmount: getUserCartItem(req.session.userId as string).reduce(
+      (acc, item) => acc + item.priceAtPurchase,
+      0,
+    ),
     status: "paid",
-    dateCreated: new Date()
-  })
+    dateCreated: new Date(),
+  });
   wholeData.users.find((u: User) => u.id === req.session.userId).cart = [];
   // Enable install button for the game? (Later)
   saveData(wholeData);
   res.redirect(req.headers.referer || "/customer");
-}
+};
