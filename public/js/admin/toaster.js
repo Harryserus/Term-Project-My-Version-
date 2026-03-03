@@ -31,6 +31,7 @@ function showGlassToast(message, type = "success") {
 window.addEventListener("load", () => {
   const urlParams = new URLSearchParams(window.location.search);
 
+  // 1. URL-driven success messages
   if (urlParams.has("success")) {
     const action = urlParams.get("action");
     let msg = "Changes Saved!";
@@ -42,7 +43,9 @@ window.addEventListener("load", () => {
 
     // Clean up the URL so it doesn't show again on refresh
     window.history.replaceState({}, document.title, window.location.pathname);
+    return;
   }
+
   // for invalid form submits
   if (urlParams.has("error")) {
     // Call your toast function with a red/error theme
@@ -50,6 +53,14 @@ window.addEventListener("load", () => {
 
     // Clean URL
     window.history.replaceState({}, document.title, window.location.pathname);
+    return;
+  }
+
+  // 2. localStorage-driven messages (used for form submits + deletes)
+  const stored = localStorage.getItem("realmNotification");
+  if (stored) {
+    showGlassToast(stored, "success");
+    localStorage.removeItem("realmNotification");
   }
 });
 
@@ -59,6 +70,7 @@ document.addEventListener("click", (e) => {
   const btn = e.target.closest('button[type="submit"]:not(.exception)');
   if (btn) {
     const form = btn.closest("form");
+
     if (form && form.checkValidity()) {
       const val = btn.innerText.toLowerCase();
       let text = "Changes Saved!"; // Default
@@ -74,6 +86,7 @@ document.addEventListener("click", (e) => {
 
       localStorage.setItem("realmNotification", text);
     }
+    return;
   }
 
   // 2. Handle DELETE Links (The Trash Icon)
@@ -83,13 +96,14 @@ document.addEventListener("click", (e) => {
     // Optional: Add a confirmation so they don't misclick
     const confirmed = confirm("Are you sure you want to delete this item?");
 
-    if (confirmed) {
-      localStorage.setItem(
-        "realmNotification",
-        "Successfully deleted the item!",
-      );
-    } else {
+    if (!confirmed) {
       e.preventDefault(); // Stop the deletion if they click 'Cancel'
+      return;
     }
+
+    localStorage.setItem(
+      "realmNotification",
+      "Successfully deleted the item!"
+    );
   }
 });

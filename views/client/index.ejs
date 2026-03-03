@@ -1,5 +1,13 @@
 <%- include("../partials/client-header.ejs") %>
 
+<%
+  // Safe defaults (won't crash even if not passed from controller)
+  const currentSearch = typeof search === "string" ? search : "";
+  const currentSort = typeof sort === "string" ? sort : "";
+%>
+
+<div class="page-title">Store</div>
+
 <div class="categories-and-search">
   <div class="filter-container">
     <button class="category-button active all-filter-button" data-category="all">All</button>
@@ -10,35 +18,82 @@
   </div>
 
   <div class="sort-container">
-    <label for="sort-price" class="sort-label">Sort</label>
-    <select id="sort-price" name="sort" class="sort-select">
-      <option value="">Default</option>
-      <option value="price_asc">Price: Low → High</option>
-      <option value="price_desc">Price: High → Low</option>
-    </select>
+    <span class="sort-label">Sort</span>
 
-  <div class="grid">
-  <% if(true) { %>
-    <% for (let i = 1; i <= 8; i++) { %>
-      <a href="/customer/product/<%= i %>" class="card game-card">
-        <div class="game-card__img">Image</div>
-        <div class="game-card__body">
-          <div class="game-card__title">Indie Game <%= i %></div>
-          <div class="game-card__meta">Action • Adventure</div>
-          <div class="game-card__price">$19.99</div>
-        </div>
-      </a>
-    <% } %>
-  <% } else { %>
-    <p>No games found.</p>
-  <% } %>
+    <form id="sortForm" action="/customer" method="get" style="display:flex; gap:.75rem; align-items:center;">
+      <!-- keep search when sorting -->
+      <input type="hidden" name="search-product" value="<%= currentSearch %>">
+
+      <select id="sort-price" name="sort" class="sort-select" onchange="document.getElementById('sortForm').submit()">
+        <option value="" <%= currentSort === "" ? "selected" : "" %>>Default</option>
+        <option value="price_asc" <%= currentSort === "price_asc" ? "selected" : "" %>>Price: Low → High</option>
+        <option value="price_desc" <%= currentSort === "price_desc" ? "selected" : "" %>>Price: High → Low</option>
+      </select>
+    </form>
+
+    <div class="search-product-container">
+      <form action="/customer" method="get" style="display:flex; align-items:center; gap:6px;">
+        <!-- keep sort when searching -->
+        <input type="hidden" name="sort" value="<%= currentSort %>">
+
+        <input
+          name="search-product"
+          type="search"
+          id="search-product"
+          placeholder="Search"
+          value="<%= currentSearch %>"
+        />
+
+        <button type="submit" id="search_product" aria-label="Search">
+          <img src="/assets/search-icon.svg" alt="search" width="25px" />
+        </button>
+      </form>
+    </div>
+  </div>
 </div>
 
-<% if(alert) { %>
-<script>
-  alert('<%= alert %>')
-  window.location.replace(window.location.pathname)
-</script>
-<% } %>
+<div class="products-container">
+  <% if (typeof games !== "undefined" && games && games.length > 0) { %>
+    <% games.forEach(game => { %>
+      <a
+        class="product-card"
+        href="/customer/product/<%= game.id %>"
+        data-platform="<%= (game.platforms || []).join(',') %>"
+      >
+        <div class="product-main-info">
+          <img src="<%= game.thumbnailUrl %>" alt="<%= game.title %> thumbnail" />
+
+          <div class="product-title-category">
+            <h4><%= game.title %></h4>
+            <p><%= (game.genres || []).join(", ") %></p>
+          </div>
+        </div>
+
+        <p class="product-price">$<%= game.price %></p>
+
+        <div class="product-actions">
+          <% if (game.availability === "coming_soon") { %>
+            <span class="tag-pill subtle">Coming Soon</span>
+          <% } else if (game.availability === "delisted") { %>
+            <span class="tag-pill subtle">Delisted</span>
+          <% } else if (game.stock === 0) { %>
+            <span class="tag-pill subtle">Out of Stock</span>
+          <% } else { %>
+            <span class="tag-pill subtle">Available</span>
+          <% } %>
+        </div>
+      </a>
+    <% }) %>
+  <% } else { %>
+    <div class="product-card" style="justify-content:center; text-align:center;">
+      <div style="opacity:.9;">
+        No games found.
+        <% if (currentSearch) { %>
+          <div style="opacity:.75; margin-top:.25rem;">Try a different keyword.</div>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
+</div>
 
 <%- include("../partials/client-footer.ejs") %>

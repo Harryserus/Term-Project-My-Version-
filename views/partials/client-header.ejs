@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Shared theme -->
     <link rel="stylesheet" href="/css/shared.css" />
+    <!-- Client styles -->
     <link rel="stylesheet" href="/css/client.css" />
+
+    <!-- Client JS -->
+    <!-- index.js safely exits unless on /customer (store page) -->
     <script src="/js/client/index.js" defer></script>
-    <title>Indie Realm</title>
+    <script src="/js/client/toaster.js" defer></script>
+
+    <title><%= typeof title === "string" && title.trim() ? title : "Indie Realm" %></title>
   </head>
+
   <body>
     <div class="container">
-      <div><%- include("../partials/client-side-nav.ejs") %></div>
+      <%- include("../partials/client-side-nav.ejs") %>
 
       <div class="rightside-container">
-  <%- include("../partials/top-nav-bar.ejs") %>
+        <%- include("../partials/top-nav-bar.ejs") %>

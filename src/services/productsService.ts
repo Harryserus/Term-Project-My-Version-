@@ -10,21 +10,24 @@ export const getAllGames = (): Game[] => {
   const data = getData();
   return data.games;
 };
-// get one game product
+
+// get one game product (CLIENT)
 export const getOneProduct = (req: Request, res: Response) => {
   const gameid = req.params.id;
   const games: Game[] = getData().games;
-  const game = games.find((g) => g.id == gameid);
+  const game = games.find((g) => String(g.id) === String(gameid));
   return game;
 };
+
 export const searchGames = (q?: string, id?: string): Game[] => {
-  if (id) return getAllGames().filter((g) => g.id === id);
+  if (id) return getAllGames().filter((g) => String(g.id) === String(id));
   if (!q) return getAllGames();
   const games = getAllGames();
   return games.filter((g) =>
     g.title.toLowerCase().match(q.toLowerCase() as string),
   );
 };
+
 export const searchOrders = (q?: string): Order[] => {
   if (!q) return getAllOrders();
   const orders = getAllOrders();
@@ -32,7 +35,8 @@ export const searchOrders = (q?: string): Order[] => {
     o.id.toLowerCase().match(q.toLowerCase() as string),
   );
 };
-// 2. Add Product
+
+// 2. Add Product (ADMIN)
 export const addProduct = (req: Request, res: Response) => {
   const db = getData();
   const gamesList = db.games;
@@ -42,11 +46,11 @@ export const addProduct = (req: Request, res: Response) => {
   if (!platforms) platforms = [];
   if (!Array.isArray(platforms)) platforms = [platforms];
 
-  //safety check for form data
- if (Number(req.body.price) <= 0 || Number(req.body.stock) < 0) {
+  // safety check for form data
+  if (Number(req.body.price) <= 0 || Number(req.body.stock) < 0) {
     // Redirect back to the 'add' or 'edit' page with an error parameter
-    return res.redirect('/admin/product/add?error=invalid_data');
-}
+    return res.redirect("/admin/product/add?error=invalid_data");
+  }
 
   const newGame: Game = {
     id: Date.now().toString(), // Generate a real ID
@@ -72,7 +76,7 @@ export const addProduct = (req: Request, res: Response) => {
   res.redirect("/admin?success=true&action=add");
 };
 
-// 3. Update Product
+// 3. Update Product (ADMIN)
 export const updateProduct = (req: Request, res: Response) => {
   const db = getData();
   const gameId = req.params.id;
@@ -101,7 +105,7 @@ export const updateProduct = (req: Request, res: Response) => {
   res.redirect("/admin");
 };
 
-// 4. Delete Product
+// 4. Delete Product (ADMIN)
 export const deleteProduct = (req: Request, res: Response) => {
   const db = getData();
   const gameId = req.params.id;
@@ -114,7 +118,8 @@ export const deleteProduct = (req: Request, res: Response) => {
 export const getAllOrders = (): Order[] => getData().orders;
 export const getUserOrder = (uid: string) =>
   getAllOrders().filter((o) => o.userId === uid);
-// order updates
+
+// order updates (ADMIN)
 export const updateOrders = (req: Request, res: Response) => {
   const { orderIds, status } = req.body; // e.g., ["101", "102"], "paid"
   const db = getData();
@@ -133,65 +138,132 @@ export const updateOrders = (req: Request, res: Response) => {
 };
 
 export const getUserCartItem = (uid: string): OrderItem[] => getUser(uid).cart;
+
+/* =========================
+   CLIENT: Add to Cart
+   - Redirect back with success/error + msg for toaster
+   ========================= */
 export const addProductToCart = (req: Request, res: Response) => {
+  const { id } = req.params; // FIX: declare before use
   const wholeData = getData();
-  const pickedGame = wholeData.games.find((g: Game) => g.id === id);
-  if (!pickedGame) return res.status(404).json({ message: "Game not found" });
-  if (pickedGame.stock === 0)
-    return res.status(400).json({ messsage: "This game is out of stock!" });
-  if (pickedGame.availability === "delisted")
-    return res.status(400).json({
-      messsage:
+
+  const pickedGame = wholeData.games.find((g: Game) => String(g.id) === String(id));
+
+  const back = req.get("Referer") || "/customer";
+  const join = back.includes("?") ? "&" : "?";
+
+  if (!pickedGame) {
+    return res.redirect(`${back}${join}error=1&msg=${encodeURIComponent("Game not found")}`);
+  }
+
+  if (pickedGame.stock === 0) {
+    return res.redirect(`${back}${join}error=1&msg=${encodeURIComponent("This game is out of stock!")}`);
+  }
+
+  if (pickedGame.availability === "delisted") {
+    return res.redirect(
+      `${back}${join}error=1&msg=${encodeURIComponent(
         "This game has been delisted, you can no longer add it to your cart.",
-    });
-  const userCart = getUserCartItem(req.session.userId as string);
-  const { id } = req.params;
+      )}`,
+    );
+  }
+
+  const userId = req.session.userId as string;
+  const user = wholeData.users.find((u: User) => u.id === userId);
+
+  if (!user) {
+    return res.redirect(`${back}${join}error=1&msg=${encodeURIComponent("User not found")}`);
+  }
+
+  const userCart = getUserCartItem(userId);
+
+  // Optional: prevent duplicates (recommended)
+  const exists = userCart.some((it: any) => String(it.gameId) === String(pickedGame.id));
+  if (exists) {
+    return res.redirect(`${back}${join}success=1&msg=${encodeURIComponent("Already in cart.")}`);
+  }
+
   userCart.push({
     gameId: pickedGame.id,
     title: pickedGame.title,
     thumbnailUrl: pickedGame.thumbnailUrl,
-    quantity: 1, // well, you play one game for one account, right??
+    quantity: 1,
     priceAtPurchase: pickedGame.price,
   });
-  wholeData.users.find((u: User) => u.id === req.session.userId).cart =
-    userCart;
+
+  user.cart = userCart;
   saveData(wholeData);
-  res.sendStatus(204);
-  // res.redirect("/customer");
+
+  return res.redirect(`${back}${join}success=1&msg=${encodeURIComponent("Added to cart!")}`);
 };
 
+/* =========================
+   CLIENT: Checkout
+   - Validate cart items (delisted/out of stock)
+   - Create order, clear cart
+   - Redirect with toast params
+   ========================= */
 export const checkout = (req: Request, res: Response) => {
   const wholeData = getData();
-  // Empty the cart, assume payment is automatically done.
-  const outOfStockGames = [];
-  const delistedGames = [];
-  for (const item of getUserCartItem(req.session.userId as string)) {
-    const thegame = searchGames(undefined, (item as OrderItem).gameId);
-    if (thegame[0]?.stock === 0) outOfStockGames.push(thegame[0].title);
-    if (thegame[0]?.availability === "delisted")
-      delistedGames.push(thegame[0].title);
+  const userId = req.session.userId as string;
+
+  const back = req.get("Referer") || "/customer/checkout";
+  const join = back.includes("?") ? "&" : "?";
+
+  const cart = getUserCartItem(userId) || [];
+
+  if (cart.length === 0) {
+    return res.redirect(`${back}${join}error=1&msg=${encodeURIComponent("Your cart is empty.")}`);
   }
 
-  if (outOfStockGames.length === 0 || delistedGames.length === 0) {
-    return res.status(400).json({ outOfStockGames, delistedGames });
+  const outOfStockGames: string[] = [];
+  const delistedGames: string[] = [];
+
+  for (const item of cart) {
+    const thegame = searchGames(undefined, String(item.gameId));
+    const g = thegame[0];
+
+    if (!g) continue;
+    if (g.stock === 0) outOfStockGames.push(g.title);
+    if (g.availability === "delisted") delistedGames.push(g.title);
   }
+
+  // FIX: if there ARE invalid items, block checkout
+  if (outOfStockGames.length > 0 || delistedGames.length > 0) {
+    const parts: string[] = [];
+    if (outOfStockGames.length > 0) parts.push(`Out of stock: ${outOfStockGames.join(", ")}`);
+    if (delistedGames.length > 0) parts.push(`Delisted: ${delistedGames.join(", ")}`);
+
+    return res.redirect(`${back}${join}error=1&msg=${encodeURIComponent(parts.join(" | "))}`);
+  }
+
+  // Generate next order id safely
+  const last = wholeData.orders[wholeData.orders.length - 1];
+  const nextNum =
+    last && typeof last.id === "string" && last.id.startsWith("ord_")
+      ? parseInt(last.id.slice(4), 10) + 1
+      : wholeData.orders.length + 1;
+
+  const totalAmount = cart.reduce(
+    (acc, item) => acc + item.priceAtPurchase * (item.quantity || 1),
+    0,
+  );
 
   wholeData.orders.push({
-    id:
-      "ord_" +
-      (parseInt(wholeData.orders[wholeData.orders.length - 1].id.slice(4)) + 1),
-    userId: req.session.userId,
-    items: getUserCartItem(req.session.userId as string),
-    totalAmount: getUserCartItem(req.session.userId as string).reduce(
-      (acc, item) => acc + item.priceAtPurchase,
-      0,
-    ),
+    id: "ord_" + nextNum,
+    userId,
+    items: cart,
+    totalAmount,
     status: "paid",
-    dateCreated: new Date(),
+    // storing ISO string is safer for JSON storage than Date object
+    dateCreated: new Date().toISOString() as any,
   });
-  wholeData.users.find((u: User) => u.id === req.session.userId).cart = [];
-  // Enable install button for the game? (Later)
+
+  const user = wholeData.users.find((u: User) => u.id === userId);
+  if (user) user.cart = [];
+
   saveData(wholeData);
-  res.sendStatus(204);
-  // res.redirect(req.headers.referer || "/customer");
+
+  // Redirect to orders (better UX) OR back to checkout
+  return res.redirect(`/customer/orders?success=1&msg=${encodeURIComponent("Payment successful!")}`);
 };

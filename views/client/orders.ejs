@@ -1,37 +1,53 @@
 <%- include("../partials/client-header.ejs", { title: "My Orders" }) %>
 
-<section class="page">
+<div class="page-title">My Orders</div>
 
-  <h1 class="page__title">My Orders</h1>
-
-  <div class="orders-list">
-
-    <% for (let i = 1; i <= 3; i++) { %>
-      <div class="order-card custom-card">
-
-        <div class="order-card__left">
-          <div class="order-card__id">
-            Order #000<%= i %>
-          </div>
-          <div class="order-card__date">
-            2026-02-2<%= i %>
-          </div>
-        </div>
-
-        <div class="order-card__right">
-          <div class="order-card__total">
-            $39.99
-          </div>
-          <div class="order-card__status paid">
-            PAID
-          </div>
-        </div>
-
+<div class="orders-container">
+  <% if (!orders || orders.length === 0) { %>
+    <div class="order-card">
+      <div class="order-header">
+        <div class="order-number">No orders yet</div>
+        <div class="order-date">Buy a game to see it here.</div>
       </div>
-    <% } %>
 
-  </div>
+      <a class="order-view-link" href="/customer">Go to store</a>
+    </div>
+  <% } else { %>
+    <% orders.forEach(order => { %>
+      <%
+        const rawStatus = String(order.status || "pending").toLowerCase();
 
-</section>
+        const normalizedStatus =
+          rawStatus === "paid" ? "paid" :
+          rawStatus === "delivered" ? "delivered" :
+          (rawStatus === "cancelled" || rawStatus === "canceled") ? "canceled" :
+          "pending";
+
+        const statusClass = `status-${normalizedStatus}`;
+
+        const items = Array.isArray(order.items) ? order.items : [];
+        const total = items.reduce((sum, it) => {
+          const qty = Number(it.quantity || 1);
+          const price = Number(it.priceAtPurchase || 0);
+          return sum + (price * qty);
+        }, 0);
+
+        const dateText = order.dateCreated
+          ? new Date(order.dateCreated).toISOString().slice(0, 10)
+          : (order.createdAt || "");
+      %>
+
+      <div class="order-card">
+        <div class="order-header">
+          <div class="order-number">Order <%= order.id %></div>
+          <div class="order-date"><%= dateText %></div>
+        </div>
+
+        <div class="order-price">$<%= total.toFixed(2) %></div>
+        <div class="order-status <%= statusClass %>"><%= normalizedStatus %></div>
+      </div>
+    <% }) %>
+  <% } %>
+</div>
 
 <%- include("../partials/client-footer.ejs") %>

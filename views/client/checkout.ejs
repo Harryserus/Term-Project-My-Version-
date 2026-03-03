@@ -1,40 +1,80 @@
-<%- include("../partials/client-header.ejs", { title: "Checkout" }) %>
+<%- include("../partials/client-header.ejs") %>
 
-<section class="page">
+<%
+  const items = Array.isArray(cartItem) ? cartItem : [];
 
-  <h1 class="page__title">Checkout</h1>
+  // If your controller passes errorMsg, this is the correct safe default:
+  const msg = (typeof errorMsg === "string" && errorMsg.trim().length > 0) ? errorMsg : "";
 
-  <div class="checkout-container">
+  const total = items.reduce((sum, it) => {
+    const qty = Number(it.quantity || 1);
+    const price = Number(it.priceAtPurchase || 0);
+    return sum + (price * qty);
+  }, 0);
+%>
 
-    <div class="checkout-summary custom-card">
+<div class="checkout-page">
+  <div class="page-title">Checkout</div>
 
-      <div class="checkout-item">
-        <span>Indie Game Title</span>
-        <span>$19.99</span>
+  <% if (msg) { %>
+    <div class="product-card" style="border-color: rgba(239, 68, 68, 0.9); justify-content:space-between;">
+      <div style="display:flex; gap:12px; align-items:center;">
+        <span style="font-size:1.25rem;">⚠️</span>
+        <div>
+          <div style="font-weight:800;">Cannot complete checkout</div>
+          <div style="opacity:.85;"><%= msg %></div>
+        </div>
       </div>
+      <a class="btn-secondary" href="/customer">Back to Store</a>
+    </div>
+  <% } %>
 
-      <div class="checkout-item">
-        <span>Another Game</span>
-        <span>$19.99</span>
-      </div>
+  <div class="checkout-grid">
+    <div class="checkout-items">
+      <div class="section-title">Items</div>
 
-      <div class="checkout-total">
+      <% if (items.length === 0) { %>
+        <p style="opacity:.85;">Your cart is empty.</p>
+        <div style="margin-top:1rem;">
+          <a class="btn-secondary" href="/customer">Browse games</a>
+        </div>
+      <% } else { %>
+        <% items.forEach(item => { %>
+          <div class="checkout-item-row">
+            <div class="checkout-item-left">
+              <img class="checkout-thumb" src="<%= item.thumbnailUrl %>" alt="<%= item.title %> thumbnail">
+              <div>
+                <div class="checkout-item-title"><%= item.title %></div>
+                <div class="checkout-item-meta">Qty: <%= item.quantity || 1 %></div>
+              </div>
+            </div>
+            <div class="checkout-item-right">
+              $<%= (Number(item.priceAtPurchase || 0) * Number(item.quantity || 1)).toFixed(2) %>
+            </div>
+          </div>
+        <% }) %>
+      <% } %>
+    </div>
+
+    <div class="checkout-summary">
+      <div class="section-title">Summary</div>
+
+      <div class="summary-row">
         <span>Total</span>
-        <span>$39.98</span>
+        <strong>$<%= total.toFixed(2) %></strong>
       </div>
 
-      <!-- Test checkout endpoint -->
-      <form method="post" action="/customer/checkout">
-        
-        <button type="submit" class="btn-primary full-width">
+      <form method="post" action="/customer/checkout" style="margin-top:1rem;">
+        <button type="submit" class="btn-primary full-width" <%= items.length === 0 ? "disabled" : "" %>>
           Pay Now
         </button>
       </form>
 
+      <p class="small-note">
+        Payment is simulated. “Pay Now” will mark the order as PAID and clear your cart.
+      </p>
     </div>
-
   </div>
-
-</section>
+</div>
 
 <%- include("../partials/client-footer.ejs") %>

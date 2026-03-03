@@ -1,13 +1,45 @@
 import { Request, Response } from "express";
-import {searchGames, getOneProduct, getUserOrder, getUserCartItem, addProductToCart } from "../services/productsService";
+import {
+  searchGames,
+  getOneProduct,
+  getUserOrder,
+  getUserCartItem,
+  addProductToCart,
+} from "../services/productsService";
 import { getUser } from "../services/personalization";
 
 export const loadCustomerHomePage = (req: Request, res: Response) => {
-  res.render("client/index", { games: searchGames(req.query['search-product'] as string), alert: req.query.alert as string });
+  const search = (req.query["search-product"] as string) || "";
+  const sort = (req.query["sort"] as string) || "";
+
+  let games = searchGames(search);
+
+  if (sort === "price_asc") {
+    games = games.sort((a, b) => a.price - b.price);
+  } else if (sort === "price_desc") {
+    games = games.sort((a, b) => b.price - a.price);
+  }
+
+  res.render("client/index", { games, search, sort });
 };
 
 export const loadProductDetail = (req: Request, res: Response) => {
-  res.render("client/product-detail", { game: getOneProduct(req, res) });
+  const game = getOneProduct(req, res);
+
+  if (!game) {
+    return res.render("client/product-detail", { game: null, isPurchased: false });
+  }
+
+  const userId = req.session.userId as string;
+
+  const orders = getUserOrder(userId) || [];
+  const isPurchased = orders.some((order: any) =>
+    (order.items || []).some((it: any) =>
+      String(it.gameId ?? it.productId ?? it.id) === String(game.id)
+    )
+  );
+
+  return res.render("client/product-detail", { game, isPurchased });
 };
 
 export const loadOrder = (req: Request, res: Response) => {
@@ -15,7 +47,10 @@ export const loadOrder = (req: Request, res: Response) => {
 };
 
 export const loadCheckout = (req: Request, res: Response) => {
-  res.render("client/checkout", { cartItem: getUserCartItem(req.session.userId as string) });
+  res.render("client/checkout", {
+    cartItem: getUserCartItem(req.session.userId as string),
+    errorMsg: req.query.error ? String(req.query.msg || "Checkout failed.") : "",
+  });
 };
 
 export const loadCustomerProfile = (req: Request, res: Response) => {
@@ -24,6 +59,6 @@ export const loadCustomerProfile = (req: Request, res: Response) => {
 
 export const addToCart = (req: Request, res: Response) => {
   addProductToCart(req, res);
-}
+};
 
 export { checkout } from "../services/productsService";

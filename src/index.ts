@@ -77,7 +77,7 @@ app.post("/admin/product/add", requireLogin, requireAdminCredentials, createNewG
 app.post("/admin/product/edit/:id", requireLogin, requireAdminCredentials, updateGame);
 app.get("/admin/product/delete/:id", requireLogin, requireAdminCredentials, deleteGame);
 // order crud
-app.post("/admin/orders/update-status", requireAdminCredentials, updateOrdersStatus);
+app.post("/admin/orders/update-status", requireLogin, requireAdminCredentials, updateOrdersStatus);
 
 app.listen(PORT, () => {
   console.log(`Access the server at http://localhost:${PORT}`);

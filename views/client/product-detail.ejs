@@ -1,50 +1,106 @@
 <%- include("../partials/client-header.ejs") %>
 
-<% if (typeof game === "undefined" || !game) { %>
-  <p>Game not found.</p>
+<%
+  const hasGame = typeof game !== "undefined" && game;
+  const availability = hasGame && typeof game.availability === "string" ? game.availability : "";
+  const isComingSoon = availability === "coming_soon";
+  const isDelisted = availability === "delisted";
+  const isOutOfStock = hasGame && game.stock === 0;
+
+  // Optional: purchased state (controller can pass this later)
+  // Supports either: isPurchased: boolean OR purchasedIds: string[]
+  const purchasedIds = Array.isArray(purchasedIds) ? purchasedIds : [];
+  const isPurchased =
+    typeof isPurchased === "boolean"
+      ? isPurchased
+      : (hasGame && purchasedIds.includes(String(game.id)));
+
+  const disablePurchase = isComingSoon || isDelisted || isOutOfStock || isPurchased;
+%>
+
+<% if (!hasGame) { %>
+  <div class="page-title">Product</div>
+
+  <div class="product-detail-layout">
+    <div class="product-detail-right">
+      <h2 class="product-detail-title">Game not found</h2>
+      <p class="product-detail-sub">This product may have been removed.</p>
+      <a class="btn-secondary" href="/customer">Back to Store</a>
+    </div>
+  </div>
 <% } else { %>
 
-<div class="product-detail-layout">
-  <div class="product-detail-left custom-card">
-    <img class="product-detail-image" src="<%= game.thumbnailUrl %>" alt="thumbnail">
-  </div>
+  <div class="page-title">Product Detail</div>
 
-  <div class="product-detail-right custom-card">
-    <div class="product-detail-header">
-      <h2 class="product-detail-title"><%= game.title %></h2>
-      <p class="product-detail-sub">
-        <span><%= game.developer || "" %></span>
-        <% if (game.publisher) { %> • <span><%= game.publisher %></span> <% } %>
-      </p>
+  <div class="product-detail-layout">
+    <div class="product-detail-left">
+      <img class="product-detail-image" src="<%= game.thumbnailUrl %>" alt="<%= game.title %> thumbnail" />
     </div>
 
-    <div class="product-detail-tags">
-      <% (game.platforms || []).forEach(p => { %>
-        <span class="tag-pill"><%= p %></span>
-      <% }) %>
-      <% (game.tags || []).slice(0, 6).forEach(t => { %>
-        <span class="tag-pill subtle"><%= t %></span>
-      <% }) %>
-    </div>
+    <div class="product-detail-right">
+      <div class="product-detail-header">
+        <h2 class="product-detail-title"><%= game.title %></h2>
+        <p class="product-detail-sub">
+          <span><%= game.developer || "" %></span>
+          <% if (game.publisher) { %> • <span><%= game.publisher %></span> <% } %>
+        </p>
+      </div>
 
-    <div class="product-detail-info">
+      <div class="product-detail-tags">
+        <% (game.platforms || []).forEach(p => { %>
+          <span class="tag-pill"><%= p %></span>
+        <% }) %>
+
+        <% if (isPurchased) { %>
+          <span class="tag-pill subtle">Purchased</span>
+        <% } else if (isComingSoon) { %>
+          <span class="tag-pill subtle">Coming Soon</span>
+        <% } else if (isDelisted) { %>
+          <span class="tag-pill subtle">Delisted</span>
+        <% } else if (isOutOfStock) { %>
+          <span class="tag-pill subtle">Out of Stock</span>
+        <% } %>
+      </div>
+
       <p class="product-detail-desc"><%= game.description || "" %></p>
 
       <div class="product-detail-meta">
         <div><strong>Genres:</strong> <%= (game.genres || []).join(", ") %></div>
         <div><strong>Release:</strong> <%= game.releaseDate || "-" %></div>
       </div>
-    </div>
 
-    <div class="product-detail-buybox">
-      <div class="product-detail-price">$<%= game.price %></div>
+      <div class="product-detail-buybox">
+        <div class="product-detail-price">$<%= game.price %></div>
 
-      <form action="/customer/cart/add/<%= game.id %>" method="POST" class="buybox-actions">
-        <button type="submit" class="btn-primary">Add to Cart</button>
-      </form>
+        <% if (isPurchased) { %>
+          <!-- Optional: Install action -->
+          <a class="btn-primary" href="/customer/library" style="text-decoration:none;">
+            Install
+          </a>
+        <% } else { %>
+          <form action="/customer/cart/add/<%= game.id %>" method="POST" class="buybox-actions">
+            <button type="submit" class="btn-primary" <%= disablePurchase ? "disabled" : "" %>>
+              <%= isComingSoon ? "Coming Soon" :
+                  isDelisted ? "Unavailable" :
+                  isOutOfStock ? "Out of Stock" : "Add to Cart" %>
+            </button>
+          </form>
+        <% } %>
+      </div>
+
+      <!-- Friendly notes / required exception flows -->
+      <% if (isDelisted) { %>
+        <p class="small-note">This game has been delisted and can no longer be purchased.</p>
+        <a class="btn-secondary" href="/customer">Back to Store</a>
+      <% } else if (isComingSoon) { %>
+        <p class="small-note">This game is coming soon. Add to cart is disabled until release.</p>
+      <% } else if (isOutOfStock) { %>
+        <p class="small-note">This game is currently out of stock.</p>
+      <% } else if (isPurchased) { %>
+        <p class="small-note">You already own this game. You can install it from your library.</p>
+      <% } %>
     </div>
   </div>
-</div>
 
 <% } %>
 
