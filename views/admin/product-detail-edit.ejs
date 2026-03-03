@@ -40,11 +40,11 @@ const actionUrl = isEdit ? `/admin/product/edit/${game.id}` : "/admin/product/ad
     <div class="form-grid-3">
       <div class="form-group">
         <label for="price">Price (USD)</label>
-        <input type="number" name="price" id="price" value="<%= isEdit ? game.price : '' %>" step="0.01">
+        <input type="number" name="price" id="price" value="<%= isEdit ? game.price : '0' %>" step="0.01" min="0.01">
       </div>
       <div class="form-group">
         <label for="stock">Stock</label>
-        <input type="number" name="stock" id="stock" value="<%= isEdit ? game.stock : '0' %>">
+        <input type="number" name="stock" id="stock" value="<%= isEdit ? game.stock : '0' %>" min="0">
       </div>
       <div class="form-group">
         <label for="availability">Availability</label>

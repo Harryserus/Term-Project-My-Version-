@@ -1,27 +1,26 @@
-function showGlassToast(message) {
+function showGlassToast(message, type = "success") {
   const toast = document.createElement("div");
-  toast.className = "glass-toast";
+
+  // Apply the base class AND a type class
+  toast.className = `glass-toast ${type === "error" ? "toast-error" : ""}`;
 
   toast.innerHTML = `
     <div style="display: flex; align-items: center; gap: 10px;">
-      <div style="font-size: 1.2rem;">✅</div>
+      <div style="font-size: 1.2rem;">${type === "error" ? "⚠️" : "✅"}</div>
       <div style="font-family: system-ui, sans-serif;">
         <p style="margin: 0; font-size: 0.85rem; font-weight: 600;">${message}</p>
       </div>
     </div>
-    <div class="toast-progress"></div>
+    <div class="toast-progress ${type === "error" ? "progress-error" : ""}"></div>
   `;
 
   document.body.appendChild(toast);
 
-  // 1. Wait 1.5 seconds (The "Stay" time)
+  // Timing logic (matches your 1.5s fast speed)
   setTimeout(() => {
-    // 2. Start the 0.3s fade
     requestAnimationFrame(() => {
       toast.classList.add("toast-hidden");
     });
-
-    // 3. Remove from DOM exactly when CSS finishes (300ms)
     setTimeout(() => {
       toast.remove();
     }, 300);
@@ -30,10 +29,27 @@ function showGlassToast(message) {
 
 // Logic to check localStorage on load
 window.addEventListener("load", () => {
-  const msg = localStorage.getItem("realmNotification");
-  if (msg) {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  if (urlParams.has("success")) {
+    const action = urlParams.get("action");
+    let msg = "Changes Saved!";
+
+    if (action === "add") msg = "Successfully added the game to the list!";
+    if (action === "delete") msg = "Successfully deleted the item!";
+
     showGlassToast(msg);
-    localStorage.removeItem("realmNotification");
+
+    // Clean up the URL so it doesn't show again on refresh
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+  // for invalid form submits
+  if (urlParams.has("error")) {
+    // Call your toast function with a red/error theme
+    showGlassToast("Invalid Data: Price must be > 0 and Stock >= 0", "error");
+
+    // Clean URL
+    window.history.replaceState({}, document.title, window.location.pathname);
   }
 });
 
