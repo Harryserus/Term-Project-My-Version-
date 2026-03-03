@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { getData } from "../services/util";
 import { User } from "../models/user.model";
 export const loadHome = (req: Request, res: Response) => {
+  if(req.session.userId) return res.redirect(req.session.role == "admin" ? "/admin" : "/customer");
   const error =
     req.query.q === "invalid" ? "Invalid username or password" : null;
 

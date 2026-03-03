@@ -40,7 +40,7 @@ window.addEventListener("load", () => {
 // Logic to capture the button click
 document.addEventListener("click", (e) => {
   // 1. Handle FORM Buttons (Add / Save)
-  const btn = e.target.closest('button[type="submit"]');
+  const btn = e.target.closest('button[type="submit"]:not(.exception)');
   if (btn) {
     const form = btn.closest("form");
     if (form && form.checkValidity()) {
@@ -53,7 +53,7 @@ document.addEventListener("click", (e) => {
         val.includes("create") ||
         val.includes("new")
       ) {
-        text = "New Item Summoned! ✨";
+        text = "Successfully added the game to the list!";
       }
 
       localStorage.setItem("realmNotification", text);
@@ -65,12 +65,12 @@ document.addEventListener("click", (e) => {
   const deleteLink = e.target.closest('a[href*="/delete/"]');
   if (deleteLink) {
     // Optional: Add a confirmation so they don't misclick
-    const confirmed = confirm("Are you sure you want to banish this item?");
+    const confirmed = confirm("Are you sure you want to delete this item?");
 
     if (confirmed) {
       localStorage.setItem(
         "realmNotification",
-        "Item Banished to the Void! 🔥",
+        "Successfully deleted the item!",
       );
     } else {
       e.preventDefault(); // Stop the deletion if they click 'Cancel'
