@@ -24,11 +24,12 @@
 </div>
 <div class="orders-and-actions-container">
   <div class="orders-container">
-<% if (typeof orders != undefined || orders.length<=0) { %>
+<% if (typeof orders !== undefined || orders.length<=0) { %>
 <%orders.forEach(order=>{ %>
-    <div class="order-card status-<%= order.status.toLowerCase()%> "  data-status=<%= order.status%> >
+    <div class="order-card status-<%= order.status.toLowerCase()%> "  data-status=<%= order.status%> data-order-info='<%= JSON.stringify(order) %>' >
       <div class="order-select">
         <input
+        onclick="event.stopPropagation()"
           type="checkbox"
           name="order_select"
           id="order1"
@@ -72,5 +73,16 @@
   <button type="button" class="status-btn status-delete" data-status="delete">Delete</button>
 </div>
 </div>
-
+<%#
+  modal to show order detail
+%>
+<div id="orderModal" class="modal-overlay" onclick="closeModal()">
+  <div class="modal-content glass-panel" onclick="event.stopPropagation()">
+    <div id="modalBody">
+      </div>
+    <button onclick="closeModal()" class="btn-close">Close</button>
+  </div>
+</div>
 <%-include ("../partials/admin-footer.ejs") %>
+
+<script src="/js/admin/orderDetailModal.js"></script>
