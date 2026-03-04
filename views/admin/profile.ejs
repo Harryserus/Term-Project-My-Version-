@@ -1,18 +1,32 @@
 <%- include("../partials/admin-header.ejs") %>
 
-<div class="profile-container">
-  <div class="profile-card">
-   <img src="/assets/admin-avatar.svg" alt="profile-icon-image" class="profile-icon-image">
-    
-    <div class="admin-details">
-      <h3>Role: <%= admin.role.charAt(0).toUpperCase() + admin.role.slice(1) %></h3>
-      
-      <h3>Name: <%= admin.username %></h3>
-      
-      <form action="/logout" method="POST">
-        <button type="submit" class="logout-btn exception">Log out</button>
+<div class="profile-wrapper">
+  <div class="profile-main-card">
+
+    <div class="profile-avatar-container">
+      <img 
+        src="/assets/admin-avatar.svg" 
+        alt="profile avatar" 
+        class="profile-avatar"
+      >
+    </div>
+
+    <div class="profile-info-card">
+      <h3>
+        Role: <%= admin.role.charAt(0).toUpperCase() + admin.role.slice(1) %>
+      </h3>
+
+      <h3>
+        Username: <%= admin.username %>
+      </h3>
+
+      <form action="/logout" method="POST" style="display: flex; justify-content: center;">
+        <button type="submit" class="profile-logout-btn exception">
+          Log out
+        </button>
       </form>
     </div>
+
   </div>
 </div>
 

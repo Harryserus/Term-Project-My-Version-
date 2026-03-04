@@ -7,19 +7,20 @@
   const isDelisted = availability === "delisted";
   const isOutOfStock = hasGame && game.stock === 0;
 
-  // Optional: purchased state (controller can pass this later)
+  
+  const disablePurchase = isComingSoon || isDelisted || isOutOfStock;
+%>
+ <!-- isPurchased doesn't work right now. Or maybe it's already handled by the controller -->
+  <!-- // Optional: purchased state (controller can pass this later)
   // Supports either: isPurchased: boolean OR purchasedIds: string[]
   const purchasedIds = Array.isArray(purchasedIds) ? purchasedIds : [];
   const isPurchased =
     typeof isPurchased === "boolean"
       ? isPurchased
-      : (hasGame && purchasedIds.includes(String(game.id)));
-
-  const disablePurchase = isComingSoon || isDelisted || isOutOfStock || isPurchased;
-%>
-
+      : (hasGame && purchasedIds.includes(String(game.id))); -->
+  
 <% if (!hasGame) { %>
-  <div class="page-title">Product</div>
+  <!-- <div class="page-title">Product</div> -->
 
   <div class="product-detail-layout">
     <div class="product-detail-right">
@@ -30,7 +31,7 @@
   </div>
 <% } else { %>
 
-  <div class="page-title">Product Detail</div>
+  <!-- <div class="page-title">Product Detail</div> -->
 
   <div class="product-detail-layout">
     <div class="product-detail-left">

@@ -20,7 +20,7 @@ export const loadCustomerHomePage = (req: Request, res: Response) => {
     games = games.sort((a, b) => b.price - a.price);
   }
 
-  res.render("client/index", { games, search, sort });
+  res.render("client/index", { games, search, sort, alert: req.query.alert as string });
 };
 
 export const loadProductDetail = (req: Request, res: Response) => {

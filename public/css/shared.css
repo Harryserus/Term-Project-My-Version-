@@ -27,6 +27,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --radius-md: 0.375rem;
+    --radius-xl: 0.75rem;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -212,6 +213,9 @@
   .flex {
     display: flex;
   }
+  .grid {
+    display: grid;
+  }
   .hidden {
     display: none;
   }
@@ -296,6 +300,7 @@
   }
   .side-nav {
     padding: 1rem;
+    min-width: 140px;
   }
   .side-nav-ul {
     display: flex;
@@ -308,7 +313,6 @@
     padding: 0;
   }
   .nav-link {
-    min-width: 105px;
     padding-inline: calc(var(--spacing) * 2);
     padding-block: calc(var(--spacing) * 6);
     @media (width >= 80rem) {
@@ -325,6 +329,92 @@
   }
   .nav-link:hover {
     filter: brightness(0.75);
+  }
+  .products-container, .orders-and-actions-container, :not(.orders-and-actions-container) > .orders-container {
+    padding: calc(var(--spacing) * 4);
+    @media (width >= 40rem) {
+      padding: calc(var(--spacing) * 8);
+    }
+    overflow: auto;
+  }
+  .profile-wrapper, .profile-main-card {
+    padding: calc(var(--spacing) * 6);
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 8);
+    }
+    overflow: hidden;
+  }
+  .products-container {
+    grid-template-columns: 1fr !important;
+  }
+  .product-actions {
+    display: flex;
+    flex-direction: row;
+    column-gap: calc(var(--spacing) * 3);
+    @media (width >= 40rem) {
+      column-gap: calc(var(--spacing) * 6);
+    }
+  }
+  .product-actions a {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+  }
+  .product-title-category p {
+    font-size: 0.8rem;
+  }
+  .product-card {
+    flex-direction: column;
+    row-gap: calc(var(--spacing) * 3);
+    padding: calc(var(--spacing) * 3);
+    @media (width >= 48rem) {
+      flex-direction: row;
+    }
+    @media (width >= 48rem) {
+      column-gap: calc(var(--spacing) * 6);
+    }
+  }
+  .product-card img {
+    height: auto;
+    width: 100%;
+    @media (width >= 48rem) {
+      height: calc(var(--spacing) * 16);
+    }
+    @media (width >= 48rem) {
+      width: calc(var(--spacing) * 16);
+    }
+  }
+  .product-card img {
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .product-card {
+    height: max-content;
+    background-color: var(--lighter-transparent-bg);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    border: 1px solid transparent;
+    transition: 0.25s ease-in-out;
+  }
+  .product-card:hover {
+    border-color: rgba(255, 255, 255, 0.55);
+    transform: translateY(-2px);
+  }
+  .product-main-info {
+    justify-content: space-between;
+    column-gap: calc(var(--spacing) * 3);
+    @media (width >= 48rem) {
+      column-gap: calc(var(--spacing) * 6);
+    }
+  }
+  .product-main-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex: 1;
   }
 }
 @media (max-width: 768px) {
@@ -413,6 +503,76 @@
     max-width: 100% !important;
   }
 }
+.search_button {
+  width: 37.5px;
+  height: 37.5px;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  transform: scale(1.5) rotate(0deg);
+  transition: transform 1.5s ease-in-out;
+}
+.search_button img {
+  width: 100%;
+  height: 100%;
+}
+.search_button :hover {
+  transform: rotate(360deg);
+  transition: 0.5s ease-in-out;
+}
+.category-button, .status-button {
+  cursor: pointer;
+  color: white;
+  border-radius: 9999px;
+  transition: 0.3s;
+}
+.category-button.active, .category-button:hover, .status-button.active, .status-button:hover {
+  background: #f9f9f886;
+  color: white;
+  border: 1px solid white;
+}
+.status-pending {
+  background-color: rgba(245, 235, 99, 0.511);
+  border: 1px solid;
+  border-color: rgba(253, 241, 5, 0.969);
+}
+.status-paid {
+  background-color: rgba(0, 255, 127, 0.15);
+  border: 1px solid;
+  border-color: rgba(16, 185, 129, 0.5);
+}
+.status-delivered {
+  background-color: rgba(0, 191, 255, 0.15);
+  border: 1px solid;
+  border-color: rgba(59, 130, 246, 0.5);
+}
+.status-canceled {
+  background-color: rgba(255, 69, 58, 0.15);
+  border: 1px solid;
+  border-color: rgba(239, 68, 68, 0.946);
+}
+.status-delete {
+  background-color: rgba(255, 0, 0, 0.467);
+  border: 1px solid;
+  border-color: rgba(59, 130, 246, 0.5);
+}
+.all-filter-button {
+  background-color: rgba(238, 131, 60, 0.511);
+  border: 1px solid;
+  border-color: rgba(5, 5, 5, 0.969);
+}
+select {
+  &, &::picker(select) {
+    appearance: base-select;
+  }
+  &::picker(select) {
+    border-radius: 0.5rem;
+    color: black;
+  }
+  & option {
+    padding: 0.5rem;
+  }
+}
 .top-navbar {
   padding: 0.75rem 2rem;
   border-radius: 16px;
@@ -431,6 +591,67 @@
   height: 45px;
   border-radius: 50%;
   object-fit: cover;
+}
+.profile-wrapper {
+  background-color: var(--transparent-bg);
+  border-radius: 16px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-main-card {
+  width: 360px;
+  border-radius: 32px;
+  background-color: var(--lighter-transparent-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+.profile-avatar-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.profile-info-card {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+.profile-info-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.profile-logout-btn {
+  align-self: center;
+  background-color: rgba(120, 120, 255, 0.35);
+  border: 1px solid white;
+  color: white;
+  padding: 0.6rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+}
+.profile-logout-btn:hover {
+  background-color: white;
+  color: black;
 }
 @property --tw-rotate-x {
   syntax: "*";

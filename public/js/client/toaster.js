@@ -47,22 +47,23 @@ window.addEventListener("load", () => {
 });
 
 // Optional pre-navigation messages (safe)
-document.addEventListener("click", (e) => {
-  const addBtn = e.target.closest(
-    'form[action*="/customer/cart/add/"] button[type="submit"]'
-  );
+// This is not need. The code become redundant as it displays to the user twice. (After they refresh the page)
+// document.addEventListener("click", (e) => {
+//   const addBtn = e.target.closest(
+//     'form[action*="/customer/cart/add/"] button[type="submit"]'
+//   );
 
-  if (addBtn) {
-    localStorage.setItem("clientNotification", "Adding to cart...");
-    return;
-  }
+//   if (addBtn) {
+//     localStorage.setItem("clientNotification", "Adding to cart...");
+//     return;
+//   }
 
-  const payBtn = e.target.closest(
-    'form[action="/customer/checkout"] button[type="submit"]'
-  );
+//   const payBtn = e.target.closest(
+//     'form[action="/customer/checkout"] button[type="submit"]'
+//   );
 
-  if (payBtn) {
-    if (payBtn.hasAttribute("disabled")) return;
-    localStorage.setItem("clientNotification", "Processing payment...");
-  }
-});
+//   if (payBtn) {
+//     if (payBtn.hasAttribute("disabled")) return;
+//     localStorage.setItem("clientNotification", "Processing payment...");
+//   }
+// });

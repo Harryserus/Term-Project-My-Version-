@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".order-card").forEach((order) => {
           const cardStatus = order.getAttribute("data-status");
           if (selectedStatus === "all" || cardStatus === selectedStatus) {
-            order.style.display = "flex";
+            order.style.display = "grid";
           } else {
             order.style.display = "none";
           }

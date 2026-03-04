@@ -180,7 +180,7 @@ export const addProductToCart = (req: Request, res: Response) => {
   // Optional: prevent duplicates (recommended)
   const exists = userCart.some((it: any) => String(it.gameId) === String(pickedGame.id));
   if (exists) {
-    return res.redirect(`${back}${join}success=1&msg=${encodeURIComponent("Already in cart.")}`);
+    return res.redirect(`${back}${join}error=1&msg=${encodeURIComponent("Already in cart.")}`);
   }
 
   userCart.push({
