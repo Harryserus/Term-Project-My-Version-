@@ -134,7 +134,7 @@
         {
           "gameId": "g3",
           "title": "The Witcher 3: Wild Hunt",
-          "thumbnailUrl": "/images/games/the-witcher3-wild-hunt.jpg",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
           "quantity": 1,
           "priceAtPurchase": 29.99
         }
