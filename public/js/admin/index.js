@@ -37,11 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const categoryButtons = document.querySelectorAll(".category-button");
   const productCards = document.querySelectorAll(".product-card");
 
-  function cb(e=undefined) {
+  function cb(e = undefined) {
     // console.log(localStorage.getItem("adminCurrentProductSelectedCategory"));
-    const c = localStorage.getItem("adminCurrentProductSelectedCategory") || "all"
+    const c =
+      localStorage.getItem("adminCurrentProductSelectedCategory") || "all";
     let button;
-    if(!e) button = document.querySelector(`.category-button[data-category=${c}]`)
+    if (!e)
+      button = document.querySelector(`.category-button[data-category=${c}]`);
     else button = e.target;
     // 1. Manage Active Class UI
     categoryButtons.forEach((btn) => btn.classList.remove("active"));
@@ -49,7 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. Get the filter value
     const selectedPlatform = button.getAttribute("data-category");
-    localStorage.setItem("adminCurrentProductSelectedCategory", selectedPlatform);
+    localStorage.setItem(
+      "adminCurrentProductSelectedCategory",
+      selectedPlatform,
+    );
 
     // 3. Filter the cards
     productCards.forEach((card) => {
@@ -67,10 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if(window.location.pathname === "/admin") {
+  if (window.location.pathname === "/admin") {
     categoryButtons.forEach((button) => button.addEventListener("click", cb));
     cb();
-  } else if(window.location.pathname === "/admin/orders") {
+  } else if (window.location.pathname === "/admin/orders") {
     document.querySelectorAll(".status-button").forEach((btn) => {
       btn.addEventListener("click", () => {
         document
@@ -88,16 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
     });
-    document.getElementById("select_all").addEventListener("click", () => {
+    document.getElementById("select_all").addEventListener("click", (e) => {
+      const isSelectedAll = e.target.checked;
       const checkboxes = document.querySelectorAll(".order-checkbox");
       checkboxes.forEach((c) => {
-        c.checked = !c.checked;
+        c.checked = isSelectedAll;
       });
     });
   }
 });
 
-// I commented below. We have to discuss how we want to do the search. 
+// I commented below. We have to discuss how we want to do the search.
 // Search without click the button is good, but we already have the button, so that eliminate the need for button.
 // Do we still want to have the search button? If no, we can go with the code below and remove the search button.
 
