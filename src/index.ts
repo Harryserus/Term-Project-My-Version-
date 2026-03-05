@@ -14,13 +14,25 @@ import {
   updateGame,
   updateOrdersStatus,
 } from "./controllers/adminControllers";
-import { addToCart, checkout, getCustomerOrderDetail, loadCheckout, loadCustomerHomePage, loadCustomerProfile, loadOrder, loadProductDetail } from "./controllers/clientControllers";
+import {
+  addToCart,
+  checkout,
+  getCustomerOrderDetail,
+  loadCheckout,
+  loadCustomerHomePage,
+  loadCustomerProfile,
+  loadOrder,
+  loadProductDetail,
+} from "./controllers/clientControllers";
 import {
   loadHome,
   loginController,
   logoutController,
 } from "./controllers/userControllers";
-import { requireLogin, requireAdminCredentials } from "./middlewares/requireLogin";
+import {
+  requireLogin,
+  requireAdminCredentials,
+} from "./middlewares/requireLogin";
 import { removeProductFromCart } from "./services/productsService";
 
 const app = express();
@@ -57,14 +69,24 @@ app.post("/logout", requireLogin, logoutController);
 app.get("/admin", requireLogin, requireAdminCredentials, loadProducts);
 app.get("/admin/orders", requireLogin, requireAdminCredentials, loadOrders);
 app.get("/admin/profile", requireLogin, requireAdminCredentials, loadProfile);
-app.get("/admin/product/:id", requireLogin, requireAdminCredentials, editProduct);
-app.get("/admin/product/add", requireLogin, requireAdminCredentials, getProductForm);
+app.get(
+  "/admin/product/:id",
+  requireLogin,
+  requireAdminCredentials,
+  editProduct,
+);
+app.get(
+  "/admin/product/add",
+  requireLogin,
+  requireAdminCredentials,
+  getProductForm,
+);
 
 /* ------------------------------------------------- */
 
 /* ----------------- CLIENT ROUTES ----------------- */
 
-app.get("/customer", requireLogin, loadCustomerHomePage)
+app.get("/customer", requireLogin, loadCustomerHomePage);
 app.get("/customer/product/:id", requireLogin, loadProductDetail);
 app.get("/customer/checkout", requireLogin, loadCheckout);
 app.get("/customer/orders", requireLogin, loadOrder);
@@ -77,12 +99,32 @@ app.post("/customer/cart/add/:id", requireLogin, addToCart);
 app.post("/customer/cart/delete/:id", requireLogin, removeProductFromCart);
 app.post("/customer/checkout", requireLogin, checkout);
 app.get("/customer/order/", requireLogin, getCustomerOrderDetail);
-app.get("/admin/order/", requireLogin, getAdminOrderDetail);
-app.post("/admin/product/add", requireLogin, requireAdminCredentials, createNewGame);
-app.post("/admin/product/edit/:id", requireLogin, requireAdminCredentials, updateGame);
-app.get("/admin/product/delete/:id", requireLogin, requireAdminCredentials, deleteGame);
+app.post("/admin/order/", requireLogin, getAdminOrderDetail);
+app.post(
+  "/admin/product/add",
+  requireLogin,
+  requireAdminCredentials,
+  createNewGame,
+);
+app.post(
+  "/admin/product/edit/:id",
+  requireLogin,
+  requireAdminCredentials,
+  updateGame,
+);
+app.get(
+  "/admin/product/delete/:id",
+  requireLogin,
+  requireAdminCredentials,
+  deleteGame,
+);
 // order crud
-app.post("/admin/orders/update-status", requireLogin, requireAdminCredentials, updateOrdersStatus);
+app.post(
+  "/admin/orders/update-status",
+  requireLogin,
+  requireAdminCredentials,
+  updateOrdersStatus,
+);
 
 app.listen(PORT, () => {
   console.log(`Access the server at http://localhost:${PORT}`);

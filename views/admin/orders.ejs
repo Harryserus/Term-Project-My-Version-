@@ -26,13 +26,15 @@
   <div class="orders-container">
 <% if (typeof orders !== undefined || orders.length<=0) { %>
 <%orders.forEach(order=>{ %>
-    <div class="order-card status-<%= order.status.toLowerCase()%> "  data-status=<%= order.status%> data-order-info='<%= JSON.stringify(order) %>' >
+    <div class="order-card status-<%= order.status.toLowerCase()%> "  data-status="<%= order.status%>""  data-orderId='<%= 
+      order.id
+       %>' data-userId='<%= order.userId%>' >
       <div class="order-select">
         <input
         onclick="event.stopPropagation()"
           type="checkbox"
           name="order_select"
-          id="order1"
+          id="<%= order.id %>"
           class="custom-checkbox order-checkbox"
           value="<%= order.id %>"
         />

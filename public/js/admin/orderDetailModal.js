@@ -1,11 +1,8 @@
-/**
- * Opens the Order Modal and populates it with data.
- * @param {Object} order - The order object parsed from the data attribute.
- */
 function openOrderModal(order) {
   const modal = document.getElementById("orderModal");
   const body = document.getElementById("modalBody");
 
+  // Map items to HTML
   const itemsHTML = order.items
     .map(
       (item) => `
@@ -26,7 +23,7 @@ function openOrderModal(order) {
   body.innerHTML = `
     <div class="modal-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
       <div>
-        <h2 class="modal-title">#${order.id}</h2>
+        <h2 class="modal-title">#${order.id || order._id}</h2>
         <div class="modal-user-line" style="color: #10b981; font-size: 0.9rem; margin-top: 5px;">
            Customer: <span style="color: #fff; font-weight: 600;">${order.userId}</span>
         </div>
@@ -45,7 +42,6 @@ function openOrderModal(order) {
   `;
 
   modal.style.display = "flex";
-  // Lock body scroll so the user doesn't scroll the background
   document.body.style.overflow = "hidden";
 }
 
@@ -66,33 +62,52 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderCards = document.querySelectorAll(".order-card");
   const modalOverlay = document.getElementById("orderModal");
 
-  // 1. Open Modal on Card Click
   orderCards.forEach((card) => {
-    card.addEventListener("click", (event) => {
+    card.addEventListener("click", async (event) => {
+      // 1. Ignore checkbox or button clicks
       if (
         event.target.closest(".order-checkbox") ||
         event.target.closest("button")
       ) {
         return;
       }
+
       try {
-        const orderData = JSON.parse(card.dataset.orderInfo);
-        openOrderModal(orderData);
+        // 2. Get info from data attribute
+
+        const orderId = card.dataset.orderid;
+        const userId = card.dataset.userid;
+
+        // 3. POST fetch (GET cannot have a body)
+        const response = await fetch("/admin/order/", {
+          method: "POST", // Changed from GET to POST
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: orderId,
+            userId: userId,
+          }),
+        });
+
+        if (!response.ok) throw new Error("Order details not found");
+
+        const fullOrderData = await response.json();
+        openOrderModal(fullOrderData);
       } catch (err) {
-        console.error("Data Parse Error:", err);
+        console.error("Fetch Error:", err);
       }
     });
   });
 
-  // 2. Click Outside to Close
-  // We attach this to the overlay. event.target ensures we clicked the background, not the content.
+  // 4. Click Outside to Close
   modalOverlay.addEventListener("click", (event) => {
     if (event.target === modalOverlay) {
       closeModal();
     }
   });
 
-  // 3. Escape Key to Close
+  // 5. Escape Key to Close
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeModal();
