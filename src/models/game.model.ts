@@ -1,5 +1,9 @@
-export type Platform = "PC" | "PS5" | "Xbox" | "Switch";
-export type Availability = "available" | "coming_soon" | "early_access" | "delisted";
+export type Platform = "PC" | "PS5" | "Xbox" | "Switch" | "Mobile";
+export type Availability =
+  | "available"
+  | "coming_soon"
+  | "early_access"
+  | "delisted";
 
 export interface Game {
   id: string;
@@ -7,21 +11,21 @@ export interface Game {
   title: string;
   developer: string;
   publisher: string;
-  
+
   platforms: Platform[]; // Reusable
   genres: string[];
   tags: string[];
 
-  releaseDate: string; 
+  releaseDate: string;
   isPreOrder?: boolean;
   availability: Availability; // Reusable
 
   price: number;
-currency:String;
-  
+  currency: String;
+
   thumbnailUrl: string;
   screenshots?: string[];
   description: string;
-  
+
   stock: number; // Added for the Cart MVP logic
 }

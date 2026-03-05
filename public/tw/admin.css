@@ -2,24 +2,25 @@
 
 @layer components {
   .filter-container {
-    @apply grid grid-rows-2 grid-cols-3 py-2 px-4 sm:py-4 sm:px-8 sm:grid-rows-1 sm:grid-cols-4 md:grid-rows-2 md:grid-cols-3 xl:grid-rows-1 xl:grid-cols-4;
+    @apply grid grid-rows-2 grid-cols-3 py-2 px-4 sm:py-4 sm:px-8 sm:grid-rows-1 sm:grid-cols-6 md:grid-rows-2 md:grid-cols-3 xl:grid-rows-1 xl:grid-cols-6;
     gap: 1rem;
+    width: max-item;
 
     align-items: center;
   }
   .category-button,
   .status-button {
-    @apply text-sm py-2 px-3 sm:text-base sm:px-4 md:text-sm md:px-3 xl:text-base xl:px-4;
+    @apply text-sm py-2 px-2 sm:text-base sm:px-4 md:text-sm md:px-3 xl:text-base xl:px-4;
   }
   .add-and-search {
     @apply grid w-full grid-rows-1 grid-cols-2 gap-x-4 sm:grid-rows-2 sm:grid-cols-1 sm:gap-y-2 md:max-w-[400px] md:w-[50%] xl:gap-x-4 xl:grid-rows-1 xl:grid-cols-2;
     align-items: center;
   }
-  
+
   .product-actions {
     @apply mr-0 sm:mr-4;
   }
-  
+
   .actions-container {
     @apply py-0 px-4 lg:px-8 xl:px-20;
     display: flex;
@@ -39,7 +40,7 @@
   .add-new-product-button {
     @apply items-center text-sm sm:text-base;
   }
-  
+
   .search-order-container {
     @apply w-full md:w-auto;
   }

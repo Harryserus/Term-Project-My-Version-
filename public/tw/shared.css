@@ -1,8 +1,7 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 /* shared styles for components . keep the theme colors in the root here */
 
 @layer base {
-
   :root {
     --dark-blue-bg: rgb(7, 2, 34);
     --transparent-bg: rgba(39, 39, 39, 0.425);
@@ -35,18 +34,18 @@
     width: 0.35rem;
     height: 0.35rem;
   }
-    
+
   ::-webkit-scrollbar-track {
-      background: none
+    background: none;
   }
-    
+
   ::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 9999px;
+    background: #888;
+    border-radius: 9999px;
   }
-    
+
   ::-webkit-scrollbar-thumb:hover {
-      background: #555;
+    background: #555;
   }
 }
 
@@ -63,7 +62,7 @@
     width: 100%;
     height: 10%;
   }
-  
+
   /* reusable components */
   .custom-card {
     /* we will use this card for everything so we can just adjust them consistently */
@@ -88,7 +87,7 @@
   .side-nav-li {
     padding: 0; /* Remove padding from LI so the link fills the space */
   }
-  
+
   .nav-link {
     @apply py-6 px-2 xl:px-4;
     display: flex;
@@ -110,7 +109,8 @@
     overflow: auto;
   }
 
-  .profile-wrapper, .profile-main-card {
+  .profile-wrapper,
+  .profile-main-card {
     @apply p-6 md:p-8;
     overflow: hidden;
   }
@@ -166,7 +166,6 @@
     align-items: center;
     flex: 1;
   }
-  
 }
 
 @utility pcbxl {
@@ -295,7 +294,7 @@
 }
 .search_button img {
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 .search_button :hover {
   transform: rotate(360deg);
@@ -314,7 +313,7 @@
 .category-button:hover,
 .status-button.active,
 .status-button:hover {
-  background: #f9f9f886;
+  background: #0189f892;
   color: white;
   border: 1px solid white;
 }
@@ -348,6 +347,11 @@
   background-color: rgba(255, 0, 0, 0.467);
   border: 1px solid;
   border-color: rgba(59, 130, 246, 0.5);
+}
+.status-mobile {
+  background-color: rgba(255, 0, 208, 0.467);
+  border: 1px solid;
+  border-color: rgba(59, 162, 246, 0.5);
 }
 .all-filter-button {
   background-color: rgba(238, 131, 60, 0.511);
@@ -399,75 +403,75 @@ select {
 }
 
 /* ---------- Profile ---------- */
-  .profile-wrapper {
-    background-color: var(--transparent-bg);
-    border-radius: 16px;
-    flex-grow: 1;
+.profile-wrapper {
+  background-color: var(--transparent-bg);
+  border-radius: 16px;
+  flex-grow: 1;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .profile-main-card {
-    width: 360px;
-    border-radius: 32px;
-    background-color: var(--lighter-transparent-bg);
+.profile-main-card {
+  width: 360px;
+  border-radius: 32px;
+  background-color: var(--lighter-transparent-bg);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
 
-  .profile-avatar-container {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
+.profile-avatar-container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .profile-avatar {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
-  .profile-info-card {
-    width: 100%;
-    padding: 1.5rem;
-    border-radius: 24px;
-    background-color: rgba(0, 0, 0, 0.25);
+.profile-info-card {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background-color: rgba(0, 0, 0, 0.25);
 
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: left;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
 
-  .profile-info-card h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-  }
+.profile-info-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
 
-  .profile-logout-btn {
-    align-self: center;
-    background-color: rgba(120, 120, 255, 0.35);
-    border: 1px solid white;
-    color: white;
-    padding: 0.6rem 1.8rem;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    font-weight: 600;
-  }
+.profile-logout-btn {
+  align-self: center;
+  background-color: rgba(120, 120, 255, 0.35);
+  border: 1px solid white;
+  color: white;
+  padding: 0.6rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  font-weight: 600;
+}
 
-  .profile-logout-btn:hover {
-    background-color: white;
-    color: black;
-  }
+.profile-logout-btn:hover {
+  background-color: white;
+  color: black;
+}
