@@ -6,9 +6,18 @@
       "title": "Cyberpunk 2077",
       "developer": "CD PROJEKT RED",
       "publisher": "CD PROJEKT RED",
-      "platforms": ["PC", "PS5"],
-      "genres": ["Action RPG"],
-      "tags": ["Cyberpunk", "Sci-fi", "Open World"],
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Cyberpunk",
+        "Sci-fi",
+        "Open World"
+      ],
       "releaseDate": "2020-12-10",
       "isPreOrder": false,
       "availability": "Available",
@@ -19,7 +28,7 @@
         "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_1.jpg"
       ],
       "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary. (Don't mind this text)",
-      "stock": 5
+      "stock": 4
     },
     {
       "id": "g3",
@@ -27,9 +36,19 @@
       "title": "The Witcher 3: Wild Hunt",
       "developer": "CD PROJEKT RED",
       "publisher": "CD PROJEKT RED",
-      "platforms": ["PC", "PS5", "Switch"],
-      "genres": ["Action RPG"],
-      "tags": ["Fantasy", "Story Rich", "RPG"],
+      "platforms": [
+        "PC",
+        "PS5",
+        "Switch"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Fantasy",
+        "Story Rich",
+        "RPG"
+      ],
       "releaseDate": "2015-05-18",
       "isPreOrder": false,
       "availability": "available",
@@ -48,9 +67,18 @@
       "title": "Starfield",
       "developer": "Bethesda Game Studios",
       "publisher": "Bethesda Softworks",
-      "platforms": ["PC", "Xbox"],
-      "genres": ["Action RPG"],
-      "tags": ["Space", "Exploration", "Sci-fi"],
+      "platforms": [
+        "PC",
+        "Xbox"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Space",
+        "Exploration",
+        "Sci-fi"
+      ],
       "releaseDate": "2023-09-06",
       "isPreOrder": false,
       "availability": "available",
@@ -63,23 +91,35 @@
       "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
       "stock": 8
     },
-
     {
       "id": "g11",
       "slug": "stardew-valley",
       "title": "Stardew Valley",
       "developer": "ConcernedApe",
       "publisher": "Chucklefish",
-      "platforms": ["PC", "Switch", "Mobile"],
-      "genres": ["Simulation", "RPG"],
-      "tags": ["Farming", "Relaxing", "Pixel Graphics"],
+      "platforms": [
+        "PC",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Simulation",
+        "RPG"
+      ],
+      "tags": [
+        "Farming",
+        "Relaxing",
+        "Pixel Graphics"
+      ],
       "releaseDate": "2016-02-26",
       "isPreOrder": false,
       "availability": "Available",
       "price": 4.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg",
-      "screenshots": ["https://stardewvalley.net/ss_1.jpg"],
+      "screenshots": [
+        "https://stardewvalley.net/ss_1.jpg"
+      ],
       "description": "Inherit your grandfather's old farm plot and turn a thicket of overgrown fields into a thriving home.",
       "stock": 50
     },
@@ -89,16 +129,31 @@
       "title": "Slay the Spire",
       "developer": "Mega Crit Games",
       "publisher": "Humble Bundle",
-      "platforms": ["PC", "PS5", "Xbox", "Switch", "Mobile"],
-      "genres": ["Roguelike", "Strategy"],
-      "tags": ["Card Battler", "Deckbuilding", "Singleplayer"],
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Roguelike",
+        "Strategy"
+      ],
+      "tags": [
+        "Card Battler",
+        "Deckbuilding",
+        "Singleplayer"
+      ],
       "releaseDate": "2019-01-23",
       "isPreOrder": false,
       "availability": "Available",
       "price": 9.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/ss_spire_1.jpg"],
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/ss_spire_1.jpg"
+      ],
       "description": "The ultimate single-player deckbuilder. Craft a unique deck, encounter bizarre creatures, and discover relics of immense power.",
       "stock": 20
     },
@@ -108,16 +163,27 @@
       "title": "Monument Valley",
       "developer": "ustwo games",
       "publisher": "ustwo games",
-      "platforms": ["PC", "Mobile"],
-      "genres": ["Puzzle"],
-      "tags": ["Minimalist", "Atmospheric", "Artistic"],
+      "platforms": [
+        "PC",
+        "Mobile"
+      ],
+      "genres": [
+        "Puzzle"
+      ],
+      "tags": [
+        "Minimalist",
+        "Atmospheric",
+        "Artistic"
+      ],
       "releaseDate": "2014-04-03",
       "isPreOrder": false,
       "availability": "Available",
       "price": 3.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1927720/header.jpg",
-      "screenshots": ["https://monumentvalley.com/ss_1.jpg"],
+      "screenshots": [
+        "https://monumentvalley.com/ss_1.jpg"
+      ],
       "description": "Manipulate impossible architecture and guide a silent princess through a stunningly beautiful world.",
       "stock": 100
     },
@@ -127,16 +193,30 @@
       "title": "Vampire Survivors",
       "developer": "poncle",
       "publisher": "poncle",
-      "platforms": ["PC", "Xbox", "Switch", "Mobile"],
-      "genres": ["Action", "Roguelike"],
-      "tags": ["Bullet Hell", "Survival", "Casual"],
+      "platforms": [
+        "PC",
+        "Xbox",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Action",
+        "Roguelike"
+      ],
+      "tags": [
+        "Bullet Hell",
+        "Survival",
+        "Casual"
+      ],
       "releaseDate": "2022-10-20",
       "isPreOrder": false,
       "availability": "Available",
-      "price": 0.0,
+      "price": 0,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1794680/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/ss_vs_1.jpg"],
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/ss_vs_1.jpg"
+      ],
       "description": "Mow down thousands of night creatures and survive until dawn! Vampire Survivors is a gothic horror casual game with rogue-lite elements.",
       "stock": 999
     },
@@ -146,16 +226,31 @@
       "title": "Dead Cells",
       "developer": "Motion Twin",
       "publisher": "Playdigious",
-      "platforms": ["PC", "PS5", "Xbox", "Switch", "Mobile"],
-      "genres": ["Action", "Metroidvania"],
-      "tags": ["Difficult", "Fast-Paced", "Souls-like"],
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Action",
+        "Metroidvania"
+      ],
+      "tags": [
+        "Difficult",
+        "Fast-Paced",
+        "Souls-like"
+      ],
       "releaseDate": "2018-08-07",
       "isPreOrder": false,
       "availability": "Available",
       "price": 8.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/ss_dc_1.jpg"],
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/ss_dc_1.jpg"
+      ],
       "description": "Explore a sprawling, ever-changing castle... assuming you’re able to fight your way past its keepers in 2D souls-lite combat.",
       "stock": 15
     }
@@ -167,7 +262,14 @@
       "email": "player@limgrave.com",
       "password": "shopcustomer",
       "role": "customer",
-      "cart": []
+      "cart": [
+        {
+          "gameId": "g11",
+          "title": "Stardew Valley",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg",
+          "priceAtPurchase": 4.99
+        }
+      ]
     },
     {
       "id": "u2",
@@ -185,5 +287,21 @@
       ]
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "ord_1",
+      "userId": "u2",
+      "items": [
+        {
+          "gameId": "g2",
+          "title": "Cyberpunk 2077",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg",
+          "priceAtPurchase": 49.99
+        }
+      ],
+      "totalAmount": 49.99,
+      "status": "paid",
+      "dateCreated": "2026-03-05T17:43:05.495Z"
+    }
+  ]
 }
