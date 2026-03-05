@@ -49,7 +49,15 @@
               </div>
             </div>
             <div class="checkout-item-right">
-              $<%= (Number(item.priceAtPurchase || 0) * Number(item.quantity || 1)).toFixed(2) %>
+              <div class="checkout-item-price">
+                $<%= (Number(item.priceAtPurchase || 0) * Number(item.quantity || 1)).toFixed(2) %>
+              </div>
+
+              <form action="/customer/cart/delete/<%= item.gameId %>" method="POST" class="checkout-remove-form">
+                <button type="submit" class="cart-remove-btn" aria-label="Remove from cart" title="Remove">
+                  ×
+                </button>
+              </form>
             </div>
           </div>
         <% }) %>

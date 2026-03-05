@@ -99,15 +99,7 @@
       "email": "player@limgrave.com",
       "password": "shopcustomer",
       "role": "customer",
-      "cart": [
-        {
-          "gameId": "g4",
-          "title": "Starfield",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
-          "quantity": 1,
-          "priceAtPurchase": 69.99
-        }
-      ]
+      "cart": []
     },
     {
       "id": "u2",
