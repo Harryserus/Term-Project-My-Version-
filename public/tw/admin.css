@@ -2,7 +2,7 @@
 
 @layer components {
   .filter-container {
-    @apply grid grid-rows-2 grid-cols-3 py-2 px-4 sm:py-4 sm:px-8 sm:grid-rows-1 sm:grid-cols-5 md:grid-rows-2 md:grid-cols-3 xl:grid-rows-1 xl:grid-cols-5;
+    @apply grid grid-rows-2 grid-cols-3 py-2 px-4 sm:py-4 sm:px-8 sm:grid-rows-1 sm:grid-cols-4 md:grid-rows-2 md:grid-cols-3 xl:grid-rows-1 xl:grid-cols-4;
     gap: 1rem;
 
     align-items: center;

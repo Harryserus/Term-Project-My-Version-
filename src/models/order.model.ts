@@ -1,9 +1,8 @@
-export type OrderStatus = "pending" | "paid" | "delivered" | "cancelled";
+export type OrderStatus = "pending" | "paid" | "cancelled";
 export interface OrderItem {
   gameId: string;
   title: string;
  thumbnailUrl: string;
-  quantity: number;
   priceAtPurchase: number;
 }
 

@@ -19,7 +19,6 @@
 
         const normalizedStatus =
           rawStatus === "paid" ? "paid" :
-          rawStatus === "delivered" ? "delivered" :
           (rawStatus === "cancelled" || rawStatus === "canceled") ? "canceled" :
           "pending";
 
@@ -27,9 +26,8 @@
 
         const items = Array.isArray(order.items) ? order.items : [];
         const total = items.reduce((sum, it) => {
-          const qty = Number(it.quantity || 1);
           const price = Number(it.priceAtPurchase || 0);
-          return sum + (price * qty);
+          return sum + price;
         }, 0);
 
         const dateText = order.dateCreated

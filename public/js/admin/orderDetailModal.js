@@ -12,9 +12,8 @@ function openOrderModal(order) {
       </div>
       <div style="flex-grow: 1;">
         <div class="modal-item-title">${item.title}</div>
-        <div class="modal-item-meta">Qty: ${item.quantity} × $${item.priceAtPurchase}</div>
       </div>
-      <div class="modal-item-price">$${(item.quantity * item.priceAtPurchase).toFixed(2)}</div>
+      <div class="modal-item-price">$${(item.priceAtPurchase).toFixed(2)}</div>
     </div>
   `,
     )

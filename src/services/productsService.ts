@@ -124,7 +124,14 @@ export const updateOrders = (req: Request, res: Response) => {
   const { orderIds, status } = req.body; // e.g., ["101", "102"], "paid"
   const db = getData();
   if (status === "delete") {
-    db.orders = db.orders.filter((o: any) => !orderIds.includes(o.id));
+    db.orders.forEach((o: Order) => {
+      o.items.forEach((oi: OrderItem) => {
+        const thegame = searchGames(undefined, String(oi.gameId));
+        db.games[db.games.findIndex((g: Game) => g.id === thegame[0]?.id)].stock++;
+      });
+    });
+
+    db.orders = db.orders.filter((o: Order) => !orderIds.includes(o.id));
   } else {
     // Update the status for matching IDs
     db.orders.forEach((order: any) => {
@@ -187,7 +194,6 @@ export const addProductToCart = (req: Request, res: Response) => {
     gameId: pickedGame.id,
     title: pickedGame.title,
     thumbnailUrl: pickedGame.thumbnailUrl,
-    quantity: 1,
     priceAtPurchase: pickedGame.price,
   });
 
@@ -251,6 +257,13 @@ export const checkout = (req: Request, res: Response) => {
     return res.redirect(`${back}${join}error=1&msg=${encodeURIComponent(parts.join(" | "))}`);
   }
 
+  for(const item of cart) {
+    const thegame = searchGames(undefined, String(item.gameId));
+    const g = thegame[0];
+    if (!g) continue;
+    wholeData.games[wholeData.games.findIndex((tg: Game) => tg.id === g.id)].stock--; 
+  }
+
   // Generate next order id safely
   const last = wholeData.orders[wholeData.orders.length - 1];
   const nextNum =
@@ -259,7 +272,7 @@ export const checkout = (req: Request, res: Response) => {
       : wholeData.orders.length + 1;
 
   const totalAmount = cart.reduce(
-    (acc, item) => acc + item.priceAtPurchase * (item.quantity || 1),
+    (acc, item) => acc + item.priceAtPurchase,
     0,
   );
 
