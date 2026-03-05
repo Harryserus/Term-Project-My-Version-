@@ -66,9 +66,21 @@ export const removeFromCart = (req: Request, res: Response) => {
   removeProductFromCart(req, res);
 }
 export const getCustomerOrderDetail = (req: Request, res: Response) => {
-  const orderDetail = getOrderDetail(req.session.userId as string, req.body.id as string);
-  if(!orderDetail) return res.status(404).json({ message: "Order not found!" })
+
+  const userId = req.session.userId as string;
+  const orderId = req.body?.id;
+
+  if (!orderId) {
+    return res.status(400).json({ message: "Order id is required" });
+  }
+
+  const orderDetail = getOrderDetail(userId, orderId);
+
+  if (!orderDetail) {
+    return res.status(404).json({ message: "Order not found!" });
+  }
+
   return res.status(200).json(orderDetail);
-}
+};
 
 export { checkout } from "../services/productsService";

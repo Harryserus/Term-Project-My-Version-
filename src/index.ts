@@ -98,7 +98,7 @@ app.get("/customer/profile", requireLogin, loadCustomerProfile);
 app.post("/customer/cart/add/:id", requireLogin, addToCart);
 app.post("/customer/cart/delete/:id", requireLogin, removeProductFromCart);
 app.post("/customer/checkout", requireLogin, checkout);
-app.get("/customer/order/", requireLogin, getCustomerOrderDetail);
+app.post("/customer/order/", requireLogin, getCustomerOrderDetail);
 app.post("/admin/order/", requireLogin, getAdminOrderDetail);
 app.post(
   "/admin/product/add",

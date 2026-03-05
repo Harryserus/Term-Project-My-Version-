@@ -1,0 +1,146 @@
+/* 1. THE OVERLAY (THE FROSTED GLASS EFFECT) */
+.modal-overlay {
+  display: none; /* Controlled by JS */
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05); /* Very light tint */
+  backdrop-filter: blur(15px) saturate(160%); /* High blur = High quality */
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+  z-index: 99999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+
+/* 2. THE MODAL CONTAINER */
+.modal-content {
+  background: rgba(150, 129, 244, 0.279); /* Almost invisible background */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Clean "Light Catching" edge */
+  width: 100%;
+  max-width: 460px;
+  border-radius: 32px;
+  padding: 2.5rem;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  position: relative;
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 3. TYPOGRAPHY & HEADER */
+.modal-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.modal-user-line {
+  font-size: 0.9rem;
+  color: #10b981; /* Emerald accent */
+  font-weight: 500;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+.modal-status {
+  font-size: small;
+  border-radius: 1rem;
+  padding: 0.1rem 0.7rem;
+}
+
+/* 4. ITEM CARDS (THE LIST) */
+.modal-scroll-area {
+  max-height: 320px;
+  overflow-y: auto;
+  margin: 2rem 0;
+  padding-right: 8px;
+}
+
+/* Hide scrollbar for a cleaner look, or style it minimal */
+.modal-scroll-area::-webkit-scrollbar {
+  width: 4px;
+}
+.modal-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.modal-item-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+/* Square container for the game art */
+.modal-img-wrapper {
+  width: 64px;
+  height: 64px; /* Matches width for a perfect 1:1 square */
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+/* The magic property to prevent stretching */
+.modal-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops the rectangle to fill the square perfectly */
+  object-position: center; /* Ensures the middle of the art is visible */
+  display: block;
+}
+
+.modal-item-title {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* 5. THE FOOTER & TOTAL */
+.modal-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.modal-total-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+/* 6. THE CLOSE BUTTON */
+.btn-close {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 14px;
+  background: rgba(37, 12, 112, 0.411);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-close:hover {
+  background: rgba(22, 2, 127, 0.47);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.03);
+}
+
+/* ANIMATIONS */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
