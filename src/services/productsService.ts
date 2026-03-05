@@ -198,15 +198,18 @@ export const addProductToCart = (req: Request, res: Response) => {
 };
 
 export const removeProductFromCart = (req: Request, res: Response) => {
-  const { id } = req.params; // FIX: declare before use
+  const { id } = req.params;
   const wholeData = getData();
+  const userId = req.session.userId as string;
 
-  wholeData.users.find((u: User) => u.id = req.session.userId as string).cart.filter((it: OrderItem) => it.gameId !== id);
+  const user = wholeData.users.find((u: User) => u.id === userId);
+  if (!user) return res.status(404).send("User not found");
+
+  user.cart = (user.cart || []).filter((it: OrderItem) => String(it.gameId) !== String(id));
 
   saveData(wholeData);
-
-  return res.redirect("/customer/checkout");
-}
+  return res.redirect("/customer/checkout?success=1&msg=" + encodeURIComponent("Removed from cart."));
+};
 
 /* =========================
    CLIENT: Checkout
