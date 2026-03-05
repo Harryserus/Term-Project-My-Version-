@@ -116,7 +116,7 @@
   }
 
   .products-container {
-    grid-template-columns: 1fr !important;
+    @apply pcbxl xl:pcxl;
   }
   .product-actions {
     @apply gap-x-3 flex flex-row sm:gap-x-6;
@@ -167,6 +167,13 @@
     flex: 1;
   }
   
+}
+
+@utility pcbxl {
+  grid-template-columns: 1fr !important;
+}
+@utility pcxl {
+  grid-template-columns: repeat(2, 1fr) !important;
 }
 
 /* Mobile adjustments to hide the span we added */
