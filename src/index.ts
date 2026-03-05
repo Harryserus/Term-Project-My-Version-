@@ -6,6 +6,7 @@ import {
   createNewGame,
   deleteGame,
   editProduct,
+  getAdminOrderDetail,
   getProductForm,
   loadOrders,
   loadProducts,
@@ -13,13 +14,14 @@ import {
   updateGame,
   updateOrdersStatus,
 } from "./controllers/adminControllers";
-import { addToCart, checkout, loadCheckout, loadCustomerHomePage, loadCustomerProfile, loadOrder, loadProductDetail } from "./controllers/clientControllers";
+import { addToCart, checkout, getCustomerOrderDetail, loadCheckout, loadCustomerHomePage, loadCustomerProfile, loadOrder, loadProductDetail } from "./controllers/clientControllers";
 import {
   loadHome,
   loginController,
   logoutController,
 } from "./controllers/userControllers";
 import { requireLogin, requireAdminCredentials } from "./middlewares/requireLogin";
+import { removeProductFromCart } from "./services/productsService";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -72,7 +74,10 @@ app.get("/customer/profile", requireLogin, loadCustomerProfile);
 
 // crud
 app.post("/customer/cart/add/:id", requireLogin, addToCart);
+app.post("/customer/cart/delete/:id", requireLogin, removeProductFromCart);
 app.post("/customer/checkout", requireLogin, checkout);
+app.get("/customer/order/", requireLogin, getCustomerOrderDetail);
+app.get("/admin/order/", requireLogin, getAdminOrderDetail);
 app.post("/admin/product/add", requireLogin, requireAdminCredentials, createNewGame);
 app.post("/admin/product/edit/:id", requireLogin, requireAdminCredentials, updateGame);
 app.get("/admin/product/delete/:id", requireLogin, requireAdminCredentials, deleteGame);

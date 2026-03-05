@@ -7,6 +7,7 @@ import {
   searchOrders,
   updateOrders,
   updateProduct,
+  getOrderDetail
 } from "../services/productsService";
 import { getUser } from "../services/personalization";
 
@@ -39,3 +40,8 @@ export const updateGame = (req: Request, res: Response) => {
 export const updateOrdersStatus = (req: Request, res: Response) => {
   updateOrders(req, res);
 };
+export const getAdminOrderDetail = (req: Request, res: Response) => {
+  const orderDetail = getOrderDetail(req.body.userId as string, req.body.id as string);
+  if(!orderDetail) return res.status(404).json({ message: "Order not found!" })
+  return res.status(200).json(orderDetail);
+}

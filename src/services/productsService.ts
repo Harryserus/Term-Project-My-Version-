@@ -197,6 +197,17 @@ export const addProductToCart = (req: Request, res: Response) => {
   return res.redirect(`${back}${join}success=1&msg=${encodeURIComponent("Added to cart!")}`);
 };
 
+export const removeProductFromCart = (req: Request, res: Response) => {
+  const { id } = req.params; // FIX: declare before use
+  const wholeData = getData();
+
+  wholeData.users.find((u: User) => u.id = req.session.userId as string).cart.filter((it: OrderItem) => it.gameId !== id);
+
+  saveData(wholeData);
+
+  return res.redirect("/customer/checkout");
+}
+
 /* =========================
    CLIENT: Checkout
    - Validate cart items (delisted/out of stock)
@@ -267,3 +278,8 @@ export const checkout = (req: Request, res: Response) => {
   // Redirect to orders (better UX) OR back to checkout
   return res.redirect(`/customer/orders?success=1&msg=${encodeURIComponent("Payment successful!")}`);
 };
+
+export const getOrderDetail = (uid: string, oid: string) => {
+  const userOrders = getUserOrder(uid);
+  return userOrders.find((o: Order) => o.id === oid);
+}

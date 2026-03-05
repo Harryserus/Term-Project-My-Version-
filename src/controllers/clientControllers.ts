@@ -5,6 +5,8 @@ import {
   getUserOrder,
   getUserCartItem,
   addProductToCart,
+  removeProductFromCart,
+  getOrderDetail,
 } from "../services/productsService";
 import { getUser } from "../services/personalization";
 
@@ -60,5 +62,13 @@ export const loadCustomerProfile = (req: Request, res: Response) => {
 export const addToCart = (req: Request, res: Response) => {
   addProductToCart(req, res);
 };
+export const removeFromCart = (req: Request, res: Response) => {
+  removeProductFromCart(req, res);
+}
+export const getCustomerOrderDetail = (req: Request, res: Response) => {
+  const orderDetail = getOrderDetail(req.session.userId as string, req.body.id as string);
+  if(!orderDetail) return res.status(404).json({ message: "Order not found!" })
+  return res.status(200).json(orderDetail);
+}
 
 export { checkout } from "../services/productsService";

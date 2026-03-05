@@ -99,7 +99,15 @@
       "email": "player@limgrave.com",
       "password": "shopcustomer",
       "role": "customer",
-      "cart": []
+      "cart": [
+        {
+          "gameId": "g4",
+          "title": "Starfield",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
+          "quantity": 1,
+          "priceAtPurchase": 69.99
+        }
+      ]
     },
     {
       "id": "u2",
@@ -107,7 +115,15 @@
       "email": "admin@gamestop.com",
       "password": "shopadmin",
       "role": "admin",
-      "cart": []
+      "cart": [
+        {
+          "gameId": "g3",
+          "title": "The Witcher 3: Wild Hunt",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
+          "quantity": 1,
+          "priceAtPurchase": 29.99
+        }
+      ]
     }
   ],
   "orders": [
