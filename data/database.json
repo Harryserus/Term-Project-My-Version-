@@ -3,93 +3,86 @@
     {
       "id": "g2",
       "slug": "cyberpunk-2077",
-      "title": "Cyberpunk 2077",
-      "developer": "CD PROJEKT RED",
-      "publisher": "CD PROJEKT RED",
+      "title": "Well Dweller",
+      "developer": "Kyle Thompson",
+      "publisher": "Kyle Thompson, Top Hat Studios, Inc.",
       "platforms": [
         "PC",
-        "PS5"
+        "Switch"
       ],
       "genres": [
-        "Action RPG"
+        "Action-Adventure"
       ],
       "tags": [
-        "Cyberpunk",
-        "Sci-fi",
-        "Open World"
+        "💨 Metroidvania 🌄 Action-Adventure 🧝 Dark Fantasy 😱 Horror 💥 Action 🧸 Cute 🗺️ Adventure 🎨 Hand-drawn 🏗️ Platformer 📺 2D Platformer 🗺 Exploration 📺 Side Scroller 🖼️ 2D 😨 Dark 🦇 Gothic 📖 Lore-Rich 🏰 Medieval 🌍 Open World 📚 Story Rich 👤 Singleplayer"
       ],
-      "releaseDate": "2020-12-10",
+      "releaseDate": "",
       "isPreOrder": false,
-      "availability": "Available",
-      "price": 49.99,
+      "availability": "Coming_Soon",
+      "price": 0,
       "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg",
+      "thumbnailUrl": "https://nintendoeverything.com/wp-content/uploads/Well-Dweller.jpg",
       "screenshots": [
         "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/ss_1.jpg"
       ],
-      "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary. (Don't mind this text)",
-      "stock": 5
+      "description": "Well Dweller is a dark fairy-tale metroidvania, full of charming characters living in a wretched kingdom. Play as Glimmer - a tiny bird armed with a matchstick - who must burn the wicked queen to save his family.",
+      "stock": 0
     },
     {
       "id": "g3",
       "slug": "the-witcher-3",
-      "title": "The Witcher 3: Wild Hunt",
-      "developer": "CD PROJEKT RED",
-      "publisher": "CD PROJEKT RED",
+      "title": "Paralives",
+      "developer": "Alex Massé and Team",
+      "publisher": "Paralives Studio",
       "platforms": [
-        "PC",
-        "PS5",
-        "Switch"
+        "PC"
       ],
       "genres": [
-        "Action RPG"
+        "Life Simulation"
       ],
       "tags": [
-        "Fantasy",
-        "Story Rich",
-        "RPG"
+        "🖥️ Simulation 🧫 Life Sim 🦹 Character Customization 🏗️ Building 🌍 Open World 🌱 Indie 👤 Singleplayer 🧱 Sandbox 🧘 Relaxing 😌 Casual 🏳️‍🌈 LGBTQ+ 🧸 Cute 👪 Family Friendly 🐤 Early Access 🛏️ Cozy 📷 Realistic 🛠️ Moddable 🌎 Immersive Sim 🌫 Atmospheric 🎨 Colorful"
       ],
-      "releaseDate": "2015-05-18",
+      "releaseDate": "2026-05-25",
       "isPreOrder": false,
-      "availability": "available",
-      "price": 29.99,
+      "availability": "Coming_Soon",
+      "price": 39.99,
       "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
+      "thumbnailUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1118520/f09e889246fc55c06afcf538f61c96f530399a2a/capsule_616x353.jpg?t=1767797479",
       "screenshots": [
         "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/ss_1.jpg"
       ],
-      "description": "You are Geralt of Rivia, mercenary monster slayer. Before you stands a war-torn, monster-infested continent you can explore at will.",
-      "stock": 12
+      "description": "Paralives is a life simulation game about building homes, lives and bonds. Through both hardship and success, where will your story take you?",
+      "stock": 0
     },
     {
       "id": "g4",
       "slug": "starfield",
-      "title": "Starfield",
-      "developer": "Bethesda Game Studios",
-      "publisher": "Bethesda Softworks",
+      "title": "nocturne",
+      "developer": "Pracy Studios",
+      "publisher": "Pracy Studios",
       "platforms": [
         "PC",
+        "PS5",
         "Xbox"
       ],
       "genres": [
-        "Action RPG"
+        "Story RPG"
       ],
       "tags": [
-        "Space",
-        "Exploration",
-        "Sci-fi"
+        "🎲 RPG 🎶 Rhythm 📚 Story Rich 🌸 JRPG 📚 Narrative 🎭 Fantasy 🗺 Exploration 🗺️ Adventure 🎨 Stylized 🌲 PvE 📖 Lore-Rich 🖼️ 2D 🧸 Cute 🌸 Anime 👾 Pixel Graphics 💔 Emotional 🎨 Colorful ☯ Minimalist 👾 Retro ⛓ Dystopian"
       ],
-      "releaseDate": "2023-09-06",
+      "releaseDate": "2026-06-30",
       "isPreOrder": false,
-      "availability": "available",
-      "price": 69.99,
+      "availability": "Coming_Soon",
+      "price": 0,
       "currency": "USD",
-      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
+      "thumbnailUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1374860/065f6ec3b1e529f960b6df04320a3c3b13d2fb27/header.jpg?t=1763851471",
       "screenshots": [
         "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_1.jpg"
       ],
-      "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
-      "stock": 8
+      "description": "The afterlife is now digital. Discover that eternal life comes with sacrifice in a genre-defying RPG with unique rhythm combat.",
+      "stock": 0
     },
     {
       "id": "g11",
@@ -439,7 +432,14 @@
       "email": "player@limgrave.com",
       "password": "shopcustomer",
       "role": "customer",
-      "cart": []
+      "cart": [
+        {
+          "gameId": "g15",
+          "title": "Dead Cells",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/header.jpg",
+          "priceAtPurchase": 8.99
+        }
+      ]
     },
     {
       "id": "u2",
