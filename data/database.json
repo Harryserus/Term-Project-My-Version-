@@ -89,7 +89,7 @@
         "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/ss_1.jpg"
       ],
       "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
-      "stock": 8
+      "stock": 7
     },
     {
       "id": "g11",
@@ -121,7 +121,7 @@
         "https://stardewvalley.net/ss_1.jpg"
       ],
       "description": "Inherit your grandfather's old farm plot and turn a thicket of overgrown fields into a thriving home.",
-      "stock": 50
+      "stock": 49
     },
     {
       "id": "g12",
@@ -262,14 +262,7 @@
       "email": "player@limgrave.com",
       "password": "shopcustomer",
       "role": "customer",
-      "cart": [
-        {
-          "gameId": "g11",
-          "title": "Stardew Valley",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg",
-          "priceAtPurchase": 4.99
-        }
-      ]
+      "cart": []
     },
     {
       "id": "u2",
@@ -302,6 +295,27 @@
       "totalAmount": 49.99,
       "status": "paid",
       "dateCreated": "2026-03-05T17:43:05.495Z"
+    },
+    {
+      "id": "ord_2",
+      "userId": "u2",
+      "items": [
+        {
+          "gameId": "g11",
+          "title": "Stardew Valley",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg",
+          "priceAtPurchase": 4.99
+        },
+        {
+          "gameId": "g4",
+          "title": "Starfield",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1716740/header.jpg",
+          "priceAtPurchase": 69.99
+        }
+      ],
+      "totalAmount": 74.97999999999999,
+      "status": "paid",
+      "dateCreated": "2026-03-05T18:18:02.201Z"
     }
   ]
 }
