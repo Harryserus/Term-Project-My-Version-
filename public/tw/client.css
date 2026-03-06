@@ -284,6 +284,8 @@
 
     border: 1px solid transparent;
     transition: 0.25s ease-in-out;
+
+    cursor: pointer;
   }
 
   .order-card:hover {

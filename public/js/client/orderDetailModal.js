@@ -34,7 +34,7 @@ function openOrderModal(order) {
 
     <div class="modal-footer" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: baseline;">
       <span style="opacity: 0.5; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Total Amount</span>
-      <div class="modal-total-value">$${order.totalAmount}</div>
+      <div class="modal-total-value">$${Number(order.totalAmount).toFixed(2)}</div>
     </div>
   `;
 
