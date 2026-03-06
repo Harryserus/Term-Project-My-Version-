@@ -6,9 +6,18 @@
       "title": "Cyberpunk 2077",
       "developer": "CD PROJEKT RED",
       "publisher": "CD PROJEKT RED",
-      "platforms": ["PC", "PS5"],
-      "genres": ["Action RPG"],
-      "tags": ["Cyberpunk", "Sci-fi", "Open World"],
+      "platforms": [
+        "PC",
+        "PS5"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Cyberpunk",
+        "Sci-fi",
+        "Open World"
+      ],
       "releaseDate": "2020-12-10",
       "isPreOrder": false,
       "availability": "Available",
@@ -27,9 +36,19 @@
       "title": "The Witcher 3: Wild Hunt",
       "developer": "CD PROJEKT RED",
       "publisher": "CD PROJEKT RED",
-      "platforms": ["PC", "PS5", "Switch"],
-      "genres": ["Action RPG"],
-      "tags": ["Fantasy", "Story Rich", "RPG"],
+      "platforms": [
+        "PC",
+        "PS5",
+        "Switch"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Fantasy",
+        "Story Rich",
+        "RPG"
+      ],
       "releaseDate": "2015-05-18",
       "isPreOrder": false,
       "availability": "available",
@@ -48,9 +67,18 @@
       "title": "Starfield",
       "developer": "Bethesda Game Studios",
       "publisher": "Bethesda Softworks",
-      "platforms": ["PC", "Xbox"],
-      "genres": ["Action RPG"],
-      "tags": ["Space", "Exploration", "Sci-fi"],
+      "platforms": [
+        "PC",
+        "Xbox"
+      ],
+      "genres": [
+        "Action RPG"
+      ],
+      "tags": [
+        "Space",
+        "Exploration",
+        "Sci-fi"
+      ],
       "releaseDate": "2023-09-06",
       "isPreOrder": false,
       "availability": "available",
@@ -63,23 +91,35 @@
       "description": "Starfield is the first new universe in 25 years from Bethesda Game Studios, the award-winning creators of The Elder Scrolls V: Skyrim and Fallout 4.",
       "stock": 8
     },
-
     {
       "id": "g11",
       "slug": "stardew-valley",
       "title": "Stardew Valley",
       "developer": "ConcernedApe",
       "publisher": "Chucklefish",
-      "platforms": ["PC", "Switch", "Mobile"],
-      "genres": ["Simulation", "RPG"],
-      "tags": ["Farming", "Relaxing", "Pixel Graphics"],
+      "platforms": [
+        "PC",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Simulation",
+        "RPG"
+      ],
+      "tags": [
+        "Farming",
+        "Relaxing",
+        "Pixel Graphics"
+      ],
       "releaseDate": "2016-02-26",
       "isPreOrder": false,
       "availability": "Available",
       "price": 4.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg",
-      "screenshots": ["https://stardewvalley.net/ss_1.jpg"],
+      "screenshots": [
+        "https://stardewvalley.net/ss_1.jpg"
+      ],
       "description": "Inherit your grandfather's old farm plot and turn a thicket of overgrown fields into a thriving home.",
       "stock": 50
     },
@@ -89,16 +129,31 @@
       "title": "Slay the Spire",
       "developer": "Mega Crit Games",
       "publisher": "Humble Bundle",
-      "platforms": ["PC", "PS5", "Xbox", "Switch", "Mobile"],
-      "genres": ["Roguelike", "Strategy"],
-      "tags": ["Card Battler", "Deckbuilding", "Singleplayer"],
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Roguelike",
+        "Strategy"
+      ],
+      "tags": [
+        "Card Battler",
+        "Deckbuilding",
+        "Singleplayer"
+      ],
       "releaseDate": "2019-01-23",
       "isPreOrder": false,
       "availability": "Available",
       "price": 9.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/646570/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/ss_spire_1.jpg"],
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/ss_spire_1.jpg"
+      ],
       "description": "The ultimate single-player deckbuilder. Craft a unique deck, encounter bizarre creatures, and discover relics of immense power.",
       "stock": 20
     },
@@ -108,16 +163,27 @@
       "title": "Monument Valley",
       "developer": "ustwo games",
       "publisher": "ustwo games",
-      "platforms": ["PC", "Mobile"],
-      "genres": ["Puzzle"],
-      "tags": ["Minimalist", "Atmospheric", "Artistic"],
+      "platforms": [
+        "PC",
+        "Mobile"
+      ],
+      "genres": [
+        "Puzzle"
+      ],
+      "tags": [
+        "Minimalist",
+        "Atmospheric",
+        "Artistic"
+      ],
       "releaseDate": "2014-04-03",
       "isPreOrder": false,
       "availability": "Available",
       "price": 3.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1927720/header.jpg",
-      "screenshots": ["https://monumentvalley.com/ss_1.jpg"],
+      "screenshots": [
+        "https://monumentvalley.com/ss_1.jpg"
+      ],
       "description": "Manipulate impossible architecture and guide a silent princess through a stunningly beautiful world.",
       "stock": 100
     },
@@ -127,16 +193,30 @@
       "title": "Vampire Survivors",
       "developer": "poncle",
       "publisher": "poncle",
-      "platforms": ["PC", "Xbox", "Switch", "Mobile"],
-      "genres": ["Action", "Roguelike"],
-      "tags": ["Bullet Hell", "Survival", "Casual"],
+      "platforms": [
+        "PC",
+        "Xbox",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Action",
+        "Roguelike"
+      ],
+      "tags": [
+        "Bullet Hell",
+        "Survival",
+        "Casual"
+      ],
       "releaseDate": "2022-10-20",
       "isPreOrder": false,
       "availability": "Available",
-      "price": 0.0,
+      "price": 0,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1794680/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/ss_vs_1.jpg"],
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/ss_vs_1.jpg"
+      ],
       "description": "Mow down thousands of night creatures and survive until dawn! Vampire Survivors is a gothic horror casual game with rogue-lite elements.",
       "stock": 999
     },
@@ -146,18 +226,210 @@
       "title": "Dead Cells",
       "developer": "Motion Twin",
       "publisher": "Playdigious",
-      "platforms": ["PC", "PS5", "Xbox", "Switch", "Mobile"],
-      "genres": ["Action", "Metroidvania"],
-      "tags": ["Difficult", "Fast-Paced", "Souls-like"],
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch",
+        "Mobile"
+      ],
+      "genres": [
+        "Action",
+        "Metroidvania"
+      ],
+      "tags": [
+        "Difficult",
+        "Fast-Paced",
+        "Souls-like"
+      ],
       "releaseDate": "2018-08-07",
       "isPreOrder": false,
       "availability": "Available",
       "price": 8.99,
       "currency": "USD",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/588650/header.jpg",
-      "screenshots": ["https://shared.fastly.steamstatic.com/ss_dc_1.jpg"],
+      "screenshots": [
+        "https://shared.fastly.steamstatic.com/ss_dc_1.jpg"
+      ],
       "description": "Explore a sprawling, ever-changing castle... assuming you’re able to fight your way past its keepers in 2D souls-lite combat.",
       "stock": 15
+    },
+    {
+      "id": "1772770879614",
+      "slug": "the-binding-of-isaac",
+      "title": "The Binding of Isaac",
+      "developer": "Edmund McMillen and Florian Himsl",
+      "publisher": "",
+      "platforms": [
+        "PC"
+      ],
+      "genres": [
+        "Roguelike",
+        "action-adventure"
+      ],
+      "tags": [
+        "Roguelike",
+        "action-adventure",
+        "RPG",
+        "Single Player",
+        "Multiplayer"
+      ],
+      "releaseDate": "2011-09-28",
+      "availability": "Available",
+      "price": 4.99,
+      "currency": "$",
+      "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/en/f/fa/Binding_of_isaac_header.jpg",
+      "description": "When Isaac’s mother starts hearing the voice of God demanding a sacrifice be made to prove her faith, Isaac escapes into the basement facing droves of deranged enemies, lost brothers and sisters, his fears, and eventually his mother.\r\nThe Binding of Isaac is a randomly generated action RPG shooter with heavy Rogue-like elements. Following Isaac on his journey players will find bizarre treasures that change Isaac’s form giving him super human abilities and enabling him to fight off droves of mysterious creatures, discover secrets and fight his way to safety.",
+      "stock": 100,
+      "isPreOrder": false
+    },
+    {
+      "id": "1772771096519",
+      "slug": "a-hat-in-time",
+      "title": "A Hat in Time",
+      "developer": "Gears for Breakfast",
+      "publisher": "Humble Bundle",
+      "platforms": [
+        "PC",
+        "Xbox",
+        "Switch"
+      ],
+      "genres": [
+        "Platform"
+      ],
+      "tags": [
+        "Platform",
+        "Single Player",
+        "Multiplayer"
+      ],
+      "releaseDate": "2017-10-05",
+      "availability": "Available",
+      "price": 29.99,
+      "currency": "$",
+      "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/en/2/2a/A_Hat_in_Time_cover_art.png",
+      "description": "A Hat in Time is a cute-as-heck 3D platformer featuring a little girl who stitches hats for wicked powers.\r\n\r\nA little girl and her spaceship\r\nIn A Hat in Time you play as a tiny space-travelling girl with a big tophat. Her adventure is halted when all her fuel, the Time Pieces, is lost and scattered across a nearby planet. Hat Kid must now jump, fight and stitch new hats to make her way into every nook and cranny of this new world in order to restore her fuel and resume her journey. On her way, she'll bump into the menacing Mafia of Cooks, the goofy birds of Dead Bird Studio, the spooky shadows of Subcon Forest, and more!\r\n\r\nMurder on a train! Parades! Trespassing in a movie studio?\r\nEvery mission in A Hat in Time is unique! At one moment you'll be solving the Murder on the Owl Express by finding clues and interrogating the locals, the next moment you'll be the band marshal in The Big Parade, or sneaking through the bird-run Dead Bird Studio!",
+      "stock": 50,
+      "isPreOrder": false
+    },
+    {
+      "id": "1772771343003",
+      "slug": "celeste",
+      "title": "Celeste",
+      "developer": "Maddy Makes Games",
+      "publisher": "Maddy Makes Games",
+      "platforms": [
+        "PC",
+        "Xbox",
+        "Switch"
+      ],
+      "genres": [
+        "Platform"
+      ],
+      "tags": [
+        "Platform",
+        "Single Player",
+        "2D"
+      ],
+      "releaseDate": "2018-01-25",
+      "availability": "Available",
+      "price": 4.99,
+      "currency": "$",
+      "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Celeste_box_art_full.png/500px-Celeste_box_art_full.png",
+      "description": "Help Madeline survive her inner demons on her journey to the top of Celeste Mountain, in this super-tight, hand-crafted platformer from the creators of multiplayer classic TowerFall.\r\n\r\n- A narrative-driven, single-player adventure like mom used to make, with a charming cast of characters and a touching story of self-discovery\r\n- A massive mountain teeming with 700+ screens of hardcore platforming challenges and devious secrets\r\n- Brutal B-side chapters to unlock, built for only the bravest mountaineers\r\n- IGF “Excellence in Audio” finalist, with over 2 hours of original music led by dazzling live piano and catchy synth beats\r\n- Pie\r\n\r\nThe controls are simple and accessible - simply jump, air-dash, and climb - but with layers of expressive depth to master, where every death is a lesson. Lightning-fast respawns keep you climbing as you uncover the mysteries of the mountain and brave its many perils.\r\n\r\nThis is it, Madeline. Just breathe. You can do this.",
+      "stock": 100,
+      "isPreOrder": false
+    },
+    {
+      "id": "1772771632804",
+      "slug": "rain-world",
+      "title": "Rain World",
+      "developer": "Videocult",
+      "publisher": "Adult Swim Games, Akupara Games",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox",
+        "Switch"
+      ],
+      "genres": [
+        "Platform",
+        "Survival"
+      ],
+      "tags": [
+        "Platform",
+        "Survival",
+        "Single Player",
+        "Multiplayer"
+      ],
+      "releaseDate": "2017-03-28",
+      "availability": "Available",
+      "price": 7.49,
+      "currency": "$",
+      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/header.jpg?t=1772227582",
+      "description": "You are a slugcat. The world around you is full of danger, and you must face it – alone. Separated from your family in a devastating flood, you will need to find food and shelter between terrifying torrential downpours which threaten to drown all life. Climb through the ruins of an ancient civilization, evade the jaws of vicious predators, and discover new lands teeming with strange creatures and buried mysteries. Find your family before something makes a meal of you!\r\n\r\nInspired by the simplicity and aesthetics of 16-bit classics, this survival platformer requires clever decision-making, both to catch your own prey and to avoid the jaws of hungry predators. Each ravenous foe in your path will be cunning, vicious and always on the hunt – eager to sink their teeth into you, or even each other. As a small, soft slugcat you must rely on stealth and wit rather than force: learn the ecosystem and turn their strengths to your advantage. Maybe then you can survive… Rain World!",
+      "stock": 9,
+      "isPreOrder": false
+    },
+    {
+      "id": "1772771859796",
+      "slug": "omori",
+      "title": "Omori",
+      "developer": "OMOCAT, LLC.",
+      "publisher": "OMOCAT, LLC.",
+      "platforms": [
+        "PC",
+        "Xbox",
+        "Switch"
+      ],
+      "genres": [
+        "Role-playing"
+      ],
+      "tags": [
+        "Role-playing",
+        "turn-based",
+        "Single Player",
+        "2D"
+      ],
+      "releaseDate": "2020-12-25",
+      "availability": "Available",
+      "price": 19.99,
+      "currency": "$",
+      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1150690/ss_219463835487a7205f0af93fb02d2c84855c667b.1920x1080.jpg?t=1671584768",
+      "description": "Explore a strange world full of colorful friends and foes. Navigate through the vibrant and the mundane in order to uncover a forgotten past. When the time comes, the path you’ve chosen will determine your fate... and perhaps the fate of others as well.\r\n\r\nWarning: This game contains depictions of depression, anxiety, and suicide, and may not be suitable for all audiences. It also contains bright flashing imagery that may cause discomfort and/or seizures for those with photosensitive epilepsy. Viewer discretion is advised.",
+      "stock": 49,
+      "isPreOrder": false
+    },
+    {
+      "id": "1772772383744",
+      "slug": "persona-4-revival",
+      "title": "Persona 4 Revival",
+      "developer": "P-Studio",
+      "publisher": "Atlus",
+      "platforms": [
+        "PC",
+        "PS5",
+        "Xbox"
+      ],
+      "genres": [
+        "Role-playing",
+        "social simulation"
+      ],
+      "tags": [
+        "Adventure",
+        "JRPG",
+        "RPG",
+        "Anime",
+        "Turn-Based",
+        "Combat"
+      ],
+      "releaseDate": "",
+      "availability": "Coming_Soon",
+      "price": 19.99,
+      "currency": "$",
+      "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2963950/d9cf50119226eda5b28ba94f7b433bb2e4864936/header.jpg?t=1752764434",
+      "description": "Persona 4 Revival intertwines an investigation into a string of murders with the journey of self-discovery and encounters with the occult, all within a critically acclaimed, classic RPG experience—revived in a new form!\r\n\r\nIn the rural Japanese town of Inaba, the once sleepy streets receive a cold wake-up call when a mysterious serial killer strikes. Also, what's with the rumor of a mysterious TV channel appearing only on rainy nights? A whirlwind of surprises and otherworldly adventures will make the next year of your high school life anything but ordinary!\r\n\r\nKey Features:\r\n\r\nAn Unforgettable Year Awaits: Move to the countryside town of Inaba and experience moments you’ll treasure forever at Yasogami High School. Classes, club activities, romance, even part-time jobs—whether it’s leveling up your skills or kicking back, how you spend time is entirely up to you.\r\n\r\nMurder Cases and the Mysterious Midnight Channel: On foggy mornings, corpses are found hanging from buildings and transmission towers. At the same time, an eerie rumor of a TV channel emerges: \"They say your soulmate will appear if you stare into a television set on a rainy night...\" As you dig deeper, you stumble upon a realm beyond the screen where you awaken a power to uncover the truth—an inner strength known as “Persona.”\r\n\r\nBattle Shadows and Conquer the Unknown: Face against \"Shadows\" lurking in this other world in turn-based combat. Exploit the enemy’s weaknesses to knock them down, then team up with your crew for an explosive “All-Out Attack”! Strategize your next move by equipping different Personas to bring a unique fighting style and skills to each battle.\r\n\r\nExplore Beautiful Locales and Meet a Captivating Cast: From clear blue skies to riversides at sunset and glistening rainy day streets, Inaba’s landscapes are brought to life with revamped graphics. Form Social Links and deepen bonds with town locals through rich story and immersive interactions. The closer your connections, the stronger your journey unfolds.",
+      "stock": 0,
+      "isPreOrder": false
     }
   ],
   "users": [
@@ -185,5 +457,27 @@
       ]
     }
   ],
-  "orders": []
+  "orders": [
+    {
+      "id": "ord_1",
+      "userId": "u2",
+      "items": [
+        {
+          "gameId": "1772771859796",
+          "title": "Omori",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1150690/ss_219463835487a7205f0af93fb02d2c84855c667b.1920x1080.jpg?t=1671584768",
+          "priceAtPurchase": 19.99
+        },
+        {
+          "gameId": "1772771632804",
+          "title": "Rain World",
+          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/header.jpg?t=1772227582",
+          "priceAtPurchase": 7.49
+        }
+      ],
+      "totalAmount": 27.479999999999997,
+      "status": "paid",
+      "dateCreated": "2026-03-06T04:48:31.504Z"
+    }
+  ]
 }

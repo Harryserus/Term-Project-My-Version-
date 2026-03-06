@@ -151,6 +151,8 @@
   }
 
   .product-actions {
+    min-width: 200px;
+    justify-content: flex-end;
     align-items: center;
     display: flex;
   }
@@ -168,7 +170,6 @@
 
   .product-price {
     font-weight: 800;
-    min-width: 80px;
     text-align: right;
   }
 
@@ -228,6 +229,8 @@
   }
 
   .tag-pill {
+    width: 100px;
+    text-align: center;
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -271,22 +274,32 @@
     gap: 1rem;
   }
 
+  .order-card-wrapper {
+    border: 1px solid transparent;
+    background-color: var(--lighter-transparent-bg);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.25s ease-in-out;
+  }
+
   .order-card {
     @apply py-2 px-4 text-sm sm:text-base lg:py-4 lg:px-6;
     height: max-content;
-    background-color: var(--lighter-transparent-bg);
-    border-radius: 16px;
-
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr auto auto;
     gap: 12px;
     align-items: center;
 
-    border: 1px solid transparent;
-    transition: 0.25s ease-in-out;
+  }
+  .order-hint {
+    padding: 0.5rem;
+    opacity:.75; font-size:.9rem;
   }
 
-  .order-card:hover {
+  .order-card-wrapper:hover {
     border-color: rgba(255, 255, 255, 0.55);
   }
 
@@ -495,7 +508,6 @@
   }
 
   .product-price {
-    width: 50%;
     text-align: left;
     min-width: 0;
   }

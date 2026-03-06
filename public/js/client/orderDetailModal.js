@@ -51,7 +51,7 @@ function closeModal() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const orderCards = document.querySelectorAll(".order-card");
+  const orderCards = document.querySelectorAll(".order-card-wrapper");
   const modalOverlay = document.getElementById("orderModal");
 
   orderCards.forEach((card) => {
