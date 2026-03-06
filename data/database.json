@@ -308,7 +308,7 @@
       "currency": "$",
       "thumbnailUrl": "https://upload.wikimedia.org/wikipedia/en/2/2a/A_Hat_in_Time_cover_art.png",
       "description": "A Hat in Time is a cute-as-heck 3D platformer featuring a little girl who stitches hats for wicked powers.\r\n\r\nA little girl and her spaceship\r\nIn A Hat in Time you play as a tiny space-travelling girl with a big tophat. Her adventure is halted when all her fuel, the Time Pieces, is lost and scattered across a nearby planet. Hat Kid must now jump, fight and stitch new hats to make her way into every nook and cranny of this new world in order to restore her fuel and resume her journey. On her way, she'll bump into the menacing Mafia of Cooks, the goofy birds of Dead Bird Studio, the spooky shadows of Subcon Forest, and more!\r\n\r\nMurder on a train! Parades! Trespassing in a movie studio?\r\nEvery mission in A Hat in Time is unique! At one moment you'll be solving the Murder on the Owl Express by finding clues and interrogating the locals, the next moment you'll be the band marshal in The Big Parade, or sneaking through the bird-run Dead Bird Studio!",
-      "stock": 50,
+      "stock": 52,
       "isPreOrder": false
     },
     {
@@ -367,7 +367,7 @@
       "currency": "$",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/header.jpg?t=1772227582",
       "description": "You are a slugcat. The world around you is full of danger, and you must face it – alone. Separated from your family in a devastating flood, you will need to find food and shelter between terrifying torrential downpours which threaten to drown all life. Climb through the ruins of an ancient civilization, evade the jaws of vicious predators, and discover new lands teeming with strange creatures and buried mysteries. Find your family before something makes a meal of you!\r\n\r\nInspired by the simplicity and aesthetics of 16-bit classics, this survival platformer requires clever decision-making, both to catch your own prey and to avoid the jaws of hungry predators. Each ravenous foe in your path will be cunning, vicious and always on the hunt – eager to sink their teeth into you, or even each other. As a small, soft slugcat you must rely on stealth and wit rather than force: learn the ecosystem and turn their strengths to your advantage. Maybe then you can survive… Rain World!",
-      "stock": 9,
+      "stock": 11,
       "isPreOrder": false
     },
     {
@@ -396,7 +396,7 @@
       "currency": "$",
       "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1150690/ss_219463835487a7205f0af93fb02d2c84855c667b.1920x1080.jpg?t=1671584768",
       "description": "Explore a strange world full of colorful friends and foes. Navigate through the vibrant and the mundane in order to uncover a forgotten past. When the time comes, the path you’ve chosen will determine your fate... and perhaps the fate of others as well.\r\n\r\nWarning: This game contains depictions of depression, anxiety, and suicide, and may not be suitable for all audiences. It also contains bright flashing imagery that may cause discomfort and/or seizures for those with photosensitive epilepsy. Viewer discretion is advised.",
-      "stock": 49,
+      "stock": 53,
       "isPreOrder": false
     },
     {
@@ -434,7 +434,7 @@
   ],
   "users": [
     {
-      "id": "u2",
+      "id": "u1",
       "username": "TarnishedOne",
       "email": "player@limgrave.com",
       "password": "shopcustomer",
@@ -447,37 +447,8 @@
       "email": "admin@gamestop.com",
       "password": "shopadmin",
       "role": "admin",
-      "cart": [
-        {
-          "gameId": "g3",
-          "title": "The Witcher 3: Wild Hunt",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg",
-          "priceAtPurchase": 29.99
-        }
-      ]
+      "cart": []
     }
   ],
-  "orders": [
-    {
-      "id": "ord_1",
-      "userId": "u2",
-      "items": [
-        {
-          "gameId": "1772771859796",
-          "title": "Omori",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1150690/ss_219463835487a7205f0af93fb02d2c84855c667b.1920x1080.jpg?t=1671584768",
-          "priceAtPurchase": 19.99
-        },
-        {
-          "gameId": "1772771632804",
-          "title": "Rain World",
-          "thumbnailUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/312520/header.jpg?t=1772227582",
-          "priceAtPurchase": 7.49
-        }
-      ],
-      "totalAmount": 27.479999999999997,
-      "status": "paid",
-      "dateCreated": "2026-03-06T04:48:31.504Z"
-    }
-  ]
+  "orders": []
 }

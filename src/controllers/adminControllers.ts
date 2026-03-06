@@ -41,7 +41,7 @@ export const updateOrdersStatus = (req: Request, res: Response) => {
   updateOrders(req, res);
 };
 export const getAdminOrderDetail = (req: Request, res: Response) => {
-  const orderDetail = getOrderDetail(req.body.userId as string, req.body.id as string);
+  const orderDetail = getOrderDetail(req.params.userId as string, req.params.id as string);
   if(!orderDetail) return res.status(404).json({ message: "Order not found!" })
   return res.status(200).json(orderDetail);
 }

@@ -36,7 +36,7 @@ function openOrderModal(order) {
 
     <div class="modal-footer" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: baseline;">
       <span style="opacity: 0.5; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Total Amount</span>
-      <div class="modal-total-value">$${order.totalAmount}</div>
+      <div class="modal-total-value">$${(order.totalAmount).toFixed(2)}</div>
     </div>
   `;
 
@@ -77,17 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const orderId = card.dataset.orderid;
         const userId = card.dataset.userid;
 
-        // 3. POST fetch (GET cannot have a body)
-        const response = await fetch("/admin/order/", {
-          method: "POST", // Changed from GET to POST
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id: orderId,
-            userId: userId,
-          }),
-        });
+        // 3. GET fetch
+        const response = await fetch(`/admin/order/${userId}/${orderId}`);
 
         if (!response.ok) throw new Error("Order details not found");
 

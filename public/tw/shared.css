@@ -104,8 +104,13 @@
   }
   .products-container,
   .orders-and-actions-container,
-  :not(.orders-and-actions-container) > .orders-container {
+  :not(.orders-and-actions-container) > .orders-container,
+  .checkout-grid {
     @apply p-4 sm:p-8;
+    overflow: auto;
+  }
+
+  .checkout-page {
     overflow: auto;
   }
 
@@ -136,6 +141,7 @@
     @apply w-full h-auto md:w-16 md:h-16;
   }
   .product-card img {
+    max-height: 250px;
     object-fit: cover;
     border-radius: 10px;
   }
