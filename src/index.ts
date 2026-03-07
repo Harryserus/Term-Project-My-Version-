@@ -98,8 +98,8 @@ app.get("/customer/profile", requireLogin, loadCustomerProfile);
 app.post("/customer/cart/add/:id", requireLogin, addToCart);
 app.post("/customer/cart/delete/:id", requireLogin, removeProductFromCart);
 app.post("/customer/checkout", requireLogin, checkout);
-app.post("/customer/order/", requireLogin, getCustomerOrderDetail);
-app.post("/admin/order/", requireLogin, getAdminOrderDetail);
+app.get("/customer/order/:id", requireLogin, getCustomerOrderDetail);
+app.get("/admin/order/:userId/:id", requireLogin, getAdminOrderDetail);
 app.post(
   "/admin/product/add",
   requireLogin,

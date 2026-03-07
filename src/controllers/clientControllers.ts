@@ -68,7 +68,7 @@ export const removeFromCart = (req: Request, res: Response) => {
 export const getCustomerOrderDetail = (req: Request, res: Response) => {
 
   const userId = req.session.userId as string;
-  const orderId = req.body?.id;
+  const orderId = req.params.id as string;
 
   if (!orderId) {
     return res.status(400).json({ message: "Order id is required" });

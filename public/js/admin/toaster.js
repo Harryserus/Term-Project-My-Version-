@@ -42,6 +42,7 @@ window.addEventListener("load", () => {
     showGlassToast(msg);
 
     // Clean up the URL so it doesn't show again on refresh
+    localStorage.removeItem("realmNotification");
     window.history.replaceState({}, document.title, window.location.pathname);
     return;
   }
@@ -52,6 +53,7 @@ window.addEventListener("load", () => {
     showGlassToast("Invalid Data: Price must be > 0 and Stock >= 0", "error");
 
     // Clean URL
+    localStorage.removeItem("realmNotification");
     window.history.replaceState({}, document.title, window.location.pathname);
     return;
   }
@@ -106,4 +108,5 @@ document.addEventListener("click", (e) => {
       "Successfully deleted the item!"
     );
   }
+  
 });

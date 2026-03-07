@@ -25,7 +25,7 @@ function openOrderModal(order) {
       <div>
         <h2 class="modal-title">#${order.id || order._id}</h2>
       </div>
-      <span class="modal-status status-${String(order.status || "pending").toLowerCase()}">${order.status || "pending"}</span>
+      <span class="modal-status status-${String(order.status || "pending").toLowerCase()}">${(order.status || "pending").charAt(0).toUpperCase() + (order.status || "pending").slice(1)}</span>
     </div>
 
     <div class="modal-scroll-area">
@@ -34,7 +34,7 @@ function openOrderModal(order) {
 
     <div class="modal-footer" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: baseline;">
       <span style="opacity: 0.5; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Total Amount</span>
-      <div class="modal-total-value">$${Number(order.totalAmount).toFixed(2)}</div>
+      <div class="modal-total-value">$${(order.totalAmount).toFixed(2)}</div>
     </div>
   `;
 
@@ -51,7 +51,7 @@ function closeModal() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const orderCards = document.querySelectorAll(".order-card");
+  const orderCards = document.querySelectorAll(".order-card-wrapper");
   const modalOverlay = document.getElementById("orderModal");
 
   orderCards.forEach((card) => {
@@ -60,11 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!orderId) return;
 
       try {
-        const response = await fetch("/customer/order/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ id: orderId }),
-        });
+        const response = await fetch(`/customer/order/${orderId}`);
 
         if (!response.ok) throw new Error("Order details not found");
         const fullOrderData = await response.json();

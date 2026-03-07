@@ -47,7 +47,7 @@
 
       <div class="customer-name"><%= order.userId  %> </div>
 
-      <span class="order-price">$ <%= order.totalAmount  %> </span>
+      <span class="order-price">$ <%= (order.totalAmount).toFixed(2)  %> </span>
       <span class="order-status"><%= order.status.charAt(0).toUpperCase() + order.status.slice(1)  %> </span>
     </div>
     <%  }) %>

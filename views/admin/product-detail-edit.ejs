@@ -18,7 +18,7 @@ const actionUrl = isEdit ? `/admin/product/edit/${game.id}` : "/admin/product/ad
     <div class="form-grid-2">
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" value="<%= isEdit ? game.title : '' %>" required>
+        <input type="text" name="title" id="title" value="<%= isEdit ? game.title : '' %>">
       </div>
       <div class="form-group">
         <label for="developer">Developer</label>
@@ -40,7 +40,7 @@ const actionUrl = isEdit ? `/admin/product/edit/${game.id}` : "/admin/product/ad
     <div class="form-grid-3">
       <div class="form-group">
         <label for="price">Price (USD)</label>
-        <input type="number" name="price" id="price" value="<%= isEdit ? game.price : '0' %>" step="0.01" min="0.01">
+        <input type="number" name="price" id="price" value="<%= isEdit ? game.price : '0' %>" step="0.01">
       </div>
       <div class="form-group">
         <label for="stock">Stock</label>
@@ -111,3 +111,5 @@ const actionUrl = isEdit ? `/admin/product/edit/${game.id}` : "/admin/product/ad
     </div>
   </form>
 </div>
+
+<%- include("../partials/admin-footer.ejs") %>

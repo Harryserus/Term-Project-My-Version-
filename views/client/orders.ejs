@@ -29,7 +29,7 @@
         const total = items.reduce((sum, it) => {
           const price = Number(it.priceAtPurchase || 0);
           return sum + price;
-        }, 0);
+        }, 0).toFixed(2);
 
         const dateText = order.dateCreated
           ? new Date(order.dateCreated).toISOString().slice(0, 10)
@@ -37,19 +37,21 @@
       %>
 
       <!-- IMPORTANT: data-orderid is what the modal JS reads -->
-      <div class="order-card" data-orderid="<%= order.id %>">
-        <div class="order-header">
-          <div class="order-number">Order <%= order.id %></div>
-          <div class="order-date"><%= dateText %></div>
+      <div class="order-card-wrapper" data-orderid="<%= order.id %>">
+        <div class="order-card">
+          <div class="order-header">
+            <div class="order-number">Order <%= order.id %></div>
+            <div class="order-date"><%= dateText %></div>
+          </div>
+  
+          <div class="order-total">$<%= total %></div>
+  
+          <div class="order-status <%= statusClass %>">
+            <%= normalizedStatus %>
+          </div>
         </div>
 
-        <div class="order-total">$<%= total.toFixed(2) %></div>
-
-        <div class="order-status <%= statusClass %>">
-          <%= normalizedStatus %>
-        </div>
-
-        <div class="order-hint" style="opacity:.75; font-size:.9rem; margin-top:10px;">
+        <div class="order-hint">
           Click to view details
         </div>
       </div>

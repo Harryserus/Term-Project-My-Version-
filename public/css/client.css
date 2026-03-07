@@ -398,6 +398,8 @@
     flex: 1;
   }
   .product-actions {
+    min-width: 200px;
+    justify-content: flex-end;
     align-items: center;
     display: flex;
   }
@@ -412,7 +414,6 @@
   }
   .product-price {
     font-weight: 800;
-    min-width: 80px;
     text-align: right;
   }
   .product-detail-layout {
@@ -460,6 +461,8 @@
     margin: 0.75rem 0 1rem 0;
   }
   .tag-pill {
+    width: 100px;
+    text-align: center;
     padding: 0.35rem 0.75rem;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -494,6 +497,15 @@
     flex-direction: column;
     gap: 1rem;
   }
+  .order-card-wrapper {
+    border: 1px solid transparent;
+    background-color: var(--lighter-transparent-bg);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.25s ease-in-out;
+  }
   .order-card {
     padding-inline: calc(var(--spacing) * 4);
     padding-block: calc(var(--spacing) * 2);
@@ -510,17 +522,18 @@
       padding-block: calc(var(--spacing) * 4);
     }
     height: max-content;
-    background-color: var(--lighter-transparent-bg);
-    border-radius: 16px;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr auto auto;
     gap: 12px;
     align-items: center;
-    border: 1px solid transparent;
-    transition: 0.25s ease-in-out;
-    cursor: pointer;
   }
-  .order-card:hover {
+  .order-hint {
+    padding: 0.5rem;
+    opacity: .75;
+    font-size: .9rem;
+  }
+  .order-card-wrapper:hover {
     border-color: rgba(255, 255, 255, 0.55);
   }
   .order-header {
@@ -696,7 +709,6 @@
     align-items: stretch;
   }
   .product-price {
-    width: 50%;
     text-align: left;
     min-width: 0;
   }
